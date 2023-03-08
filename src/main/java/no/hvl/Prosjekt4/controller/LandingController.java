@@ -10,6 +10,7 @@ public class LandingController {
 	
 	@GetMapping
 	public String visLandingpage() {
+		System.out.println("Ge de gis");
 		return "landingpage";
 	}
 }
