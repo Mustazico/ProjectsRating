@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/landingpage")
-public class LandingController {
+public class LandingsideController {
 	
 	@GetMapping
 	public String visLandingpage() {
