@@ -12,4 +12,8 @@ public class LandingsideController {
 	public String visLandingpage() {
 		return "landingpage";
 	}
+	
+
+	
+	
 }
