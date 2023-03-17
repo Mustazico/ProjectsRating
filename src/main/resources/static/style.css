@@ -16,11 +16,14 @@ img {
     
     justify-content: space-between;
     
-    padding: 20px;
+    padding: 10px;
     
     background-color: teal;
     
     color: #fff;
+    
+    height: 40px;
+    
     
     }
     
@@ -58,7 +61,7 @@ img {
     
     background-color: #4c9e9e;
     
-    border-radius: 5px;
+    border-radius: 2px;
     
     transition: 0.3s ease;
     
@@ -66,7 +69,7 @@ img {
     
     .admin li {
     
-    padding: 5px 50px;
+    padding: 1px 27px;
     
     }
     
@@ -88,4 +91,3 @@ a {
  .logginn {
     color: white;
 }
-    
