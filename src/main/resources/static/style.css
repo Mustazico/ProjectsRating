@@ -1,84 +1,8 @@
-<<<<<<< HEAD
-* {
-    margin: 0px; 
-}
-
 img {
     width: 100%;
     height: auto;
 
-}
-
-.navbar {
-
-    display: flex;
-    
-    align-items: center;
-    
-    justify-content: space-between;
-    
-    padding: 10px;
-    
-    background-color: teal;
-    
-    color: #fff;
-    
-    height: 40px;
-    
-    
-    }
-    
-    .nav-links a {
-    
-    color: #fff;
-    
-    }
-    
-    /* LOGO */
-    
-    .logo {
-    
-    font-size: 32px;
-    
-    }
-    
-    /* NAVBAR MENU */
-    
-    .admin {
-    
-    display: flex;
-
-    color: white;
-    
-    list-style-type: none;
-
-    gap: 1px;   
-    
-    font-size: 22px;
-    
-    }
-    
-    .admin li:hover {
-    
-    background-color: #4c9e9e;
-    
-    border-radius: 2px;
-    
-    transition: 0.3s ease;
-    
-    }
-    
-    .admin li {
-    
-    padding: 1px 27px;
-    
-    }
-    
-    
-    /* DROPDOWN MENU */
-    
- 
-    
+}  
     
 body {
     font-family: sans-serif;
@@ -92,12 +16,11 @@ a {
  .logginn {
     color: white;
 }
-=======
 * {box-sizing: border-box}
 
 body {
   margin: 0;
-  font-size: 25px;
+  font-size: 15px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -170,4 +93,3 @@ body {
     text-align: left; /* If you want the text to be left-aligned on small screens */
   }
 }
->>>>>>> master

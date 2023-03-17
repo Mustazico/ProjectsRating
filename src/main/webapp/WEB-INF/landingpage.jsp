@@ -14,7 +14,7 @@
     <body>
         <div class="header">
             <h2>Scroll Ned</h2>
-            <p>Velkommen til IngienÃ¸rdene</p>
+            <p>Velkommen til Ingien&oslashrdene</p>
         </div>
         <div id="navbar">
             <a class="active" href="javascript:void(0)">Petter</a> 
@@ -29,48 +29,15 @@
             <a href="javascript:void(0)">Logg inn</a>
         </div>
 
-<<<<<<< HEAD
 <body>
 
 <img src="Vietnam Bakgrunn.jpg" alt="Vietnam" />
 
-    <nav class="navbar">
-      <!-- LOGO -->
-      <h1>OI MATE!</h1>
-    
-    
-
-      <!-- NAVIGATION MENU -->
-
-    
-        <nav class="admin">
-          <li><a href="admin">Petter</a></li>
-          <li><a href="admin">Trym</a></li>
-          <li><a href="admin">Torben</a></li>
-          <li><a href="admin">Fredrik</a></li>
-          <li><a href="admin">Oskar</a></li>
-          <li><a href="admin">Kristoffer</a></li>
-          <li><a href="admin">Eirik S.</a></li>
-          <li><a href="admin">Eirik L.</a></li>
-          <li><a href="admin">Benjamin</a></li>
-          <li><a class = "logginn" href="admin">Logg Inn</a></li>
-           
-        </nav>
-
-    
-
 
 	<h1>Show readme</h1>
-	<button onclick="fetchReadme()"> Klikk for å få en readme fil </button>
 	<div id="readme-container"></div>
-</body>
 
-
-</html>
-  <body>
     <h1>Hallaaaaaaaaaaaaien</h1>
-  </body>
-=======
         <div class="content">
             <h3>Test</h3>
             <p>The navbar will stick to the top when you reach its scroll position.</p>
@@ -123,5 +90,4 @@
         </div>
     </body>
     <script type = "text/javascript" src="./sticky.js"></script>
->>>>>>> master
 </html>
