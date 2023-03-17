@@ -1,5 +1,7 @@
 package no.hvl.Prosjekt4.controller;
 
-public class LoginController {
+import org.springframework.stereotype.Controller;
 
+public class LoginController {
+	
 }
