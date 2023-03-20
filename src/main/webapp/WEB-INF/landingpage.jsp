@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html> 
 <head>
 	<script type="text/javascript" src="apicall.js"></script>
@@ -41,53 +42,30 @@
         <div class="content">
             <h3>Test</h3>
             <p>The navbar will stick to the top when you reach its scroll position.</p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
-            <p>Lorem ipsum dolor sit amet, illum definitiones no quo, maluisset concludaturque et eum, altera fabulas ut quo. Atqui causae gloriatur ius te, id agam omnis evertitur eum. Affert laboramus repudiandae nec et. Inciderint efficiantur his ad. Eum no molestiae voluptatibus.</p>
         </div>
+        <table>
+        <tbody>
+            <tr>
+                <th>Kjonn</th>
+                <th align="left">Fornavn</th>
+                <th align="left">Etternavn</th>
+                <th align="left">Mobil</th>
+            </tr>
+        
+         <c:forEach var="brukere" items="${brukere}">
+                        <tr>
+                            <td>${brukere.id}</td>
+                            <td>${brukere.brukernavn}</td>
+                            <td>${brukere.epost}</td>
+                            <td>${brukere.mobil}</td>
+                            <td>${brukere.passord}</td>
+                            <td>${brukere.salt}</td>
+                            <td>${brukere.rolle}</td>
+                        </tr>
+            </c:forEach>
+            
+            </tbody>
+            </table>
     </body>
     <script type = "text/javascript" src="./sticky.js"></script>
 </html>
