@@ -6,6 +6,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,8 +14,9 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "prosjekt4")
 public class Brukere {
+	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id; 
 	private String brukernavn; 
 	private String epost; 
@@ -27,10 +29,11 @@ public class Brukere {
 		
 	}
 	
-	public Brukere(int id, String brukernavn, String epost, 
+	
+	public Brukere(String brukernavn, String epost, 
 			String mobil, String passord, String salt, String rolle) {
-		this.id = id; 
-		this.epost = epost; 
+		this.brukernavn = brukernavn;
+		this.epost = epost;
 		this.mobil = mobil; 
 		this.passord = passord; 
 		this.salt = salt; 
