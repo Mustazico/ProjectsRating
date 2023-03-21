@@ -3,19 +3,15 @@
 <head>
 	<script type="text/javascript" src="apicall.js"></script>
 	<link rel="stylesheet" href="style.css" />
-
-</head>
-<html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./style.css" />
-        <title>Document</title>
+	<script type="text/javascript" src="./sticky.js"></script>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
     </head>
     <body>
         <div class="header">
             <h2>Scroll Ned</h2>
-            <p>Velkommen til Ingien&oslashrdene</p>
+            <p>Velkommen til Ingienoslashrdene</p>
         </div>
         <div id="navbar">
             <a class="active" href="javascript:void(0)">Petter</a> 

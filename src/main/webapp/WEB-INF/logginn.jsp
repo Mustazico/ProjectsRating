@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>registrering</title>
+    <title>Logg inn</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
@@ -53,22 +53,49 @@
     </style>
   </head>
   <body>
-    <h1>Registrering</h1>
-      <form method="post" action="/registrering">
+    <h1>Logg inn</h1>
+    <div class="container">
+      <form method="post" action="logginn" onsubmit="return validateForm()">
         <label for="username">Brukernavn:</label>
         <input type="text" name="username" id="username" /><br />
-        <label for="mail">E-Mail:</label>
-        <input type="text" name="mail" id="mail" /><br />
-        <label for="username">Telefonnr:</label>
-        <input type="text" name="tlf" id="ltf" /><br />
-        <span id="tlf-error" class="error"></span>
+        <span id="username-error" class="error"></span>
         <label for="password">Passord:</label>
         <input type="password" name="password" id="password" /><br />
-        <label for="password2">Gjenta passord:</label>
-        <input type="password" name="password2" id="password2" /><br />
         <span id="password-error" class="error"></span>
-        <button type="submit">Fullfør registrering</button>
-        </form>
+        <input type="submit" value="Logg inn" />
+      </form>
+      <form method="post">
+        <a href="registrering">registrering</a>
+      </form>
+    </div>
+    <script>
+      function validateForm() {
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var usernameError = document.getElementById("username-error");
+        var passwordError = document.getElementById("password-error");
+        var isValid = true;
+
+        // Sjekk om brukernavn er fylt ut
+        if (username.value.trim() == "") {
+          usernameError.innerHTML = "Vennligst fyll ut brukernavn";
+          isValid = false;
+        } else {
+          usernameError.innerHTML = "";
+        }
+
+        // Sjekk om passord er fylt ut
+        if (password.value.trim() == "") {
+          passwordError.innerHTML = "Vennligst fyll ut passord";
+          isValid = false;
+        } else {
+          passwordError.innerHTML = "";
+        }
+
+        return isValid;
+      }
+    </script>
+
     <p>${msg}</p>
   </body>
 </html>
