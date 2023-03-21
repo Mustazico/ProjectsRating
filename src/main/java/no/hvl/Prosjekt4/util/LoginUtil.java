@@ -23,4 +23,12 @@ public class LoginUtil {
 	public static boolean erBrukerInnlogget(HttpSession session) {
 		return session != null && session.getAttribute("passord") != null;
 	}
+	
+	public static boolean rettPassord() {
+		boolean retur = true;
+		
+		
+		
+		return false;
+	}
 }
