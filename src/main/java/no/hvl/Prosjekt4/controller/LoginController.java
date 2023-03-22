@@ -6,19 +6,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 @Controller
-@RequestMapping(value = "login")
+@RequestMapping("/logginn")
 public class LoginController {
+	
 
-    @PostMapping("/login")
-    public String login(@RequestParam String brukernavn, @RequestParam String passord) {
+    @GetMapping
+    public String visLogginn() {
+        return "logginn";
+    }
 
-        // Sjekker om passord og brukernavn er riktig
-
+    @PostMapping
+    public String loggInn(@RequestParam(name = "username") String brukernavn,
+            @RequestParam(name = "password") String passord, RedirectAttributes ra) {
         if (brukernavn.equals("admin") && passord.equals("passord")) {
-            return "Innlogget!";
-        } else {
-            return "Feil brukernavn eller passord";
+            ra.addFlashAttribute("msg", "Du er logget inn");
+            return "redirect:" + "landingpage";
         }
+        ra.addFlashAttribute("msg", "Feil brukernavn eller passord");
+        return "redirect:" + "logginn";
     }
 }
