@@ -1,0 +1,30 @@
+h1 {
+    color: black;
+    position: relative;
+
+    
+  }
+
+  p {
+    color: black;
+  }
+
+  .meg {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    height: auto;
+    
+
+  }
+
+  .prosjekter {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 500px;
+    height:400px;
+  }
+  
+  
