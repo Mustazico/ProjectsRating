@@ -54,7 +54,7 @@ public class InputUtil {
 	public static boolean tlfValidator(JPARepo brukerrepo, Brukere bruker) {
 		String tlf = bruker.getMobil();
 		boolean retur = true;
-		String pattern = "\\d{8}";
+		String pattern = "^\\d{8}$";
 		
 		if(!tlf.matches(pattern)) {
 			retur = false;
