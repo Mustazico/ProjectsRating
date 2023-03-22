@@ -2,6 +2,7 @@ package no.hvl.Prosjekt4.util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import no.hvl.Prosjekt4.entity.Brukere;
 
 public class LoginUtil {
 
@@ -22,5 +23,17 @@ public class LoginUtil {
 
 	public static boolean erBrukerInnlogget(HttpSession session) {
 		return session != null && session.getAttribute("passord") != null;
+	}
+	
+	public static boolean rettPassord(JPARepo brukerrepo, String mobilnr, String passord) {
+		boolean retur = true;
+		Brukere bruker = brukerrepo.findByMobil(mobilnr);
+		
+		String aktPassHash = PassordUtil.hashMedSalt(passord, bruker.getSalt());
+		if(!aktPassHash.equals(bruker.getPassord())) {
+			retur = false;
+		}
+		
+		return retur;
 	}
 }
