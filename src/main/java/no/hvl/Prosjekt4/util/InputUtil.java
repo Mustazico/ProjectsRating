@@ -24,6 +24,7 @@ public class InputUtil {
 			retur = false;
 		}
 		
+		
 		if(brukerrepo.existsByBrukernavn(brukernavn)) {
 			retur = false;
 		}

@@ -56,7 +56,7 @@
     <h1>Logg inn</h1>
     <div class="container">
       <form method="post" action="logginn" onsubmit="return validateForm()">
-        <label for="username">Brukernavn:</label>
+        <label for="username">Mobil:</label>
         <input type="text" name="username" id="username" /><br />
         <span id="username-error" class="error"></span>
         <label for="password">Passord:</label>

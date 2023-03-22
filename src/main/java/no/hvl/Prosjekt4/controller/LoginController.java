@@ -1,5 +1,7 @@
 package no.hvl.Prosjekt4.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,13 +27,14 @@ public class LoginController {
 
     @PostMapping
     public String loggInn(
+    		HttpServletRequest request, 
     		@RequestParam(name = "username") String brukernavn,
             @RequestParam(name = "password") String passord,
             RedirectAttributes ra) {
     	
         if (LoginUtil.rettPassord(brukerrepo, brukernavn, passord)) {
             ra.addFlashAttribute("msg", "Du er logget inn");
-            LoginUtil.loggInnBruker(null, brukernavn, passord);
+            LoginUtil.loggInnBruker(request, brukernavn, passord);
             return "redirect:" + "landingpage";
         }
         ra.addFlashAttribute("msg", "Feil brukernavn eller passord");

@@ -25,9 +25,9 @@ public class LoginUtil {
 		return session != null && session.getAttribute("passord") != null;
 	}
 	
-	public static boolean rettPassord(JPARepo brukerrepo, String brukernavn, String passord) {
+	public static boolean rettPassord(JPARepo brukerrepo, String mobilnr, String passord) {
 		boolean retur = true;
-		Brukere bruker = brukerrepo.findByBrukernavn(brukernavn);
+		Brukere bruker = brukerrepo.findByMobil(mobilnr);
 		
 		String aktPassHash = PassordUtil.hashMedSalt(passord, bruker.getSalt());
 		if(!aktPassHash.equals(bruker.getPassord())) {
