@@ -3,13 +3,16 @@ package no.hvl.Prosjekt4.util;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 
-public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer> {
+public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
+	List<Prosjektliste> findByBrukerid(String id); 
+	Prosjektliste findByTittel(String tittel);
+	Prosjektliste findByProsjektlink(String prosjektlink);
 	
-	@Query("SELECT p FROM Prosjektliste p WHERE p.brukerid = :brukerid")
-	List<Prosjektliste> findByBrukerid(String brukerid);
+	
+	boolean existsByBrukerid(String id);
+	boolean existsByTittel(String tittel);
+	boolean existsByProsjektlink(String prosjektlink);
 }

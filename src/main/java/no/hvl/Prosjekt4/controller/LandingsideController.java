@@ -1,14 +1,18 @@
 package no.hvl.Prosjekt4.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import javax.servlet.http.*;
+
+import no.hvl.Prosjekt4.util.BrukerService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
+import no.hvl.Prosjekt4.util.ProsjektRepo;
+import no.hvl.Prosjekt4.util.ProsjektService;
 
 @Controller
 @RequestMapping("/landingpage")
@@ -17,8 +21,14 @@ public class LandingsideController {
 	@Autowired
 	private JPARepo brukerRepo; 
 	
+	//@Autowired
+	//private BrukerService brukerService;
+	
 	@Autowired
-	private BrukerService brukerService;
+	private ProsjektRepo pr; 
+	
+	@Autowired
+	private ProsjektService ps; 
 	
 	@GetMapping
 	public String visLandingpage(Model model, HttpSession session) {
@@ -28,7 +38,11 @@ public class LandingsideController {
 			System.out.println("køkk");
 			return "redirect:" + "logginn";
 		}
+		model.addAttribute("prosjekt", ps.getProsjektliste("0"));
 		
 		return "landingpage";
 	}
-}
+	
+	
+		
+	}
