@@ -6,23 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import no.hvl.Prosjekt4.util.JPARepo;
+import no.hvl.Prosjekt4.util.ProsjektRepo;
 
 @Controller
-@RequestMapping("/landingpage")
-public class LandingsideController {
+@RequestMapping(value = "person")
+public class ProsjektlisteController {
 	
 	@Autowired
-	private JPARepo brukerRepo; 
+	ProsjektRepo prepo; 
 	
 	@GetMapping
-	public String visLandingpage(Model model) {
-		model.addAttribute("brukere", brukerRepo.findAll());
-		
-		return "landingpage";
+	public String visPerson(Model model) {
+		model.addAttribute("hei", prepo.findByBrukerid("0"));
+		return "person";
 	}
-	
-
-	
-	
 }
