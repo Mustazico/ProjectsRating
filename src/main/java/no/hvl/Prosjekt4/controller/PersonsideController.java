@@ -1,5 +1,6 @@
 package no.hvl.Prosjekt4.controller;
 
+<<<<<<< HEAD
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +27,19 @@ public class PersonsideController {
         return ResponseEntity.ok(bruker);
     }
 
+=======
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/personside")
+
+public class PersonsideController {
+    @GetMapping
+	public String visPersonside() {
+		return "personside";
+	}
+    
+>>>>>>> master
 }

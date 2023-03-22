@@ -2,11 +2,11 @@
 package no.hvl.Prosjekt4.entity;
 
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+//ider-database.westeurope.cloudapp.azure.com/Bonobo.Git.Server/Prosjekt4.git
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 
 @Entity
@@ -31,6 +31,7 @@ public class Brukere {
 	public Brukere(String brukernavn, String epost, 
 			String mobil, String passord, String salt, String rolle) {
 		this.brukernavn = brukernavn;
+		this.epost = epost; 
 		this.epost = epost;
 		this.mobil = mobil; 
 		this.passord = passord; 
@@ -42,14 +43,6 @@ public class Brukere {
 	
 	
 	
-	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getBrukernavn() {
 		return brukernavn;
