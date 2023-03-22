@@ -17,4 +17,8 @@ public class BrukerService {
 	public List<Brukere> finnAlleBrukere() {
 		return brukerRepo.findAll();
 	}
+	public boolean erBrukerAdmin(String mobil) {
+		Brukere bruker = brukerRepo.findByMobil(mobil);
+		return bruker != null && bruker.getRolle().equals("Admin");
+	}
 }
