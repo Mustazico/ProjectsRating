@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
     <head>
         <meta charset="UTF-8" />
@@ -12,9 +13,9 @@
             <p>Velkommen til Ingienørdene</p>
         </div>
         <div id="navbar">
-            <a class="active" href="javascript:void(0)">Petter</a> 
-            <a href="personside">Fredrik</a> 
-            <a href="personside">Kristoffer</a> 
+            <a class="active" href="personsside/petter">Petter</a> 
+            <a href="personsside/fredrik">Fredrik</a> 
+            <a href="personsside">Kristoffer</a> 
             <a href="personside">Trym</a>
             <a href="personside">Oskar</a>
             <a href="personside">Torben</a>
@@ -26,18 +27,18 @@
 
         <div class="content">
             <center>
-                <h1>Eirik S. Brakstad</h1>
-                  <img class="meg" src="./eirik1231.jpeg" alt="Loading picture...">
+                <h1>${brukernavn}</h1>
+                <img class="profil" src=${profilbilde} alt="Loading picture...">
                   <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
-              </center>
-                  </section>
-              
-                  <article>
-                    <center>
-                  <p>Prosjekt1</p>
-                  <img class="prosjekter" src="./img_bandmember.jpg" alt="Random Name">
+            </center>
+            <article>
+                <center>
+                    <c:forEach var = "i" items="${lenker}">
+                    <c:out value = "${i}"/>
+                    <br>
+                    </c:forEach>
                 </center>
-                </article>
+            </article>
         </div>
     </body>
     <script type = "text/javascript" src="./sticky.js"></script>
