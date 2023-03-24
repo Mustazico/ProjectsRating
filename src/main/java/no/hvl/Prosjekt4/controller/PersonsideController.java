@@ -1,25 +1,20 @@
 package no.hvl.Prosjekt4.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.support.RequestContextUtils;
-import org.springframework.ui.Model;
-import javax.servlet.http.*;
-import no.hvl.Prosjekt4.util.LoginUtil;
-import no.hvl.Prosjekt4.util.ProsjektRepo;
-import no.hvl.Prosjekt4.entity.Prosjektliste;
-import no.hvl.Prosjekt4.util.JPARepo;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.support.RequestContextUtils;
+
+import no.hvl.Prosjekt4.util.ApiCallService;
+import no.hvl.Prosjekt4.util.JPARepo;
+import no.hvl.Prosjekt4.util.ProsjektRepo;
 
 @Controller
 @RequestMapping("personsside")
@@ -30,6 +25,9 @@ public class PersonsideController {
 
     @Autowired
     private ProsjektRepo prosjektRepo;
+    
+    @Autowired
+    private ApiCallService api;
 
     @GetMapping
 	public String visPersonside(HttpServletRequest request, Model model) {
@@ -44,6 +42,11 @@ public class PersonsideController {
             model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
+            try {
+				model.addAttribute("api", api.kallReadMeApi(0));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
         }
 		return "personside";
 	}
