@@ -41,7 +41,7 @@ public class Tests {
 	public void erBrukerInnlogget() {
 		String adminMobil = "95750537";
 		String ikkeAdmingMobil = "12345678";
-		
+
 		Brukere adminbruker = new Brukere();
 		adminbruker.setMobil(adminMobil);
 		adminbruker.setRolle("Admin");
@@ -52,12 +52,10 @@ public class Tests {
 
 		Mockito.when(brukerRepo.findByMobil(adminMobil)).thenReturn(adminbruker);
 		Mockito.when(brukerRepo.findByMobil(ikkeAdmingMobil)).thenReturn(ikkeAdminbruker);
-		
+
 		boolean erAdmin = bs.erBrukerAdmin(adminMobil);
 		boolean erIkkeAdmin = bs.erBrukerAdmin(ikkeAdmingMobil);
-			
-		)
 
-		}
+	}
 
 }
