@@ -43,6 +43,7 @@ public class PersonsideController {
             System.out.println(brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
+            model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
             try {
 				model.addAttribute("api", api.kallReadMeApi(0));
 			} catch (Exception e) {

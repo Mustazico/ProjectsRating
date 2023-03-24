@@ -23,6 +23,7 @@ public class Brukere {
 	private String salt; 
 	private String rolle;
 	private String profilbilde;
+    private String brukerintro;
 	
 	public Brukere() {
 		
@@ -40,11 +41,6 @@ public class Brukere {
 		this.rolle = rolle;
 	}
 	
-	
-	
-	
-	
-
 	public String getBrukernavn() {
 		return brukernavn;
 	}
