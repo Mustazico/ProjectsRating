@@ -17,16 +17,23 @@ public class Tests {
 
 	@Mock
 	private JPARepo brukerRepo;
-	
+
 	@InjectMocks
 	BrukerService bs;
-	
+
 	@Test
 	public void passordValideringTest() {
 		String passord = "passord";
 		String salt = "1111111111111111";
-		
+
 		String hash = PassordUtil.hashMedSalt(passord, salt);
 		assertTrue(PassordUtil.validerMedSalt("passord", salt, hash));
 	}
+
+	@Test
+	public void generertilfeldigSaltTest() {
+		String salt = PassordUtil.genererTilfeldigSalt();
+		assertTrue(salt.length() == 32);
+	}
+
 }
