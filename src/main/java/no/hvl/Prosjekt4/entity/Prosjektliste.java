@@ -18,6 +18,7 @@ public class Prosjektliste {
 	private String brukerid; 
 	private String tittel; 
 	private String prosjektlink;
+
 	
 	public Prosjektliste() {
 		

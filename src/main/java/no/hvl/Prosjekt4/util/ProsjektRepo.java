@@ -14,9 +14,17 @@ public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
 	
 	@Query("SELECT p FROM Prosjektliste p WHERE p.brukerid = :brukerid")
 	List<Prosjektliste> findByBrukerid(String brukerid);
-    @Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.brukerid = :brukerid")
+	
+	@Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.brukerid= :id")
+	List<String> findUsersProsjektlink(@Param("id")int id);
+	
+	@Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.prosjektid= :id")
+	String findProsjektidProsjektlink(@Param("id") int id);
+
+	@Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.brukerid = :brukerid")
     List<String> findUsersProsjektlink(@Param("brukerid") String brukerid);
-    @Query("SELECT p.profilbilde FROM Brukere p WHERE p.id = :id")
+    
+	@Query("SELECT p.profilbilde FROM Brukere p WHERE p.id = :id")
     String getProfilBilde(@Param("id") String id);
 	
 	boolean existsByBrukerid(String id);
