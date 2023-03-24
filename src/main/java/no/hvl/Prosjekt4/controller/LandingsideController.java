@@ -11,14 +11,12 @@ import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 
 @Controller
-@RequestMapping("/landingpage")
+@RequestMapping(value="/landingpage", produces="text/html;charset=UTF-8")
 public class LandingsideController {
 	
 	@Autowired
 	private JPARepo brukerRepo; 
 	
-	@Autowired
-	private BrukerService brukerService;
 	
 	@GetMapping
 	public String visLandingpage(Model model, HttpSession session) {
