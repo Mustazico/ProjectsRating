@@ -22,6 +22,7 @@ public class Brukere {
 	private String passord; 
 	private String salt; 
 	private String rolle;
+	private String profilbilde;
 	
 	public Brukere() {
 		
@@ -91,6 +92,18 @@ public class Brukere {
 	public void setRolle(String rolle) {
 		this.rolle = rolle;
 	}
+	
+	
+
+	public String getProfilbilde() {
+		return profilbilde;
+	}
+
+
+	public void setProfilbilde(String profilbilde) {
+		this.profilbilde = profilbilde;
+	}
+
 
 	@Override
 	public String toString() {

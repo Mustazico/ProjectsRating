@@ -18,23 +18,24 @@ public class Prosjektliste {
 	private String brukerid; 
 	private String tittel; 
 	private String prosjektlink;
+
 	
 	public Prosjektliste() {
 		
 	}
 	
-	public Prosjektliste(String brukerId, String tittel, String prosjektlink) {
-		this.brukerid = brukerId; 
+	public Prosjektliste(String brukerid, String tittel, String prosjektlink) {
+		this.brukerid = brukerid; 
 		this.tittel = tittel;
 		this.prosjektlink = prosjektlink;
 	}
 
-	public String getBrukerId() {
+	public String getBrukerid() {
 		return brukerid;
 	}
 
-	public void setBrukerId(String brukerId) {
-		this.brukerid = brukerId;
+	public void setBrukerid(String brukerid) {
+		this.brukerid = brukerid;
 	}
 
 	public String getTittel() {
