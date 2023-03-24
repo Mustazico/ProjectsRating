@@ -40,6 +40,7 @@ public class PersonsideController {
             model.addAttribute(brukerRepo.findById(newId));
             List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
             model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
+            System.out.println(brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
             try {
@@ -47,6 +48,9 @@ public class PersonsideController {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+        }
+        else {
+            return "landingpage";
         }
 		return "personside";
 	}
