@@ -1,45 +1,59 @@
 package no.hvl.Prosjekt4.controller;
 
-<<<<<<< HEAD
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
-import no.hvl.Prosjekt4.entity.Brukere;
+import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
+import no.hvl.Prosjekt4.util.ProsjektRepo;
 
-@RestController
-@RequestMapping("/personside")
+@Controller
+@RequestMapping("personsside")
 public class PersonsideController {
 
     @Autowired
     private JPARepo brukerRepo;
 
+    @Autowired
+    private ProsjektRepo prosjektRepo;
+
+    @Autowired
+    private ApiCallService api;
+
     @GetMapping
-    public ResponseEntity<Brukere> visPersonside(@PathVariable String brukernavn) {
-        Brukere bruker = brukerRepo.findByBrukernavn(brukernavn);
-        if (bruker == null) {
-            return ResponseEntity.notFound().build();
+	public String visPersonside(HttpServletRequest request, Model model) {
+        Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+        if (inputFlashMap != null) {
+            String id = (String) inputFlashMap.get("id");
+            System.out.println(id);
+            model.addAttribute("id", id);
+            int newId = Integer.parseInt(id);
+            model.addAttribute(brukerRepo.findById(newId));
+            List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
+            model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
+            System.out.println(brukerRepo.getBrukernavn(newId));
+            model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
+            model.addAttribute("lenker", lenker);
+            try {
+				model.addAttribute("api", api.kallReadMeApi(0));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
         }
-        return ResponseEntity.ok(bruker);
-    }
-
-=======
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-@Controller
-@RequestMapping("/personside")
-
-public class PersonsideController {
-    @GetMapping
-	public String visPersonside() {
+        else {
+            return "landingpage";
+        }
 		return "personside";
 	}
-    
->>>>>>> master
+
+    >>>>>>>master
 }
