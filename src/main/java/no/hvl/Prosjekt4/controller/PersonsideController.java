@@ -1,5 +1,6 @@
 package no.hvl.Prosjekt4.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -43,11 +44,18 @@ public class PersonsideController {
             System.out.println(brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
-            try {
-				model.addAttribute("api", api.kallReadMeApi(0));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+            List<String> users = prosjektRepo.findUsersProsjektid(id);
+            List<String> test = new ArrayList<>();
+            for(String s : users) {
+            	
+            	try {
+					test.add(api.kallReadMeApi(s));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+            }
+            model.addAttribute("api", test);
+            
         }
         else {
             return "landingpage";

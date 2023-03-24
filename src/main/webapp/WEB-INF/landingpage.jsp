@@ -102,7 +102,6 @@
             først.                   
             </p>
             <p>The navbar will stick to the top when you reach its scroll position.</p>
-            <div id="readme-container"></div>
             <table>
                 <tbody>
                     <tr>
