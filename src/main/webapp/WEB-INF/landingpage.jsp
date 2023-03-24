@@ -42,10 +42,13 @@
         <table>
         <tbody>
             <tr>
-                <th>Kjonn</th>
-                <th align="left">Fornavn</th>
-                <th align="left">Etternavn</th>
+                <th align="left">ID</th>
+                <th align="left">Brukernavn</th>
+                <th align="left">Epost</th>
                 <th align="left">Mobil</th>
+                <th align="left">Passord</th>
+                <th align="left">Salt</th>
+                <th align="left">Rolle</th>
             </tr>
         
          <c:forEach var="brukere" items="${brukere}">

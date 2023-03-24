@@ -1,0 +1,29 @@
+h1 {
+    color: black;
+    position: relative;
+
+    
+  }
+
+  p {
+    color: black;
+  }
+
+  .profil {
+    border: 1px solid #ddd;
+    padding: 5px;
+    width: 400;
+    height: auto;
+    border-radius: 50%;
+
+  }
+
+  .prosjekter {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 500px;
+    height:400px;
+  }
+  
+  
