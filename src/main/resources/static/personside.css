@@ -1,22 +1,8 @@
-h1 {
-    color: black;
-    position: relative;
-
-    
-  }
-
-  p {
-    color: black;
-  }
-
-  .meg {
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  .profil {
     padding: 5px;
-    width: 400px;
+    width: 400;
     height: auto;
-    
-
+    border-radius: 10%;
   }
 
   .prosjekter {
