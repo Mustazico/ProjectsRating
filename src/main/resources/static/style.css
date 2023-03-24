@@ -177,8 +177,22 @@ body .header p {
 
 body .content {
     padding: 16px;
+    font-size: 130%;
     grid-area: main;
     text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
+hr {
+  border:none;
+  height: 20px;
+ 	width: 90%;
+	height: 50px;
+	margin-top: 0;
+	border-bottom: 1px solid #1f1209;
+	box-shadow: 0 20px 20px -20px #333;
+  margin: -50px auto 10px; 
 }
 
 /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */

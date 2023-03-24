@@ -83,6 +83,10 @@
             <center>
                 <h1>${brukernavn}</h1>
                 <img class="profil" src=${profilbilde} alt="Loading picture...">
+                <br>
+                <br>
+                <hr class="solid">
+                <br>
                 <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
                 <p>å</p>
             </center>
