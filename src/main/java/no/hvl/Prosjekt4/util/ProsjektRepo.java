@@ -9,7 +9,6 @@ import org.springframework.data.repository.query.Param;
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 
 public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
-	List<Prosjektliste> findByBrukerid(String id); 
 	Prosjektliste findByTittel(String tittel);
 	Prosjektliste findByProsjektlink(String prosjektlink);
 	
@@ -17,7 +16,7 @@ public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
 	List<Prosjektliste> findByBrukerid(String brukerid);
 	
 	@Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.brukerid= :id")
-	List<String> findUsersProsjektlink(@Param("id")String id);
+	List<String> findUsersProsjektlink(@Param("id")int id);
 	
 	@Query("SELECT p.prosjektlink FROM Prosjektliste p WHERE p.prosjektid= :id")
 	String findProsjektidProsjektlink(@Param("id") int id);
