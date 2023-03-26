@@ -56,6 +56,7 @@ public class PersonsideController {
             }
             model.addAttribute("api", test);
             
+            model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
         }
         else {
             return "landingpage";
