@@ -12,12 +12,13 @@ public class Prosjektliste {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int prosjektid;
+	private String prosjektid;
 	
 	
 	private String brukerid; 
 	private String tittel; 
 	private String prosjektlink;
+
 	
 	public Prosjektliste() {
 		
