@@ -2,112 +2,108 @@
 <html>
     <head>
         <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
+        <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./personside.css"/>
+        <link rel="stylesheet" href="./test2.css"/>
         <link rel="stylesheet" href="./style.css"/>
-        <title>portfolio</title>
+        <title>Document</title>
     </head>
     <body>
+        <div class="main">
         <div class="header">
-            <h1>Scroll Ned</h1>
+            <h2>Scroll Ned</h2>
             <p>Velkommen til Ingienørdene</p>
-            <div id="navbar">
-                <c:choose>
-                <c:when test = "${brukernavn == 'Petter Tesdal'}">
-                <a class="active" href="personsside/petter">Petter</a> 
+        </div>
+        <div id="navbar">
+            <c:choose>
+            <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                    <a class="active" href="personsside/petter">Petter</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/petter">Petter</a> 
+                    <a href="personsside/petter">Petter</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Fredrik Enes'}">
-                <a class="active" href="personsside/fredrik">Fredrik</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                    <a class="active" href="personsside/fredrik">Fredrik</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/fredrik">Fredrik</a> 
+                    <a href="personsside/fredrik">Fredrik</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-                <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                    <a class="active" href="personsside/kristoffer">Kristoffer</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/kristoffer">Kristoffer</a> 
+                    <a href="personsside/kristoffer">Kristoffer</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-                <a class="active" href="personsside/trym">Trym</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                    <a class="active" href="personsside/trym">Trym</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/trym">Trym</a> 
+                    <a href="personsside/trym">Trym</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-                <a class="active" href="personsside/oskar">Oskar</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                    <a class="active" href="personsside/oskar">Oskar</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/oskar">Oskar</a> 
+                    <a href="personsside/oskar">Oskar</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Torben Lund'}">
-                <a class="active" href="personsside/torben">Torben</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Torben Lund'}">
+                    <a class="active" href="personsside/torben">Torben</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/torben">Torben</a> 
+                    <a href="personsside/torben">Torben</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-                <a class="active" href="personsside/eirik">Eirik</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                    <a class="active" href="personsside/eirik">Eirik</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/eirik">Eirik</a> 
+                    <a href="personsside/eirik">Eirik</a> 
                 </c:otherwise>
-                </c:choose>
-                <c:choose>
-                <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-                <a class="active" href="personsside/eirikl">Eirik L</a> 
+            </c:choose>
+            <c:choose>
+            <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                    <a class="active" href="personsside/eirikl">Eirik L</a> 
                 </c:when>
                 <c:otherwise>
-                <a href="personsside/eirikl">Eirik L</a> 
+                    <a href="personsside/eirikl">Eirik L</a> 
                 </c:otherwise>
-                </c:choose>
-            </div>
+            </c:choose>
         </div>
 
         <div class="content">
             <center>
                 <h1>${brukernavn}</h1>
                 <img class="profil" src=${profilbilde} alt="Loading picture...">
-                <br>
-                <br>
-                <hr class="solid">
-                <br>
-                    <c:out value = "${bio}"/>
-                <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
-                <p>å</p>
+                  <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
+                  <p>å</p>
             </center>
             <article>
                 <center>
-                    <c:forEach var = "i"  items="${lenker}" varStatus="status">
+                    <c:forEach var = "i" items="${lenker}">
                     <c:out value = "${i}"/>
                     <br>
-                    <br>
-					<c:out value="${api[status.index]}"/> 
-					<br>
-					<br>                  
                     </c:forEach>
                 </center>
             </article>
+            
+            <br>
+            <br>
             <br>
             <br>
             <br>
         </div>
-        
         <div class="footer">
             <div class="bubbles">
                 <div class="bubble" style="--size:5.71482867975346rem; --distance:7.251197384000923rem; --position:61.04907339975787%; --time:3.4540556554978026s; --delay:-3.702443117512738s;"></div>
@@ -133,10 +129,10 @@
         </div>
         <svg style="position:fixed; top:100vh">
             <defs>
-            <filter id="blob">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
-            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
-            </filter>
+                <filter id="blob">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="blob"></feColorMatrix>
+                </filter>
             </defs>
         </svg>
     </body>

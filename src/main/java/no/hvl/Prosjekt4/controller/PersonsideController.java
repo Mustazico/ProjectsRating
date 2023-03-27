@@ -1,5 +1,6 @@
 package no.hvl.Prosjekt4.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -25,12 +26,12 @@ public class PersonsideController {
 
     @Autowired
     private ProsjektRepo prosjektRepo;
-    
+
     @Autowired
     private ApiCallService api;
 
     @GetMapping
-	public String visPersonside(HttpServletRequest request, Model model) {
+    public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
             String id = (String) inputFlashMap.get("id");
@@ -44,15 +45,14 @@ public class PersonsideController {
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
             try {
-				model.addAttribute("api", api.kallReadMeApi(0));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-        }
-        else {
+                model.addAttribute("api", api.kallReadMeApi(0));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
             return "landingpage";
         }
-		return "personside";
-	}
-    
+        return "personside";
+    }
+
 }
