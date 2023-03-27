@@ -55,6 +55,8 @@ public class Tests {
 
 		boolean erAdmin = bs.erBrukerAdmin(adminMobil);
 		boolean erIkkeAdmin = bs.erBrukerAdmin(ikkeAdmingMobil);
+		assertTrue(erAdmin);
+		assertTrue(!erIkkeAdmin);
 
 	}
 
