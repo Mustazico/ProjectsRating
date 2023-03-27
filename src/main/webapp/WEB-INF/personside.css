@@ -27,4 +27,16 @@ h1 {
     height:400px;
   }
   
+  .lenker {
+  	line-height: 200px;
+  }
+  
+  .prosjektbilde {
+  border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 20px;
+    height: auto;
+  }
+  
   

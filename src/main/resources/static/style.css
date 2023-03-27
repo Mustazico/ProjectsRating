@@ -1,7 +1,4 @@
-img {
-    width: 100%;
-    height: auto;
-}  
+
 
 body {
     display: grid;
@@ -165,7 +162,7 @@ body .header p {
 
 /* Style the current/active link */
 #navbar a.active {
-    background-color: #F7A072;
+    background-color: #62C3D6;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
