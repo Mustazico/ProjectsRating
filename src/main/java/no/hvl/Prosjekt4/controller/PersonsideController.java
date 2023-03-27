@@ -26,12 +26,12 @@ public class PersonsideController {
 
     @Autowired
     private ProsjektRepo prosjektRepo;
-
+    
     @Autowired
     private ApiCallService api;
 
     @GetMapping
-    public String visPersonside(HttpServletRequest request, Model model) {
+	public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
             String id = (String) inputFlashMap.get("id");
@@ -44,15 +44,24 @@ public class PersonsideController {
             System.out.println(brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
-            try {
-                model.addAttribute("api", api.kallReadMeApi(0));
-            } catch (Exception e) {
-                e.printStackTrace();
+            List<String> users = prosjektRepo.findUsersProsjektid(id);
+            List<String> test = new ArrayList<>();
+            for(String s : users) {
+            	
+            	try {
+					test.add(api.kallReadMeApi(s));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
             }
-        } else {
+            model.addAttribute("api", test);
+            
+            model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
+        }
+        else {
             return "landingpage";
         }
-        return "personside";
-    }
-
+		return "personside";
+	}
+    
 }
