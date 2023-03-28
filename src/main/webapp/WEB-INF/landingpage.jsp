@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="personside.css" />
         <link rel="stylesheet" href="style.css" />
         <title>portfolio</title>
-    </head>
+        </head>
     <body>
         <div class="header">
             <h1>Portfolio side</h1>
@@ -82,7 +82,7 @@
 
         <div class="content">
             <h1>Hils på gjengen</h1>
-            <img class=introbilde src="./gruppebilde.jpeg">
+            <img class=introbilde src="./gruppeBilde(ute).jpg">
             <p>
             Vi er en gjeng med dataingienører som har studert
             sammen på "haugskolen på vestlandet". Som et av våres prosjekt

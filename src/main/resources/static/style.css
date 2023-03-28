@@ -159,7 +159,7 @@ body .header p {
 
 /* Style the current/active link */
 #navbar a.active {
-    background-color: #62C3D6;
+    background-color: #F7A072;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -203,7 +203,6 @@ body .introbilde {
 
 /* Legger til fremstilling av prosjekter */
 #portfolio .portfolio-item {
-    right: 0;
     margin: 0 0 15px;
 }
 
@@ -219,7 +218,7 @@ body .introbilde {
     width: 100%;
     height: 100%;
     opacity: 0;
-    background: #1ee2e7;
+    background: #0FA3B1;
     -webkit-transition: all ease .5s;
     -moz-transition: all ease .5s;
     transition: all ease .5s;
@@ -283,6 +282,7 @@ body .introbilde {
     background-clip: border-box;
     -webkit-box-shadow: none;
     box-shadow: none;
+    white-space: pre-line;
 }
 
 .portfolio-modal .modal-content h2 {
