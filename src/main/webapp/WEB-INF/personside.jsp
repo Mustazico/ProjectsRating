@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./personside.css"/>
         <link rel="stylesheet" href="./style.css"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
         <title>portfolio</title>
     </head>
     <body>
@@ -87,27 +89,80 @@
                 <br>
                 <hr class="solid">
                 <br>
-                    <c:out value = "${bio}"/>
+                <c:out value = "${bio}"/>
                 <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
                 <p>å</p>
             </center>
-            <article>
-                <center>
-                    <c:forEach var = "i"  items="${lenker}" varStatus="status">
-                    <c:out value = "${i}"/>
-                    <br>
-                    <br>
-					<c:out value="${api[status.index]}"/> 
-					<br>
-					<br>                  
-                    </c:forEach>
-                </center>
-            </article>
+            <c:set value="0" var="x"></c:set>
+            <br>
+            <br>
+
+                <c:forEach var = "i"  items="${lenker}" varStatus="status">
+                <c:set value="${x+1}" var="x"></c:set>
+                <!--Html for kortet til prosjektet-->
+
+                <c:if test = "${x == 3}">
+                <c:set value="0" var="x"></c:set>
+                <br>
+                </c:if>
+
+                <section id="portfolio">
+                    <div class="row">
+                        <div class="portfolio-item">
+                            <a href="#${x}" class="portfolio-link" data-toggle="modal">
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">
+                                        <i class="fa fa-plus fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-responsive" alt="">
+                            </a>
+                            <div class="portfolio-caption">
+                                <h4>${i}</h4>
+                                <p class="text-muted">${brukernavn}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6 portfolio-item">
+                        </div>
+                    </div>
+                </section>
+
+                <!--Dette er seksjonen til modal-->
+                <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="modal-body">
+                                        <h2>Project Name</h2>
+                                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                        <img class="img-responsive" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">
+                                        <c:out value="${api[status.index]}"/> 
+                                        <p>
+                                        <ul class="list-inline">
+                                            <li>Date: July 2014</li>
+                                            <li>Client: Round Icons</li>
+                                            <li>Category: Graphic Design</li>
+                                        </ul>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </c:forEach>
             <br>
             <br>
             <br>
         </div>
-        
+
         <div class="footer">
             <div class="bubbles">
                 <div class="bubble" style="--size:5.71482867975346rem; --distance:7.251197384000923rem; --position:61.04907339975787%; --time:3.4540556554978026s; --delay:-3.702443117512738s;"></div>
@@ -131,6 +186,8 @@
                 </div>
             </div>
         </div>
+
+
         <svg style="position:fixed; top:100vh">
             <defs>
             <filter id="blob">
@@ -141,4 +198,7 @@
         </svg>
     </body>
     <script type = "text/javascript" src="./sticky.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 </html>
