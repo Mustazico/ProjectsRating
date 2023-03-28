@@ -203,6 +203,9 @@ body .introbilde {
 
 /* Legger til fremstilling av prosjekter */
 #portfolio .portfolio-item {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
     margin: 0 0 15px;
 }
 

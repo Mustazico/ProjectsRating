@@ -4,7 +4,7 @@
 }
 .rate {
     height: 46px;
-    padding: 0 10px;
+    padding: 0 0;
     margin-left: auto;
     margin-right: auto;
     width: 10em
@@ -39,4 +39,3 @@
 .rate > label:hover ~ input:checked ~ label {
     color: #c59b08;
 }
-

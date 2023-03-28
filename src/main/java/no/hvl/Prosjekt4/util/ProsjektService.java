@@ -18,4 +18,5 @@ public class ProsjektService {
 	public List<Prosjektliste> getProsjektliste(String brukerId) {
 		return prepo.findByBrukerid(brukerId);
 	}
+	
 }
