@@ -107,7 +107,9 @@
                 <c:set value="0" var="x"></c:set>
                 <br>
                 </c:if>
-
+                
+                <c:set value="https://raw.githubusercontent.com/" var="bilde">
+                </c:set>
                 <section id="portfolio">
                     <div class="row">
                         <div class="portfolio-item">
@@ -117,7 +119,7 @@
                                         <i class="fa fa-plus fa-3x"></i>
                                     </div>
                                 </div>
-                                <img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-responsive" alt="">
+                                <img src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" class="img-responsive" alt="">
                             </a>
                             <div class="portfolio-caption">
                                 <h4>${i}</h4>
@@ -144,7 +146,8 @@
                                     <div class="modal-body">
                                         <h2>Project Name</h2>
                                         <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                                        <img class="img-responsive" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">
+                                        <!--  Gammel, tar vare på den i tilfelle jeg trenger senere  <img class="img-responsive" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">-->
+                                        <img class="img-responsive" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="">
                                         <c:out value="${api[status.index]}"/> 
                                         <p>
                                         <ul class="list-inline">

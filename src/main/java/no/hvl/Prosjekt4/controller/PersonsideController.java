@@ -46,15 +46,23 @@ public class PersonsideController {
             model.addAttribute("lenker", lenker);
             List<String> users = prosjektRepo.findUsersProsjektid(id);
             List<String> test = new ArrayList<>();
+            List<String> githubbrukernavn = new ArrayList<>();
+            List<String> repo = new ArrayList<>();
             for(String s : users) {
             	
             	try {
 					test.add(api.kallReadMeApi(s));
-					System.out.println(api.kallReadMeApi(s));
+					githubbrukernavn.add(splitBrukernavn(s));
+					repo.add(splitRepo(s));
+					System.out.println(githubbrukernavn);
+					System.out.println(repo);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
             }
+            
+            model.addAttribute("githubBrukernavn", githubbrukernavn);
+            model.addAttribute("githubRepo", repo);
             model.addAttribute("api", test);
             
             model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
@@ -65,4 +73,17 @@ public class PersonsideController {
 		return "personside";
 	}
     
+    public String splitBrukernavn(String id) {
+    	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
+		String[] deler = lenke.split("/");
+		String brukernavn = deler[3];
+    	return brukernavn;
+    }
+    
+    public String splitRepo(String id) {
+    	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
+		String[] deler = lenke.split("/");
+		String repo = deler[4];
+    	return repo;
+    }
 }
