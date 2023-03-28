@@ -91,9 +91,6 @@
                 <br>
                 <hr class="solid">
                 <br>
-                <c:out value = "${bio}"/>
-                <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
-                <p>å</p>
                     <c:out value = "${bio}"/>
                 <p> Velkommen til min portfolio. Under ser dere alle mine fantastiske prosjekter! </p>
                 <br>
@@ -165,14 +162,7 @@
                 </c:forEach>
             <article>
                 <center>
-                	
-                    <c:forEach var = "i"  items="${lenker}" varStatus="status">
-                    <img class="prosjektbilde" src="prosjektbilde.jpg" alt="ait">
-                    <div class="lenker"><c:out value = "${i}"/>
-                    <br>
-                    <br>
-					<c:out value="${api[status.index]}"/> 
-					</div>
+<!--         HER LIGGER RATINGEN       	
 					<div class="rate">
       					<input type="radio" id="star5" name="rate" value="5" />
       					<label for="star5" title="text">5 stars</label>
@@ -185,9 +175,9 @@
       					<input type="radio" id="star1" name="rate" value="1" />
       					<label for="star1" title="text">1 star</label>
       </div>
+       -->
 					<br>
 					<br>                  
-                    </c:forEach>
                 </center>
             </article>
             <br>
