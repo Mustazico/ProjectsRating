@@ -50,6 +50,7 @@ public class PersonsideController {
             	
             	try {
 					test.add(api.kallReadMeApi(s));
+					System.out.println(api.kallReadMeApi(s));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
