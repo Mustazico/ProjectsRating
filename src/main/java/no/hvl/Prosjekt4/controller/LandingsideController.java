@@ -34,15 +34,7 @@ public class LandingsideController {
 	private ProsjektService ps; 
 	
 	@GetMapping
-	public String visLandingpage(Model model, HttpSession session) throws Exception {
-		model.addAttribute("brukere", brukerRepo.findAll());
-		
-		if(!LoginUtil.erBrukerInnlogget(session)) {
-			System.out.println("køkk");
-			return "redirect:" + "logginn";
-		}
-		model.addAttribute("prosjekt", ps.getProsjektliste("0"));
-		
+	public String visLandingpage(Model model, HttpSession session) throws Exception {		
 		return "landingpage";
 	}
 }

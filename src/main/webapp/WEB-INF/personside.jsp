@@ -7,11 +7,13 @@
         <link rel="stylesheet" href="./style.css"/>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
+        <link rel="stylesheet" href="./rating.css"/>
         <title>portfolio</title>
     </head>
     <body>
         <div class="header">
-            <h1>Scroll Ned</h1>
+        <br>
+        <br>
             <p>Velkommen til Ingienørdene</p>
             <div id="navbar">
                 <c:choose>
@@ -92,6 +94,9 @@
                 <c:out value = "${bio}"/>
                 <p> Velkommen til min portfolio. Under ser der alle mine fantastiske prosjekter! </p>
                 <p>å</p>
+                    <c:out value = "${bio}"/>
+                <p> Velkommen til min portfolio. Under ser dere alle mine fantastiske prosjekter! </p>
+                <br>
             </center>
             <c:set value="0" var="x"></c:set>
             <br>
@@ -158,6 +163,33 @@
                     </div>
                 </div>
                 </c:forEach>
+            <article>
+                <center>
+                	
+                    <c:forEach var = "i"  items="${lenker}" varStatus="status">
+                    <img class="prosjektbilde" src="prosjektbilde.jpg" alt="ait">
+                    <div class="lenker"><c:out value = "${i}"/>
+                    <br>
+                    <br>
+					<c:out value="${api[status.index]}"/> 
+					</div>
+					<div class="rate">
+      					<input type="radio" id="star5" name="rate" value="5" />
+      					<label for="star5" title="text">5 stars</label>
+      					<input type="radio" id="star4" name="rate" value="4" />
+     					 <label for="star4" title="text">4 stars</label>
+      					<input type="radio" id="star3" name="rate" value="3" />
+      					<label for="star3" title="text">3 stars</label>
+      					<input type="radio" id="star2" name="rate" value="2" />
+      					<label for="star2" title="text">2 stars</label>
+      					<input type="radio" id="star1" name="rate" value="1" />
+      					<label for="star1" title="text">1 star</label>
+      </div>
+					<br>
+					<br>                  
+                    </c:forEach>
+                </center>
+            </article>
             <br>
             <br>
             <br>
@@ -182,7 +214,7 @@
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 syke</p>
+                    <p>©2023 Kenneth</p>
                 </div>
             </div>
         </div>

@@ -81,7 +81,6 @@
         </div>
 
         <div class="content">
-            <h1>Show readme</h1>
             <h1>Hils på gjengen</h1>
             <img class=introbilde src="./gruppebilde.jpeg">
             <p>
@@ -101,34 +100,7 @@
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
-            <p>The navbar will stick to the top when you reach its scroll position.</p>
-            <table>
-                <tbody>
-                    <tr>
-                        <th align="left">ID</th>
-                        <th align="left">Brukernavn</th>
-                        <th align="left">Epost</th>
-                        <th align="left">Mobil</th>
-                        <th align="left">Passord</th>
-                        <th align="left">Salt</th>
-                        <th align="left">Rolle</th>
-                    </tr>
 
-                    <c:forEach var="brukere" items="${brukere}">
-                    <tr>
-                        <td>${brukere.brukernavn}</td>
-                        <td>${brukere.epost}</td>
-                        <td>${brukere.mobil}</td>
-                        <td>${brukere.passord}</td>
-                        <td>${brukere.salt}</td>
-                        <td>${brukere.rolle}</td>
-                    </tr>
-                    </c:forEach>
-                </tbody>
-            </table>
-
-            ${api}
-            <p>${prosjekt}</p>
             <br>
             <br>
             <br>
@@ -152,7 +124,7 @@
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 syke</p>
+                    <p>©2023 Prosjekt 4</p>
                 </div>
             </div>
         </div>
