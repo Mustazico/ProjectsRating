@@ -100,8 +100,9 @@
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
-
+			<p>${msg} </p>
             <br>
+            
             <br>
             <br>
         </div>

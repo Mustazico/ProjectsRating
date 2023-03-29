@@ -116,15 +116,38 @@
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
                                 </a>
                                 <div class="portfolio-caption">
-                                    <h4>${i}</h4>
+                                    <h4>${githubRepo[status.index]}</h4>
                                     <p class="text-muted">${brukernavn}</p>
                                 </div>
+                                
+                                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                	%>
+                                	<button>Slett</button>
+                                	<%
+                                }
+                                %>
                             </div>
                         </div>
                         <c:set value="${x+1}" var="x"></c:set>
                         </c:forEach>
                     </div>
                 </div>
+                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                	%>
+                                	<label for="brukerid">Brukerid</label> 
+                                	<input type="text" name="brukerid" id="brukerid" />
+                                	<label for="tittel">Tittel</label> 
+                                	<input type="text" name="tittel" id="tittel" />
+                                	<label for="prosjektlink">Prosjektlink</label> 
+                                	<input type="text" name="prosjektlink" id="prosjektlink" />
+                                	<button>Legg til</button>
+                                	<%
+                                }
+                                %>
             </section>
 
 
@@ -143,7 +166,7 @@
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
-                                    <h2>Prosjekt Navn</h2>
+                                    <h2>${githubRepo[status.index]}</h2>
                                 </div>
                                 <div class="row">
                                     <p class="item-intro text-muted">Intro tekst</p>
