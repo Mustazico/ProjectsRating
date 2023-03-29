@@ -8,13 +8,10 @@ import no.hvl.Prosjekt4.entity.Prosjektliste;
 public class RatingsUtil {
 	
 	public List<Prosjektliste> sortedByRatings(ProsjektRepo prosjektrepo, String prosjektid) {
-	    List<Prosjektliste> retur = new ArrayList<>();
-	    List<Prosjektliste> input = prosjektrepo.findAll();
+	    List<Prosjektliste> retur = prosjektrepo.findAll();
 	    
+	    retur.stream().sorted((p1, p2) -> p1.getGjennomsnittrating().compareTo(p2.getGjennomsnittrating()));
 	    
-	    input.stream().sorted();
-	    
-	    retur.addAll(input);
 	    return retur;
 	}
 }
