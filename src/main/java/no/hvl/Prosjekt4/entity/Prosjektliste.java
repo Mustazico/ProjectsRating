@@ -77,8 +77,4 @@ public class Prosjektliste {
 	public String toString() {
 		return "BrukerId: " + brukerid + "\nProsjektlink:"+ prosjektlink;
 	}
-	
-	public int compareTo(Prosjektliste other) {
-        return Double.compare(other.getGjennomsnittrating(), this.getGjennomsnittrating());
-    }
 }
