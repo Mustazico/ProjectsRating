@@ -20,6 +20,7 @@ public class Prosjektliste {
 	private String prosjektlink;
 	private String antallstemmer;
 	private String gjennomsnittrating;
+	
 
 	
 	public Prosjektliste() {
