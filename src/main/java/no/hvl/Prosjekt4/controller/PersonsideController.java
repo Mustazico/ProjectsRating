@@ -10,7 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import no.hvl.Prosjekt4.util.ApiCallService;
@@ -19,7 +20,6 @@ import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.RatingRepo;
 
 @Controller
-@RequestMapping("personsside")
 public class PersonsideController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class PersonsideController {
     @Autowired
     private ApiCallService api;
 
-    @GetMapping
+    @GetMapping("/personsside")
 	public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
@@ -75,6 +75,15 @@ public class PersonsideController {
         }
 		return "personside";
 	}
+    
+    @PostMapping("/slettpost")
+    public String slettProsjekt(@RequestParam("slett") String slett) {
+    	
+    	
+    	prosjektRepo.deleteByProsjektid(slett);
+    	return "redirect:"+"personside";
+    }
+    
     
     public String splitBrukernavn(String id) {
     	String lenke = prosjektRepo.findProsjektidProsjektlink(id);

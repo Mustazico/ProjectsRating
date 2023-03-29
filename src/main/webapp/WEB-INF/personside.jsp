@@ -123,8 +123,12 @@
                                 <%
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
-                                	%>
-                                	<button>Slett</button>
+                                	%> <!--  
+                                	<form action="slettpost" method=post>
+                                	<input type="hidden" value="lenk" value="${githubRepo[status.index]}" />
+                                	<input type="submit" value="Slett" name="slett"/>
+                                	</form>
+                                	-->
                                 	<%
                                 }
                                 %>

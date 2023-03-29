@@ -33,4 +33,6 @@ public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
 	boolean existsByBrukerid(String id);
 	boolean existsByTittel(String tittel);
 	boolean existsByProsjektlink(String prosjektlink);
+	
+	void deleteByProsjektid(String prosjektid);
 }
