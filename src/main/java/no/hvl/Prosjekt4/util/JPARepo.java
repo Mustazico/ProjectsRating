@@ -25,4 +25,7 @@ public interface JPARepo extends JpaRepository<Brukere, Integer>{
 
     @Query("SELECT p.brukerintro FROM Brukere p WHERE p.id = :id")
     String getBrukerintro(@Param("id") int id);
+    
+    @Query("SELECT p.rolle FROM Brukere p WHERE p.mobil= :mobil")
+    String erBrukerAdmin(@Param("mobil") String mobil);
 }
