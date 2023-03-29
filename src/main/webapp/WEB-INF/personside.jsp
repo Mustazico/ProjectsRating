@@ -123,12 +123,12 @@
                                 <%
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
-                                	%> <!--  
-                                	<form action="slettpost" method=post>
-                                	<input type="hidden" value="lenk" value="${githubRepo[status.index]}" />
-                                	<input type="submit" value="Slett" name="slett"/>
+                                	%> 
+                                	<form method="post" action="slettpost">
+                                		<input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                		<input type="submit" value="Slett" name="slett"/>
                                 	</form>
-                                	-->
+                                	
                                 	<%
                                 }
                                 %>
@@ -142,13 +142,17 @@
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
                                 	%>
-                                	<label for="brukerid">Brukerid</label> 
-                                	<input type="text" name="brukerid" id="brukerid" />
-                                	<label for="tittel">Tittel</label> 
-                                	<input type="text" name="tittel" id="tittel" />
-                                	<label for="prosjektlink">Prosjektlink</label> 
-                                	<input type="text" name="prosjektlink" id="prosjektlink" />
-                                	<button>Legg til</button>
+                                	<form method="post" action ="leggtilpost">
+                                		<label for="brukerid">Brukerid</label> 
+                                		<input type="text" name="brukerid" id="brukerid" />
+                                		<br>
+                                		<label for="tittel">Tittel</label> 
+                                		<input type="text" name="tittel" id="tittel" />
+                                		<br>
+                                		<label for="prosjektlink">Prosjektlink</label> 
+                                		<input type="text" name="prosjektlink" id="prosjektlink" />
+                                		<input type="submit" value="Legg til" name="leggtil">
+                                	</form>
                                 	<%
                                 }
                                 %>

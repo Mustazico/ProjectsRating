@@ -72,6 +72,15 @@ public class Prosjektliste {
 	public void setGjennomsnittrating(String gjennomsnittrating) {
 		this.gjennomsnittrating = gjennomsnittrating;
 	}
+	
+
+	public String getProsjektid() {
+		return prosjektid;
+	}
+
+	public void setProsjektid(String prosjektid) {
+		this.prosjektid = prosjektid;
+	}
 
 	@Override
 	public String toString() {
