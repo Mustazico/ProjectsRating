@@ -19,7 +19,7 @@ public class Prosjektliste {
 	private String tittel; 
 	private String prosjektlink;
 	private String antallstemmer;
-	private String gjennomsnittrating;
+	private Double gjennomsnittrating;
 	
 
 	
@@ -65,11 +65,11 @@ public class Prosjektliste {
 		this.antallstemmer = antallstemmer;
 	}
 
-	public String getGjennomsnittrating() {
+	public Double getGjennomsnittrating() {
 		return gjennomsnittrating;
 	}
 
-	public void setGjennomsnittrating(String gjennomsnittrating) {
+	public void setGjennomsnittrating(Double gjennomsnittrating) {
 		this.gjennomsnittrating = gjennomsnittrating;
 	}
 
@@ -78,4 +78,7 @@ public class Prosjektliste {
 		return "BrukerId: " + brukerid + "\nProsjektlink:"+ prosjektlink;
 	}
 	
+	public int compareTo(Prosjektliste other) {
+        return Double.compare(other.getGjennomsnittrating(), this.getGjennomsnittrating());
+    }
 }
