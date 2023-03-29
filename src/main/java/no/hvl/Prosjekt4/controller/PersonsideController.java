@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
+import no.hvl.Prosjekt4.util.RatingRepo;
 
 @Controller
 @RequestMapping("personsside")
@@ -26,6 +27,8 @@ public class PersonsideController {
 
     @Autowired
     private ProsjektRepo prosjektRepo;
+    
+    private RatingRepo ratingRepo;
     
     @Autowired
     private ApiCallService api;
