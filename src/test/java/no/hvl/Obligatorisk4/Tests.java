@@ -1,6 +1,9 @@
 package no.hvl.Obligatorisk4;
-
+ 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -8,10 +11,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import no.hvl.Prosjekt4.entity.Brukere;
+import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.BrukerService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.PassordUtil;
-import no.hvl.Prosjekt4.entity.Brukere;
+import no.hvl.Prosjekt4.util.ProsjektRepo;
 
 @ExtendWith(MockitoExtension.class)
 public class Tests {
@@ -21,6 +26,12 @@ public class Tests {
 
 	@InjectMocks
 	BrukerService bs;
+
+	@Mock
+	ProsjektRepo prepo;
+
+	@InjectMocks
+	ApiCallService apiService;
 
 	@Test
 	public void passordValideringTest() {
@@ -58,6 +69,15 @@ public class Tests {
 		assertTrue(erAdmin);
 		assertTrue(!erIkkeAdmin);
 
+	}
+
+	@Test
+	public void testAPIKall() throws Exception {
+		Mockito.when(prepo.findProsjektidProsjektlink(Mockito.anyString()))
+				.thenReturn("https://github.com/h594754/DAT108_Oblig4/");
+		String result = apiService.kallReadMeApi("0");
+		String forventet = "Denne readme bruker jeg i et API kall." + "\n";
+		assertEquals(result, forventet);
 	}
 
 }

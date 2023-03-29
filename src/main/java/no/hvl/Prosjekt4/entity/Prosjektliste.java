@@ -18,6 +18,9 @@ public class Prosjektliste {
 	private String brukerid; 
 	private String tittel; 
 	private String prosjektlink;
+	private String antallstemmer;
+	private String gjennomsnittrating;
+	
 
 	
 	public Prosjektliste() {
@@ -54,7 +57,22 @@ public class Prosjektliste {
 		this.prosjektlink = prosjektlink;
 	}
 	
-	
+	public String getAntallstemmer() {
+		return antallstemmer;
+	}
+
+	public void setAntallstemmer(String antallstemmer) {
+		this.antallstemmer = antallstemmer;
+	}
+
+	public String getGjennomsnittrating() {
+		return gjennomsnittrating;
+	}
+
+	public void setGjennomsnittrating(String gjennomsnittrating) {
+		this.gjennomsnittrating = gjennomsnittrating;
+	}
+
 	@Override
 	public String toString() {
 		return "BrukerId: " + brukerid + "\nProsjektlink:"+ prosjektlink;
