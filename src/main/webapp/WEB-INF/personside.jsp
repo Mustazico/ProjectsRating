@@ -155,17 +155,21 @@
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
                                 	%>
+                                	
                                 	<form method="post" action ="leggtilpost">
+                                	<div class="input">
                                 		<label for="brukerid">Brukerid</label> 
                                 		<input type="text" name="brukerid" id="brukerid" />
-                                		<br>
                                 		<label for="tittel">Tittel</label> 
                                 		<input type="text" name="tittel" id="tittel" />
-                                		<br>
                                 		<label for="prosjektlink">Prosjektlink</label> 
                                 		<input type="text" name="prosjektlink" id="prosjektlink" />
+                                		<br>
+                                		<br>
                                 		<input type="submit" value="Legg til" name="leggtil">
+                                	</div>
                                 	</form>
+                                	
                                 	<%
                                 }
                                 %>

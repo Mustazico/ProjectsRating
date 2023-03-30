@@ -39,4 +39,9 @@ h1 {
     height: auto;
   }
   
+.input {
+  	width: 200px; 
+  	padding: 20px;
+  }
+  
   
