@@ -30,7 +30,7 @@ body .footer .bubbles {
 body .footer .bubbles .bubble {
     position: absolute;
     left: var(--position, 50%);
-    background: var(--footer-background);
+    background: #F7A072;
     border-radius: 100%;
     animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
     transform: translate(-50%, 100%);
@@ -137,7 +137,7 @@ body .header p {
     position: relative;
     vertical-align: bottom;
     width: 100%;
-    background-color: #B5E2FA;
+    background-color: #62C3D6;
     overflow: auto;
 }
 
@@ -154,12 +154,12 @@ body .header p {
 
 /* Add a background color on mouse-over */
 #navbar a:hover {
-    background-color: #62C3D6;
+    background-color: #51A1B1;
 }
 
 /* Style the current/active link */
 #navbar a.active {
-    background-color: #F7A072;
+    background-color: #4A92A1;
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
