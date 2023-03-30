@@ -1,5 +1,6 @@
 package no.hvl.Prosjekt4.controller;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.support.RequestContextUtils;
 
 import no.hvl.Prosjekt4.util.ApiCallService;
@@ -19,7 +23,6 @@ import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.RatingRepo;
 
 @Controller
-@RequestMapping("personsside")
 public class PersonsideController {
 
     @Autowired
@@ -33,7 +36,7 @@ public class PersonsideController {
     @Autowired
     private ApiCallService api;
 
-    @GetMapping
+    @GetMapping("/personsside")
 	public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
@@ -75,6 +78,15 @@ public class PersonsideController {
         }
 		return "personside";
 	}
+
+    @PostMapping("stemmer")
+    public String postBody(@RequestParam("rate") String Stemme) {
+
+        System.out.println(Stemme);
+        System.out.println("Postmapping funker!");
+        return "redirect:personsside";
+    }
+
     
     public String splitBrukernavn(String id) {
     	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
