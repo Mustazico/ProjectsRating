@@ -89,8 +89,8 @@ public class PersonsideController {
 	}
 
     @PostMapping("stemmer")
-    public String postBody(@RequestParam("rate") String Stemme) {
-
+    public String postBody(@RequestParam("id") String id, @RequestParam("rate") String Stemme) {
+        System.out.println("Stemmer på prosjekt: " + id);
         System.out.println(Stemme);
         System.out.println("Postmapping funker!");
         return "redirect:personsside";

@@ -191,6 +191,7 @@
                                 <div class="row justify-content-md-between">
                                     <form method="post" action="stemmer">
                                                 <div class="rate">
+                                		        <input type="hidden" name="id" value="${prosjektId[status.index]}" />
                                                     <input type="radio" id="star5${x}" name="rate" value="5" />
                                                 <label for="star5${x}" title="text">5 stars</label>
                                                 <input type="radio" id="star4${x}" name="rate" value="4" />
