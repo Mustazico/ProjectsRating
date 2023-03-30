@@ -19,4 +19,8 @@ public class ProsjektService {
 		return prepo.findByBrukerid(brukerId);
 	}
 	
+	public void slettProsjekt(String prosjektid) {
+		prepo.deleteByProsjektid(prosjektid);
+	}
+	
 }

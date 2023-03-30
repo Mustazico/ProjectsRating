@@ -116,15 +116,46 @@
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
                                 </a>
                                 <div class="portfolio-caption">
-                                    <h4>${i}</h4>
+                                    <h4>${githubRepo[status.index]}</h4>
                                     <p class="text-muted">${brukernavn}</p>
                                 </div>
+                                
+                                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                	%> 
+                                	<form method="post" action="slettpost">
+                                		<input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                		<input type="submit" value="Slett" name="slett"/>
+                                	</form>
+                                	
+                                	<%
+                                }
+                                %>
                             </div>
                         </div>
                         <c:set value="${x+1}" var="x"></c:set>
                         </c:forEach>
                     </div>
                 </div>
+                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                	%>
+                                	<form method="post" action ="leggtilpost">
+                                		<label for="brukerid">Brukerid</label> 
+                                		<input type="text" name="brukerid" id="brukerid" />
+                                		<br>
+                                		<label for="tittel">Tittel</label> 
+                                		<input type="text" name="tittel" id="tittel" />
+                                		<br>
+                                		<label for="prosjektlink">Prosjektlink</label> 
+                                		<input type="text" name="prosjektlink" id="prosjektlink" />
+                                		<input type="submit" value="Legg til" name="leggtil">
+                                	</form>
+                                	<%
+                                }
+                                %>
             </section>
 
 
@@ -143,7 +174,7 @@
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
-                                    <h2>Prosjekt Navn</h2>
+                                    <h2>${githubRepo[status.index]}</h2>
                                 </div>
                                 <div class="row">
                                     <p class="item-intro text-muted">Intro tekst</p>
@@ -158,18 +189,23 @@
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
+                                    <form method="post" action="stemmer">
                                                 <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
+                                		        <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                                    <input type="radio" id="star5${x}" name="rate" value="5" />
+                                                <label for="star5${x}" title="text">5 stars</label>
+                                                <input type="radio" id="star4${x}" name="rate" value="4" />
+                                                <label for="star4${x}" title="text">4 stars</label>
+                                                <input type="radio" id="star3${x}" name="rate" value="3" />
+                                                <label for="star3${x}" title="text">3 stars</label>
+                                                <input type="radio" id="star2${x}" name="rate" value="2" />
+                                                <label for="star2${x}" title="text">2 stars</label>
+                                                <input type="radio" id="star1${x}" name="rate" value="1" />
+                                                <label for="star1${x}" title="text">1 star</label>
                                                 </div>
+
+                                                <input type="submit" value="stem" name="Stemme">
+                                    </form>
                                 </div>
                                 <div class="row justify-content-md-between">
                                     <div class="col-md-3">
@@ -191,30 +227,9 @@
                 </div>
             </div>
             <c:set value="${x+1}" var="x"></c:set>
-                                    </c:forEach>
-                                    <article>
-                                        <center>
-                                            <!--         HER LIGGER RATINGEN       	
-                                                <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                                </div>
-                                            -->
-                                            <br>
-                                            <br>                  
-                                        </center>
-                                    </article>
-                                    <br>
-                                    <br>
-                                    <br>
+            </c:forEach>
+            <br>
+            <br>
         </div>
 
         <div class="footer">

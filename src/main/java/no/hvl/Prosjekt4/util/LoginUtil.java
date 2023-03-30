@@ -10,12 +10,13 @@ public class LoginUtil {
 		session.invalidate();
 	}
 
-	public static void loggInnBruker(HttpServletRequest request, String brukernavn, String passord) {
+	public static void loggInnBruker(HttpServletRequest request, String brukernavn, String passord, String rolle) {
 		// Logger ut bruker før den logger inn igjen slik at vi ikke får problemer med
 		// autentisering
 		HttpSession http = request.getSession();
 		http.setAttribute("passord", passord);
 		http.setAttribute("brukernavn", brukernavn);
+		http.setAttribute("rolle", rolle);
 		// Setter tiden man maks kan være inaktiv i sekunder.
 		http.setMaxInactiveInterval(120);
 

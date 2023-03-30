@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,9 +20,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import org.springframework.web.servlet.support.RequestContextUtils;
 
+import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
@@ -28,7 +34,6 @@ import no.hvl.Prosjekt4.util.RatingRepo;
 import no.hvl.Prosjekt4.entity.Ratings;
 
 @Controller
-@RequestMapping("personsside")
 public class PersonsideController {
 
     @Autowired
@@ -43,7 +48,7 @@ public class PersonsideController {
     @Autowired
     private RatingRepo ratingRepo;
 
-    @GetMapping
+    @GetMapping("/personsside")
     public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
@@ -79,10 +84,42 @@ public class PersonsideController {
             model.addAttribute("api", test);
 
             model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
+
+            List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
+            List<String> prosjektidListe = new ArrayList<>();
+            for (Prosjektliste p : prosjekter) {
+                prosjektidListe.add(p.getProsjektid());
+            }
+            model.addAttribute("prosjektId", prosjektidListe);
         } else {
             return "landingpage";
         }
         return "personside";
+    }
+
+    @PostMapping("stemmer")
+    public String postBody(@RequestParam("id") String id, @RequestParam("rate") String Stemme) {
+        System.out.println("Stemmer på prosjekt: " + id);
+        System.out.println(Stemme);
+        System.out.println("Postmapping funker!");
+        return "redirect:personsside";
+    }
+
+    @PostMapping("/slettpost")
+    @Transactional
+    public String slettProsjekt(@RequestParam("id") String slett) {
+        prosjektRepo.deleteByProsjektid(slett);
+        return "redirect:" + "personsside";
+    }
+
+    @PostMapping("/leggtilpost")
+    public String leggTilProsjekt(@RequestParam("brukerid") String brukerid,
+            @RequestParam("tittel") String tittel,
+            @RequestParam("prosjektlink") String prosjektlink) {
+        Prosjektliste p = new Prosjektliste(brukerid, tittel, prosjektlink);
+        prosjektRepo.save(p);
+
+        return "redirect:" + "personsside";
     }
 
     public String splitBrukernavn(String id) {
