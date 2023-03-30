@@ -36,4 +36,6 @@ public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
 	
 	void deleteByProsjektid(String prosjektid);
 	List<Prosjektliste> findProsjektByBrukerid(String id);
+	Prosjektliste findByProsjektid(String users);
+	
 }
