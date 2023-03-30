@@ -16,68 +16,68 @@
             <p>Velkommen til Ingienørdene</p>
             <div id="navbar">
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
-                        <a class="active" href="personsside/petter">Petter</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/petter">Petter</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                <a class="active" href="personsside/petter">Petter</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/petter">Petter</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
-                        <a class="active" href="personsside/fredrik">Fredrik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/fredrik">Fredrik</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                <a class="active" href="personsside/fredrik">Fredrik</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/fredrik">Fredrik</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-                        <a class="active" href="personsside/kristoffer">Kristoffer</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/kristoffer">Kristoffer</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/kristoffer">Kristoffer</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-                        <a class="active" href="personsside/trym">Trym</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/trym">Trym</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                <a class="active" href="personsside/trym">Trym</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/trym">Trym</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-                        <a class="active" href="personsside/oskar">Oskar</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/oskar">Oskar</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                <a class="active" href="personsside/oskar">Oskar</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/oskar">Oskar</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Torben Lund'}">
-                        <a class="active" href="personsside/torben">Torben</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/torben">Torben</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Torben Lund'}">
+                <a class="active" href="personsside/torben">Torben</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/torben">Torben</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-                        <a class="active" href="personsside/eirik">Eirik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirik">Eirik</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                <a class="active" href="personsside/eirik">Eirik</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/eirik">Eirik</a> 
+                </c:otherwise>
                 </c:choose>
                 <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-                        <a class="active" href="personsside/eirikl">Eirik L</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirikl">Eirik L</a> 
-                    </c:otherwise>
+                <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                <a class="active" href="personsside/eirikl">Eirik L</a> 
+                </c:when>
+                <c:otherwise>
+                <a href="personsside/eirikl">Eirik L</a> 
+                </c:otherwise>
                 </c:choose>
             </div>
         </div>
@@ -91,11 +91,11 @@
                 <hr class="solid">
                 <br>
                 <c:out value = "${bio}"/>
+                <p> Velkommen til min portfolio. Under ser dere alle mine fantastiske prosjekter! </p>
                 <br>
             </center>
             <c:set value="0" var="x"></c:set>
             <br>
-            <c:set value="https://raw.githubusercontent.com/" var="bilde"></c:set>
             <section id="portfolio">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -113,49 +113,18 @@
                                             <i class="fa fa-plus fa-3x"></i>
                                         </div>
                                     </div>
-                                    <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
+                                    <img src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" class="img-fluid" alt="">
                                 </a>
                                 <div class="portfolio-caption">
-                                    <h4>${githubRepo[status.index]}</h4>
+                                    <h4>${i}</h4>
                                     <p class="text-muted">${brukernavn}</p>
                                 </div>
-                                
-                                <%
-                                String rolle = (String)session.getAttribute("rolle");
-                                if(rolle != null && rolle.equals("Admin")) {
-                                	%> 
-                                	<form method="post" action="slettpost">
-                                		<input type="hidden" name="id" value="${prosjektId[status.index]}" />
-                                		<input type="submit" value="Slett" name="slett"/>
-                                	</form>
-                                	
-                                	<%
-                                }
-                                %>
                             </div>
                         </div>
                         <c:set value="${x+1}" var="x"></c:set>
                         </c:forEach>
                     </div>
                 </div>
-                <%
-                                String rolle = (String)session.getAttribute("rolle");
-                                if(rolle != null && rolle.equals("Admin")) {
-                                	%>
-                                	<form method="post" action ="leggtilpost">
-                                		<label for="brukerid">Brukerid</label> 
-                                		<input type="text" name="brukerid" id="brukerid" />
-                                		<br>
-                                		<label for="tittel">Tittel</label> 
-                                		<input type="text" name="tittel" id="tittel" />
-                                		<br>
-                                		<label for="prosjektlink">Prosjektlink</label> 
-                                		<input type="text" name="prosjektlink" id="prosjektlink" />
-                                		<input type="submit" value="Legg til" name="leggtil">
-                                	</form>
-                                	<%
-                                }
-                                %>
             </section>
 
 
@@ -164,61 +133,53 @@
             <!--Dette er seksjonen til modal-->
             <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
-                    <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal">
-                            <div class="lr">
-                                <div class="rl">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="modal-body">
-                                <div class="row">
-                                    <h2>${githubRepo[status.index]}</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="item-intro text-muted">Intro tekst</p>
-                                </div>
-                                <div class="row">
-                                    <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
-
-                                </div>
-                                <div class="row">
-                                    <c:out value="${api[status.index]}"/> 
-                                    <p>
-                                </div>
-                                <!-- Stemmesystem-->
-                                <div class="row justify-content-md-between">
-                                                <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                                </div>
-                                </div>
-                                <div class="row justify-content-md-between">
-                                    <div class="col-md-3">
-                                        <h4>Dato: Juli 2022</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>${brukernavn}</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>Kategori: Grafisk</li>
-                                    </div>
-                                </div>
-                                <hr>
-                                <br>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                        <div class="lr">
+                            <div class="rl">
                             </div>
                         </div>
                     </div>
+                    <div class="container">
+                                <div class="modal-body">
+                                    <div class="row">
+                                    <h2>Project Name</h2>
+                                    </div>
+                                    <div class="row">
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    </div>
+                                    <div class="row">
+                                        <img class="img-fluid" src="https://unsplash.imgix.net/uploads%2F1411419068566071cef10%2F7562527b?q=75&w=1080&h=1080&fit=max&fm=jpg&auto=format&s=240c45655f09c546232a6f106688e502" alt="">
+                                    
+                                    </div>
+                                    <div class="row">
+                                        <c:out value="${api[status.index]}"/> 
+                                    <p>
+                                    </div>
+                                    <ul class="list-inline">
+                                        <li>Date: July 2014</li>
+                                        <li>Client: Round Icons</li>
+                                        <li>Category: Graphic Design</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="row justify-content-center">
+                                        <div class="col">
+                                        <h4>Date: July 2014</li>
+                                        </div>
+                                        <div class="col">
+                                        <h4>Client: Round Icons</li>
+                                        </div>
+                                        <div class="col">
+                                        <h4>Category: Graphic Design</li>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                                    </div>
+                                </div>
+                    </div>
+                </div>
                 </div>
             </div>
             <c:set value="${x+1}" var="x"></c:set>
@@ -285,6 +246,5 @@
     <script type = "text/javascript" src="./sticky.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./bootstrap.bundle.min.js"></script>
-    <script src="./altBilde.js"></script>
 
 </html>
