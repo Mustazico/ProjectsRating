@@ -44,6 +44,7 @@ public class PersonsideController {
     private RatingRepo ratingRepo;
 
     @GetMapping("/personsside")
+    @Transactional
     public String visPersonside(HttpServletRequest request, Model model) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
@@ -61,10 +62,14 @@ public class PersonsideController {
             List<String> test = new ArrayList<>();
             List<String> githubbrukernavn = new ArrayList<>();
             List<String> repo = new ArrayList<>();
-            for (String s : users) {
 
+            for (String s : users) {
+                System.out.println(s);
                 try {
-                    test.add(api.kallReadMeApi(s));
+                    // Henter readme fra github og pusher til database.
+                    Prosjektliste p = prosjektRepo.findByProsjektid(s);
+                    test.add(p.getReadme());
+
                     githubbrukernavn.add(splitBrukernavn(s));
                     repo.add(splitRepo(s));
                     System.out.println(githubbrukernavn);
@@ -147,6 +152,36 @@ public class PersonsideController {
         Prosjektliste p = new Prosjektliste(brukerid, tittel, prosjektlink);
         prosjektRepo.save(p);
 
+        return "redirect:" + "personsside";
+    }
+
+    @PostMapping("/synkroniser")
+    public String synkroniserReadme(HttpServletRequest request, Model model) {
+        System.out.println("jeg kjører ikke fordi input er null");
+        List<String> test = new ArrayList<>();
+        List<Prosjektliste> prosjekter = prosjektRepo.findAll();
+        List<String> prosjektIdListe = new ArrayList<>();
+        for (Prosjektliste p : prosjekter) {
+            String prosjektId = p.getProsjektid();
+            prosjektIdListe.add(prosjektId);
+        }
+
+        for (String s : prosjektIdListe) {
+            try {
+                // Henter readme fra github og pusher til database.
+                String readme = api.kallReadMeApi(s);
+                Prosjektliste p = prosjektRepo.findByProsjektid(s);
+                p.setReadme(readme);
+                prosjektRepo.save(p);
+                test.add(p.getReadme());
+                System.out.println("JEg er fra try statementen:" + p);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            model.addAttribute("api", test);
+        }
         return "redirect:" + "personsside";
     }
 

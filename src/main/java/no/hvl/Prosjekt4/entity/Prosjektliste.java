@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +22,9 @@ public class Prosjektliste {
 	private String antallstemmer;
 	private Double gjennomsnittrating;
 	
+	@Lob
+	private String readme;
+	
 
 	
 	public Prosjektliste() {
@@ -31,6 +35,7 @@ public class Prosjektliste {
 		this.brukerid = brukerid; 
 		this.tittel = tittel;
 		this.prosjektlink = prosjektlink;
+		this.readme = readme; 
 	}
 
 	public String getBrukerid() {
@@ -80,6 +85,16 @@ public class Prosjektliste {
 
 	public void setProsjektid(String prosjektid) {
 		this.prosjektid = prosjektid;
+	}
+	
+	
+
+	public String getReadme() {
+		return readme;
+	}
+
+	public void setReadme(String readme) {
+		this.readme = readme;
 	}
 
 	@Override

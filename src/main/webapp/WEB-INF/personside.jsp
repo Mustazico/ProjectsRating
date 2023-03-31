@@ -84,7 +84,18 @@
 
         <div class="content">
             <center>
-                <h1>${brukernavn}</h1>
+			<%
+                                String role = (String)session.getAttribute("rolle");
+                                if(role != null && role.equals("Admin")) {
+                                	%>
+			<form method="post" action="synkroniser">
+				<input type="submit" value="Synkroniser Readme nå" name="synk">
+			</form>
+			<%
+			}
+			%>
+
+			<h1>${brukernavn}</h1>
                 <img class="profil" src=${profilbilde} alt="Loading picture...">
                 <br>
                 <br>
@@ -124,6 +135,8 @@
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
                                 	%> 
+                                	
+                                	
                                 	<form method="post" action="slettpost">
                                 		<input type="hidden" name="id" value="${prosjektId[status.index]}" />
                                 		<input type="submit" value="Slett" name="slett"/>

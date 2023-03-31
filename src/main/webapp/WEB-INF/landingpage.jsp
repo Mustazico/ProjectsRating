@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="text/javascript" src="apicall.js"></script>
         <link rel="stylesheet" href="personside.css" />
+        <link rel="stylesheet" href="./bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
         <title>portfolio</title>
         </head>
@@ -102,7 +103,141 @@
             </p>
 			<p>${msg} </p>
             <br>
-            
+           
+           
+           
+            <section id="portfolio">
+                <div class="container">
+                    <div class="row justify-content-center">
+                    <c:set value="0" var="x"></c:set>
+                        <c:forEach var = "i"  items="${lenker}" varStatus="status">
+                        	<!--Html for kortet til prosjektet-->
+                        	<c:if test = "${(x % 3) == 3}">
+                    </div>
+                    <div class="row justify-content-center">
+                        	</c:if>
+                        	<div class="col-md-4">
+                            	<div class="portfolio-item">
+                                	<a data-bs-target="#${x}" class="portfolio-link" data-bs-toggle="modal">
+                                    	<div class="portfolio-hover">
+                                        	<div class="portfolio-hover-content">
+                                            	<i class="fa fa-plus fa-3x"></i>
+                                        	</div>
+                                    	</div>
+                                    	<img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
+                                	</a>
+                                	<div class="portfolio-caption">
+                                    	<h4>${githubRepo[status.index]}</h4>
+                                    	<p class="text-muted">${brukernavn[x]}</p>
+                                	</div>
+                                	<%
+                                		String rolle = (String)session.getAttribute("rolle");
+                                		if(rolle != null && rolle.equals("Admin")) {
+                                	%> 
+                                	<form method="post" action="slettpost">
+                                		<input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                		<input type="submit" value="Slett" name="slett"/>
+                                	</form>
+                                	
+                                	<%
+                                		}
+                                	%>
+                            	</div>
+                        	</div>
+                        	<c:set value="${x+1}" var="x"></c:set>
+                      </c:forEach>
+                    </div>
+                </div>
+                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                	%>
+                                	<form method="post" action ="leggtilpost">
+                                		<label for="brukerid">Brukerid</label> 
+                                		<input type="text" name="brukerid" id="brukerid" />
+                                		<br>
+                                		<label for="tittel">Tittel</label> 
+                                		<input type="text" name="tittel" id="tittel" />
+                                		<br>
+                                		<label for="prosjektlink">Prosjektlink</label> 
+                                		<input type="text" name="prosjektlink" id="prosjektlink" />
+                                		<input type="submit" value="Legg til" name="leggtil">
+                                	</form>
+                                	<%
+                                }
+                                %>
+            </section>
+
+
+            <c:set value="0" var="x"></c:set>
+            <c:forEach var = "i"  items="${lenker}" varStatus="status">
+            <!--Dette er seksjonen til modal-->
+            <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-fullscreen">
+                    <div class="modal-content">
+                        <div class="close-modal" data-bs-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <h2>${githubRepo[status.index]}</h2>
+                                </div>
+                                <div class="row">
+                                    <p class="item-intro text-muted">Intro tekst</p>
+                                </div>
+                                <div class="row">
+                                    <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
+
+                                </div>
+                                <div class="row">
+                                    <c:out value="${api[status.index]}"/> 
+                                    <p>
+                                </div>
+                                <!-- Stemmesystem-->
+                                <div class="row justify-content-md-between">
+                                                <div class="rate">
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                                </div>
+                                </div>
+                                <div class="row justify-content-md-between">
+                                    <div class="col-md-3">
+                                        <h4>Dato: Juli 2022</li>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h4>${brukernavn}</li>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h4>Kategori: Grafisk</li>
+                                    </div>
+                                </div>
+                                <hr>
+                                <br>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <c:set value="${x+1}" var="x"></c:set>
+                                    </c:forEach>
+           
+           
+           
+           
+           
             <br>
             <br>
         </div>
@@ -140,4 +275,6 @@
     </body>
 
     <script type = "text/javascript" src="./sticky.js"></script>
+    <script src="./boostrap.bundle.min.js"></script>
+    <script src="./altBilde.js"></script>
 </html>
