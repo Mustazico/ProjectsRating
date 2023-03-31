@@ -114,10 +114,8 @@ public class PersonsideController {
 
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
-
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
-            System.out.println("jeg har blitt kjørt");
             ratingRepo.save(gjeldende);
             return "redirect:/personsside";
         } else {
