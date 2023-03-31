@@ -98,7 +98,7 @@ public class PersonsideController {
     }
 
     @PostMapping("/stemmer")
-    public String stemPaProsjekt(String prosjektid, HttpServletRequest request,
+    public String stemPaProsjekt(@RequestParam("id") String prosjektid, HttpServletRequest request,
             @RequestParam("rate") String verdi,
             RedirectAttributes ra,
             HttpSession session, Model model) {
@@ -114,29 +114,23 @@ public class PersonsideController {
 
         String brukernavn = (String) session.getAttribute("brukernavn");
         System.out.println(brukernavn);
-        Ratings stemme = new Ratings(prosjektid, brukernavn, verdi);
-
-        Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
-        if (inputFlashMap != null) {
-            String id = (String) inputFlashMap.get("id");
-            List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
-            List<String> prosjektList = new ArrayList<>();
-            for (Prosjektliste p : prosjekter) {
-                prosjektList.add(p.getProsjektid());
-                System.out.println(id);
-
-            }
-
+        Ratings gjeldendeRating = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
+        if (gjeldendeRating != null) {
+            // Handle the case where the current user has already rated this project
+            // For example, you could return an error message or take some other action
+            ra.addFlashAttribute("errorMessage", "Du har allerede gitt en vurdering for dette prosjektet");
+            return "redirect:" + "personsside";
+        } else {
+            // Create a new rating object and save it to the database
+            Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
+            nyRating.setProsjektid(prosjektid);
+            nyRating.setBrukerid(brukernavn);
+            nyRating.setVerdi(verdi);
+            ratingRepo.save(nyRating);
+            return "redirect:personsside";
         }
-        stemme.setProsjektid("7");
-        stemme.setBrukerid(brukernavn);
-        stemme.setVerdi(verdi);
-        System.out.println("Homo");
-        // ra.addFlashAttribute("Message", "Takk for din stemme");
-        ratingRepo.save(stemme);
-        return "redirect:personsside";
-
     }
+    // ra.addFlashAttribute("Message", "Takk for din stemme");
 
     @PostMapping("/slettpost")
     @Transactional
