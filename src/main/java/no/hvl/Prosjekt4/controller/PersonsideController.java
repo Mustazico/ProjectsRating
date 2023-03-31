@@ -113,13 +113,23 @@ public class PersonsideController {
         }
 
         String brukernavn = (String) session.getAttribute("brukernavn");
-        Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
-        nyRating.setProsjektid(prosjektid);
-        nyRating.setBrukerid(brukernavn);
-        nyRating.setVerdi(verdi);
-        ratingRepo.save(nyRating);
-        return "redirect:"+"personsside";
+        Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
+
+        if (gjeldende != null) {
+            gjeldende.setVerdi(verdi);
+            System.out.println("jeg har blitt kjørt");
+            ratingRepo.save(gjeldende);
+            return "redirect:/personsside";
+        } else {
+            Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
+            nyRating.setProsjektid(prosjektid);
+            nyRating.setBrukerid(brukernavn);
+            nyRating.setVerdi(verdi);
+            ratingRepo.save(nyRating);
+            return "redirect:/personsside";
         }
+
+    }
 
     @PostMapping("/slettpost")
     @Transactional
