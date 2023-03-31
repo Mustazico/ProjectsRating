@@ -14,11 +14,21 @@ public class BrukerService {
 	@Autowired
 	private JPARepo brukerRepo; 
 	
+	@Autowired
+	private ProsjektRepo prosjektRepo;
+	
 	public List<Brukere> finnAlleBrukere() {
 		return brukerRepo.findAll();
 	}
 	public boolean erBrukerAdmin(String mobil) {
 		Brukere bruker = brukerRepo.findByMobil(mobil);
 		return bruker != null && bruker.getRolle().equals("Admin");
+	}
+	public String getBrukernavnByProsjektId(String prosjektId) {
+		String brukerid = prosjektRepo.findBrukeridByProsjektid(prosjektId);
+		int b = Integer.parseInt(brukerid);
+		return brukerRepo.findBrukernavnById(b);
+		
+		
 	}
 }
