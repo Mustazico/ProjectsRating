@@ -1,6 +1,5 @@
 package no.hvl.Prosjekt4.controller;
 
-import java.lang.ProcessBuilder.Redirect;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,6 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 import javax.transaction.Transactional;
 
@@ -17,14 +15,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import org.springframework.web.servlet.support.RequestContextUtils;
-
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
@@ -97,12 +92,45 @@ public class PersonsideController {
         return "personside";
     }
 
-    @PostMapping("stemmer")
-    public String postBody(@RequestParam("id") String id, @RequestParam("rate") String Stemme) {
-        System.out.println("Stemmer på prosjekt: " + id);
-        System.out.println(Stemme);
+    @PostMapping("/stemmer")
+    public String stemPaProsjekt(String prosjektid, HttpServletRequest request,
+            @RequestParam("rate") String verdi,
+            RedirectAttributes ra,
+            HttpSession session, Model model) {
+
+        System.out.println("Stemmer på prosjekt: ");
+        System.out.println("Med rating: " + verdi);
         System.out.println("Postmapping funker!");
+
+        if (!LoginUtil.erBrukerInnlogget(session)) {
+            ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
+            return "redirect:" + "logginn";
+        }
+
+        String brukernavn = (String) session.getAttribute("brukernavn");
+        System.out.println(brukernavn);
+        Ratings stemme = new Ratings(prosjektid, brukernavn, verdi);
+
+        Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
+        if (inputFlashMap != null) {
+            String id = (String) inputFlashMap.get("id");
+            List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
+            List<String> prosjektList = new ArrayList<>();
+            for (Prosjektliste p : prosjekter) {
+                prosjektList.add(p.getProsjektid());
+                System.out.println(id);
+
+            }
+
+        }
+        stemme.setProsjektid("7");
+        stemme.setBrukerid(brukernavn);
+        stemme.setVerdi(verdi);
+        System.out.println("Homo");
+        // ra.addFlashAttribute("Message", "Takk for din stemme");
+        ratingRepo.save(stemme);
         return "redirect:personsside";
+
     }
 
     @PostMapping("/slettpost")
@@ -134,27 +162,6 @@ public class PersonsideController {
         String[] deler = lenke.split("/");
         String repo = deler[4];
         return repo;
-    }
-
-    @PostMapping("/stem")
-    public String stemPaProsjekt(
-            @RequestParam(name = "brukernavn") String brukernavn,
-            @RequestParam(name = "prosjektId") String prosjektId,
-            @RequestParam(name = "rating") String rating,
-            RedirectAttributes ra,
-            HttpSession session) {
-
-        Ratings stemme = new Ratings(brukernavn, prosjektId, rating);
-
-        if (LoginUtil.erBrukerInnlogget(session)) {
-            ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
-            return "redirect" + "logginn";
-        }
-
-        ra.addFlashAttribute("Message", "Takk for din stemme");
-        ratingRepo.save(stemme);
-        return "landingpage";
-
     }
 
 }

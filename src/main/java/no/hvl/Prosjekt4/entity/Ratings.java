@@ -7,18 +7,18 @@ import javax.persistence.Table;
 @Entity
 @Table(schema = "prosjekt4")
 public class Ratings {
+
 	@Id
-	private String prosjektid; 
-	
-	private String brukerid; 
+	private String prosjektid;
+	private String brukerid;
 	private String verdi;
-	
+
 	public Ratings() {
-		
+
 	}
-	
+
 	public Ratings(String prosjektid, String brukerid, String verdi) {
-		
+
 	}
 
 	public String getProsjektid() {
@@ -44,7 +44,5 @@ public class Ratings {
 	public void setVerdi(String verdi) {
 		this.verdi = verdi;
 	}
-	
-	
-	
+
 }
