@@ -113,24 +113,13 @@ public class PersonsideController {
         }
 
         String brukernavn = (String) session.getAttribute("brukernavn");
-        System.out.println(brukernavn);
-        Ratings gjeldendeRating = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
-        if (gjeldendeRating != null) {
-            // Handle the case where the current user has already rated this project
-            // For example, you could return an error message or take some other action
-            ra.addFlashAttribute("errorMessage", "Du har allerede gitt en vurdering for dette prosjektet");
-            return "redirect:" + "personsside";
-        } else {
-            // Create a new rating object and save it to the database
-            Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
-            nyRating.setProsjektid(prosjektid);
-            nyRating.setBrukerid(brukernavn);
-            nyRating.setVerdi(verdi);
-            ratingRepo.save(nyRating);
-            return "redirect:personsside";
+        Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
+        nyRating.setProsjektid(prosjektid);
+        nyRating.setBrukerid(brukernavn);
+        nyRating.setVerdi(verdi);
+        ratingRepo.save(nyRating);
+        return "redirect:"+"personsside";
         }
-    }
-    // ra.addFlashAttribute("Message", "Takk for din stemme");
 
     @PostMapping("/slettpost")
     @Transactional
