@@ -4,15 +4,16 @@
         <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="text/javascript" src="apicall.js"></script>
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
         <link rel="stylesheet" href="personside.css" />
         <link rel="stylesheet" href="./bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
-        <title>portfolio</title>
+        <title>Forside</title>
         </head>
     <body>
         <div class="header">
             <h1>Portfolio side</h1>
-            <p>De beste ingenerdene i bergen by</p>
+            <p>De beste ingeniørdene i Bergen by</p>
         <div id="navbar">
             <c:choose>
             <c:when test = "${brukernavn == 'Petter Tesdal'}">
@@ -85,19 +86,19 @@
             <h1>Hils på gjengen</h1>
             <img class=introbilde src="./gruppeBilde(ute).jpg">
             <p>
-            Vi er en gjeng med dataingienører som har studert
-            sammen på "haugskolen på vestlandet". Som et av våres prosjekt
-            var å lære å jobbe sammen i en gruppe, og vi bestemte oss for å
-            opprette en nettside hvor vi kunne vise fram egenskapene våres og
+            Vi er en gjeng med dataingeniørder som studerer
+            sammen på Høgskulen på Vestlandet. Prosjektet våres
+            er å lære å jobbe sammen i team og benytte oss av utviklingsmetoder. Vi bestemte oss for å
+            opprette en nettside hvor vi kan vise fram egenskapene våres og
             evne til å utforde våres egne kunnskaper.
             Denne nettsiden er laget ganske mer avansert en det som er planlagt
-            for studie og målet er at den skal kunne være god og brukbar i langtid etterpå.
+            for studie og målet er at den skal kunne være god og brukbar i ettertid.
             </p>
             <br>
             <p>
             Som bruker på denne nettsiden kan du klikke på et av våres navn for å
             få opp en beskrivelse av den personen og en liste av deres prosjekter,
-            hvis du er ekstra engasjert kan du tilogmed gi en vurdering på de,
+            hvis du er ekstra engasjert kan du til og med gi en vurdering på personen,
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
@@ -256,11 +257,11 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
+                    <div><b>Studenter</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 Prosjekt 4</p>
+                    <p>©2023 Kenneth</p>
                 </div>
             </div>
         </div>

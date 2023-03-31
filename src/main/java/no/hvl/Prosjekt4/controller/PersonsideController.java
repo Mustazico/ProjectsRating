@@ -49,13 +49,11 @@ public class PersonsideController {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
             String id = (String) inputFlashMap.get("id");
-            System.out.println(id);
             model.addAttribute("id", id);
             int newId = Integer.parseInt(id);
             model.addAttribute(brukerRepo.findById(newId));
             List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
             model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
-            System.out.println(brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
             List<String> users = prosjektRepo.findUsersProsjektid(id);
@@ -64,7 +62,6 @@ public class PersonsideController {
             List<String> repo = new ArrayList<>();
 
             for (String s : users) {
-                System.out.println(s);
                 try {
                     // Henter readme fra github og pusher til database.
                     Prosjektliste p = prosjektRepo.findByProsjektid(s);
@@ -72,8 +69,6 @@ public class PersonsideController {
 
                     githubbrukernavn.add(splitBrukernavn(s));
                     repo.add(splitRepo(s));
-                    System.out.println(githubbrukernavn);
-                    System.out.println(repo);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -103,10 +98,7 @@ public class PersonsideController {
             RedirectAttributes ra,
             HttpSession session, Model model) {
 
-        System.out.println("Stemmer på prosjekt: ");
-        System.out.println("Med rating: " + verdi);
-        System.out.println("Postmapping funker!");
-
+       
         if (!LoginUtil.erBrukerInnlogget(session)) {
             ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
             return "redirect:" + "logginn";
@@ -148,7 +140,6 @@ public class PersonsideController {
 
     @PostMapping("/synkroniser")
     public String synkroniserReadme(HttpServletRequest request, Model model) {
-        System.out.println("jeg kjører ikke fordi input er null");
         List<String> test = new ArrayList<>();
         List<Prosjektliste> prosjekter = prosjektRepo.findAll();
         List<String> prosjektIdListe = new ArrayList<>();
@@ -165,7 +156,6 @@ public class PersonsideController {
                 p.setReadme(readme);
                 prosjektRepo.save(p);
                 test.add(p.getReadme());
-                System.out.println("JEg er fra try statementen:" + p);
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -52,12 +52,10 @@ public class LandingsideController {
 		//	String id = (String) inputFlashMap.get("id");
 			String id = "1";
 			model.addAttribute("id", id);
-			System.out.println("thisIsId:" + id);
 			int newId = Integer.parseInt(id);
 			model.addAttribute(brukerRepo.findById(newId));
 			List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
 		//	model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
-			System.out.println(brukerRepo.getBrukernavn(newId));
 			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 			model.addAttribute("lenker", lenker);
 			List<String> prosjektIdListe = prosjektRepo.findUsersProsjektid(id);
@@ -70,8 +68,6 @@ public class LandingsideController {
 					test.add(api.kallReadMeApi(s));
 					githubbrukernavn.add(splitBrukernavn(s));
 					repo.add(splitRepo(s));
-					System.out.println(githubbrukernavn);
-					System.out.println(repo);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -88,20 +84,13 @@ public class LandingsideController {
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 			//Prosjektliste prosjeket = new Prosjektliste();
-			System.out.println(brukerService.getBrukernavnByProsjektId("8"));
 
 			for (Prosjektliste p : prosjekt) {
 				prosjektidListe.add(prosjektRepo.findProsjektid(p));
 		//		 individuelle prosjekt - finn en måte å hente ut brukernavnet til prosjektet
-				System.out.println(prosjektidListe);
 				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(p.getProsjektid()));
 			
 			}
-	//		for (String b : prosjektidListe) {
-			//			int c = Integer.parseInt(b) ;
-			//	brukernavnListe.add(brukerRepo.getBrukernavn(c));
-			//	System.out.println(brukernavnListe);
-			//}
 			
 			model.addAttribute("prosjektId", prosjektidListe);
 			model.addAttribute("brukernavn", brukernavnListe);
