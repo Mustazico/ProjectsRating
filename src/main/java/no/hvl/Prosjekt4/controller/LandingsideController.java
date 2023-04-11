@@ -75,8 +75,6 @@ public class LandingsideController {
 				}
 			}
 			
-			RatingsUtil ratingsUtil = new RatingsUtil();
-			ratingsUtil.sortedByRatings(prosjektRepo, "8");
 			
 
 			model.addAttribute("githubBrukernavn", githubbrukernavn);
