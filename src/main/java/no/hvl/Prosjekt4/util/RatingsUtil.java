@@ -1,10 +1,8 @@
 package no.hvl.Prosjekt4.util;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import java.lang.Math;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.entity.Ratings;
@@ -29,9 +27,17 @@ public class RatingsUtil {
 
 		List<Ratings> liste = repo.findByProsjektid(prosjektId);
 
-		List<Integer> verdiListe = liste.stream().map(x -> x.getVerdi()).map(x -> Integer.parseInt(x)).toList();
+		List<Integer> verdiListe = liste.stream()
+				.map(x -> x.getVerdi())
+				.map(x -> Integer.parseInt(x))
+				.toList();
 
-		Double snitt = verdiListe.stream().mapToInt(Integer::intValue).average().getAsDouble();
+		Double snitt = verdiListe.stream()
+				.mapToInt(Integer::intValue)
+				.average()
+				.getAsDouble();
+
+		snitt = Math.round(snitt * 10.0) / 10.0;
 
 		retur += snitt;
 
