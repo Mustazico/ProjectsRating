@@ -56,6 +56,8 @@ public class LandingsideController {
  * @return String som er navnet på html-siden som skal vises.
  * @throws Exception kan kaste en exception.
 */
+	@GetMapping
+	@Transactional
 	public String visLandingpage(Model model, HttpSession session, HttpServletRequest request) throws Exception {
 
 		
