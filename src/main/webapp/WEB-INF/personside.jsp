@@ -123,6 +123,7 @@
                                     <div class="portfolio-hover">
                                         <div class="portfolio-hover-content">
                                             <i class="fa fa-plus fa-3x"></i>
+                                            <p class="gjennomsnitt"> 	&#11088 ${gjsnittrating[status.index]} / 5.0</p>
                                         </div>
                                     </div>
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
@@ -130,6 +131,7 @@
                                 <div class="portfolio-caption">
                                     <h4>${githubRepo[status.index]}</h4>
                                     <p class="text-muted">${brukernavn}</p>
+                                    
                                 </div>
                                 
                                 <%
