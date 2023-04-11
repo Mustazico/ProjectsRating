@@ -1,6 +1,8 @@
 package no.hvl.Prosjekt4.util;
 
 import java.util.ArrayList;
+import java.lang.Math;
+import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,6 +30,9 @@ public class RatingsUtil {
 		List<Integer> verdiListe = liste.stream().map(x -> x.getVerdi()).map(x -> Integer.parseInt(x)).toList();
 		
 		Double snitt = verdiListe.stream().mapToInt(Integer::intValue).average().getAsDouble();
+		
+		DecimalFormat df = new DecimalFormat("#.#");
+        snitt = Double.parseDouble(df.format(snitt));
 		
 		retur += snitt;
 		
