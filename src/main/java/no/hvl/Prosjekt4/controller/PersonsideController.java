@@ -61,12 +61,14 @@ public class PersonsideController {
             List<String> test = new ArrayList<>();
             List<String> githubbrukernavn = new ArrayList<>();
             List<String> repo = new ArrayList<>();
+            List<String> gjennomsnittrating = new ArrayList<>();
 
             for (String s : users) {
                 try {
                     // Henter readme fra github og pusher til database.
                     Prosjektliste p = prosjektRepo.findByProsjektid(s);
                     test.add(p.getReadme());
+                    gjennomsnittrating.add(p.getGjennomsnittrating());
  
                     githubbrukernavn.add(splitBrukernavn(s));
                     repo.add(splitRepo(s));
@@ -78,7 +80,7 @@ public class PersonsideController {
             model.addAttribute("githubBrukernavn", githubbrukernavn);
             model.addAttribute("githubRepo", repo);
             model.addAttribute("api", test);
-
+            model.addAttribute("gjsnittrating", gjennomsnittrating);
             model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
 
             List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
