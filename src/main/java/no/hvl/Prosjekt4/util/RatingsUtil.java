@@ -9,14 +9,13 @@ import no.hvl.Prosjekt4.entity.Ratings;
 
 public class RatingsUtil {
 	
-	public List<Prosjektliste> sortedByRatings(ProsjektRepo prosjektrepo, String prosjektid) {
-	    List<Prosjektliste> retur = prosjektrepo.findAll();
+	public List<Prosjektliste> sortedByRatings(ProsjektRepo prosjektrepo, String userId) {
+	    List<Prosjektliste> retur = prosjektrepo.findByBrukerid(userId);
 	    
 	    retur.stream()
 	    .sorted((p1, p2) -> p2.getGjennomsnittrating().compareTo(p1.getGjennomsnittrating()));
 	    Collections.reverse(retur);
 	    
-	    retur.stream().map(x->x.getProsjektid()).forEach(System.out::println);
 	    
 	    return retur;
 	}
