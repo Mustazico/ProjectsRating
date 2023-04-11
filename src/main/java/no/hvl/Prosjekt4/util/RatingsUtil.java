@@ -1,10 +1,8 @@
 package no.hvl.Prosjekt4.util;
 
-import java.util.ArrayList;
-import java.lang.Math;
-import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.List;
+import java.lang.Math;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.entity.Ratings;
@@ -31,8 +29,7 @@ public class RatingsUtil {
 		
 		Double snitt = verdiListe.stream().mapToInt(Integer::intValue).average().getAsDouble();
 		
-		DecimalFormat df = new DecimalFormat("#.#");
-        snitt = Double.parseDouble(df.format(snitt));
+		snitt = Math.round(snitt*10.0) / 10.0;
 		
 		retur += snitt;
 		
