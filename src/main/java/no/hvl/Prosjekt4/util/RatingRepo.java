@@ -8,7 +8,9 @@ import no.hvl.Prosjekt4.entity.Ratings;
 
 public interface RatingRepo extends JpaRepository<Ratings, Integer> {
 
-	List<Ratings> findByProsjektid(String id);
+	static List<Ratings> findByProsjektid(String id) {
+		throw new UnsupportedOperationException("Unimplemented method 'findByProsjektid'");
+	}
 
 	boolean existsByBrukerid(int id);
 
