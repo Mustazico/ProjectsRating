@@ -2,6 +2,8 @@ package no.hvl.Prosjekt4.util;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import no.hvl.Prosjekt4.entity.Ratings;

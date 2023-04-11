@@ -40,15 +40,13 @@ public class Prosjektliste {
 	 * Antallstemmer til prosjektet.
 	 */
 	private String antallstemmer;
-	/**
-	 * Gjennomsnittrating til prosjektet.
-	 */
-	private Double gjennomsnittrating;
+	private String gjennomsnittrating;
+	
+	@Lob
+
 	/**
 	 * Readme til prosjektet.
 	 */
-	
-	@Lob
 	private String readme;
 	 
 	/**
@@ -68,7 +66,8 @@ public class Prosjektliste {
 		this.brukerid = brukerid; 
 		this.tittel = tittel;
 		this.prosjektlink = prosjektlink;
-		this.readme = readme; 
+		this.antallstemmer = "0";
+		this.gjennomsnittrating = "0";
 	}
 	//Getters og setters for Prosjektliste.
 
@@ -103,12 +102,18 @@ public class Prosjektliste {
 	public void setAntallstemmer(String antallstemmer) {
 		this.antallstemmer = antallstemmer;
 	}
+	
+	public void incrementStemmer() {
+		int antall = Integer.parseInt(antallstemmer);
+		antall+=1;
+		antallstemmer = "" + antall;
+	}
 
-	public Double getGjennomsnittrating() {
+	public String getGjennomsnittrating() {
 		return gjennomsnittrating;
 	}
 
-	public void setGjennomsnittrating(Double gjennomsnittrating) {
+	public void setGjennomsnittrating(String gjennomsnittrating) {
 		this.gjennomsnittrating = gjennomsnittrating;
 	}
 	

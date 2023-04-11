@@ -26,6 +26,8 @@ import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.RatingRepo;
+import no.hvl.Prosjekt4.util.RatingsService;
+import no.hvl.Prosjekt4.util.RatingsUtil;
 import no.hvl.Prosjekt4.entity.Ratings;
 
 /**
@@ -49,16 +51,12 @@ public class PersonsideController {
     @Autowired
     private RatingRepo ratingRepo;
 
-    /**
-     * Denne metoden håndterer forespørsler om personssiden. Den tar inn en model, en session og en request. Den returnerer en String som er navnet på html-siden som skal vises.
-     * @param request er en request som inneholder informasjon om forespørselen.
-     * @param model er en model som inneholder informasjon som skal vises på siden.
-     * @return String som er navnet på html-siden som skal vises.
-     */
+    @Autowired
+    private RatingsService ru;
 
     @GetMapping("/personsside")
     @Transactional
-    public String visPersonside(HttpServletRequest request, Model model) {
+    public String visPersonside(HttpServletRequest request, Model model, HttpSession session) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
             String id = (String) inputFlashMap.get("id");
@@ -69,17 +67,20 @@ public class PersonsideController {
             model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
+
             List<String> users = prosjektRepo.findUsersProsjektid(id);
             List<String> test = new ArrayList<>();
             List<String> githubbrukernavn = new ArrayList<>();
             List<String> repo = new ArrayList<>();
+            List<String> gjennomsnittrating = new ArrayList<>();
 
             for (String s : users) {
                 try {
                     // Henter readme fra github og pusher til database.
                     Prosjektliste p = prosjektRepo.findByProsjektid(s);
                     test.add(p.getReadme());
- 
+                    gjennomsnittrating.add(p.getGjennomsnittrating());
+
                     githubbrukernavn.add(splitBrukernavn(s));
                     repo.add(splitRepo(s));
                 } catch (Exception e) {
@@ -90,15 +91,22 @@ public class PersonsideController {
             model.addAttribute("githubBrukernavn", githubbrukernavn);
             model.addAttribute("githubRepo", repo);
             model.addAttribute("api", test);
-
+            model.addAttribute("gjsnittrating", gjennomsnittrating);
             model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
 
             List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
             List<String> prosjektidListe = new ArrayList<>();
+            List<String> stjernerGitt = new ArrayList<>();
+            String brukernavn = (String) session.getAttribute("brukernavn");
             for (Prosjektliste p : prosjekter) {
                 prosjektidListe.add(p.getProsjektid());
+                stjernerGitt.add(ru.getStarsForProjectByUser(p.getProsjektid(),
+                        brukernavn));
             }
+            System.out.println(stjernerGitt);
+
             model.addAttribute("prosjektId", prosjektidListe);
+            model.addAttribute("sjernerGitt", stjernerGitt);
         } else {
             return "landingpage";
         }
@@ -116,22 +124,26 @@ public class PersonsideController {
      * @return String som er navnet på html-siden som skal vises.
      */
     @PostMapping("/stemmer")
+    @Transactional
     public String stemPaProsjekt(@RequestParam("id") String prosjektid, HttpServletRequest request,
             @RequestParam("rate") String verdi,
             RedirectAttributes ra,
             HttpSession session, Model model) {
 
-       
         if (!LoginUtil.erBrukerInnlogget(session)) {
             ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
             return "redirect:" + "logginn";
         }
 
+        RatingsUtil ratingsUtil = new RatingsUtil();
+
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
+        Prosjektliste prosjekt = prosjektRepo.findByProsjektid(prosjektid);
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
+            prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
             return "redirect:/personsside";
         } else {
             Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
@@ -139,6 +151,8 @@ public class PersonsideController {
             nyRating.setBrukerid(brukernavn);
             nyRating.setVerdi(verdi);
             ratingRepo.save(nyRating);
+            prosjekt.incrementStemmer();
+            prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
             return "redirect:/personsside";
         }
 
