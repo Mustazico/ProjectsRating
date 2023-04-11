@@ -70,6 +70,12 @@ public class Prosjektliste {
 	public void setAntallstemmer(String antallstemmer) {
 		this.antallstemmer = antallstemmer;
 	}
+	
+	public void incrementStemmer() {
+		int antall = Integer.parseInt(antallstemmer);
+		antall+=1;
+		antallstemmer = "" + antall;
+	}
 
 	public String getGjennomsnittrating() {
 		return gjennomsnittrating;

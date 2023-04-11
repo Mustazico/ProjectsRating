@@ -26,6 +26,7 @@ import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.RatingRepo;
+import no.hvl.Prosjekt4.util.RatingsUtil;
 import no.hvl.Prosjekt4.entity.Ratings;
 
 @Controller
@@ -93,6 +94,7 @@ public class PersonsideController {
     }
 
     @PostMapping("/stemmer")
+    @Transactional
     public String stemPaProsjekt(@RequestParam("id") String prosjektid, HttpServletRequest request,
             @RequestParam("rate") String verdi,
             RedirectAttributes ra,
@@ -103,6 +105,8 @@ public class PersonsideController {
             ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
             return "redirect:" + "logginn";
         }
+        
+        RatingsUtil ratingsUtil = new RatingsUtil();
 
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
@@ -110,6 +114,7 @@ public class PersonsideController {
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
+            prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
             return "redirect:/personsside";
         } else {
             Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
@@ -117,7 +122,8 @@ public class PersonsideController {
             nyRating.setBrukerid(brukernavn);
             nyRating.setVerdi(verdi);
             ratingRepo.save(nyRating);
-            prosjekt.setAntallstemmer(prosjekt.getAntallstemmer()+1);
+            prosjekt.incrementStemmer();
+            prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
             return "redirect:/personsside";
         }
 
