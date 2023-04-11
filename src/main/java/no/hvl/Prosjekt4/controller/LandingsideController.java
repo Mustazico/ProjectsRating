@@ -20,6 +20,7 @@ import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.ProsjektService;
 import no.hvl.Prosjekt4.util.RatingRepo;
+import no.hvl.Prosjekt4.util.RatingsUtil;
 
 @Controller
 @RequestMapping(value = "/landingpage", produces = "text/html;charset=UTF-8")
@@ -42,6 +43,7 @@ public class LandingsideController {
 	@Autowired
 	private ProsjektRepo prosjektRepo;
 
+	@Autowired
 	private RatingRepo ratingRepo;
 
 	@GetMapping
@@ -72,6 +74,7 @@ public class LandingsideController {
 					e.printStackTrace();
 				}
 			}
+			
 
 			model.addAttribute("githubBrukernavn", githubbrukernavn);
 			model.addAttribute("githubRepo", repo);
