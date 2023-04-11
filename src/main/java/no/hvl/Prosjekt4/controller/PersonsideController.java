@@ -94,11 +94,10 @@ public class PersonsideController {
             String brukernavn = (String) session.getAttribute("brukernavn");
             for (Prosjektliste p : prosjekter) {
                 prosjektidListe.add(p.getProsjektid());
-                stjernerGitt.add(ru.getStarsForProjectByUser(p.getProsjektid(),
-                        brukernavn));
             }
+            
+            	 
             System.out.println(stjernerGitt);
-
             model.addAttribute("prosjektId", prosjektidListe);
             model.addAttribute("sjernerGitt", stjernerGitt);
         } else {

@@ -211,18 +211,18 @@
                                 <div class="row justify-content-md-between">
                                     <form method="post" action="stemmer">
                                                 <div class="rate">
-                                		        <input type="hidden" name="id" value="${prosjektId[status.index]}" />
-                                                    <input type="radio" id="star5${x}" name="rate" value="5" <c:if test = "${stjernerGitt[status.index] == 5}"></c:if> checked/>
-                                                <label for="star5${x}" title="text">5 stars</label>
-                                                <input type="radio" id="star4${x}" name="rate" value="4" <c:if test = "${stjernerGitt[status.index] == 4}"> </c:if>checked />
-                                                <label for="star4${x}" title="text">4 stars</label>
-                                                <input type="radio" id="star3${x}" name="rate" value="3" <c:if test = "${stjernerGitt[status.index] == 3}"></c:if> checked/>
-                                                <label for="star3${x}" title="text">3 stars</label>
-                                                <input type="radio" id="star2${x}" name="rate" value="2" <c:if test = "${stjernerGitt[status.index] == 2}"></c:if> checked />
-                                                <label for="star2${x}" title="text">2 stars</label>
-                                                <input type="radio" id="star1${x}" name="rate" value="1" <c:if test = "${stjernerGitt[status.index] == 1}"></c:if> checked/>
-                                                <label for="star1${x}" title="text">1 star</label>
-                                                </div>
+            <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+            <input type="radio" id="star5${x}" name="rate" value="5" <c:if test="${stjernerGitt[status.index] == 5}">checked</c:if>/>
+            <label for="star5${x}" title="text">5 stars</label>
+            <input type="radio" id="star4${x}" name="rate" value="4" <c:if test="${stjernerGitt[status.index] == 4}">checked</c:if>/>
+            <label for="star4${x}" title="text">4 stars</label>
+            <input type="radio" id="star3${x}" name="rate" value="3" <c:if test="${stjernerGitt[status.index] == 3}">checked</c:if>/>
+            <label for="star3${x}" title="text">3 stars</label>
+            <input type="radio" id="star2${x}" name="rate" value="2" <c:if test="${stjernerGitt[status.index] == 2}">checked</c:if>/>
+            <label for="star2${x}" title="text">2 stars</label>
+            <input type="radio" id="star1${x}" name="rate" value="1" <c:if test="${stjernerGitt[status.index] == 1}">checked</c:if>/>
+            <label for="star1${x}" title="text">1 star</label>
+        </div>
 
                                                 <input type="submit" value="stem" name="Stemme">
                                     </form>

@@ -11,14 +11,14 @@ public class RatingsService {
 	@Autowired
 	RatingRepo rp;
 
-	public String getStarsForProjectByUser(String prosjektid, String brukernavn) {
-		Ratings rating = rp.findByProsjektidAndBrukerid(prosjektid, brukernavn);
-		if(rating != null) {
-			rating.getVerdi();
-		} 
-		return null; 
-		
-	} 
+//	public String getStarsForProjectByUser(String prosjektid, String brukernavn) {
+//		Ratings rating = rp.findVerdiByProsjektidAndBrukerid(prosjektid, brukernavn);
+//		if(rating != null) {
+//			rating.getVerdi();
+//		} 
+//		return null; 
+//		
+//	} 
 	
 	
 }
