@@ -2,6 +2,9 @@ package no.hvl.Prosjekt4.util;
 
 import java.util.Collections;
 import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.lang.Math;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
@@ -11,8 +14,11 @@ public class RatingsUtil {
 
 	@Autowired
 	RatingRepo repo;
+	
+	@Autowired
+	ProsjektRepo prosjektrepo;
 
-	public List<Prosjektliste> sortedByRatings(ProsjektRepo prosjektrepo, String userId) {
+	public List<Prosjektliste> sortedByRatings(String userId) {
 		List<Prosjektliste> retur = prosjektrepo.findByBrukerid(userId);
 
 		retur.stream()
@@ -53,5 +59,7 @@ public class RatingsUtil {
 		}
 		return false;
 	}
+	
+	
 
 }
