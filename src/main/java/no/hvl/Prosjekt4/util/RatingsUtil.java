@@ -7,8 +7,19 @@ import java.util.List;
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.entity.Ratings;
 
+/**
+ * RatingsUtil klassen inneholder metoder for å sortere prosjekter etter gjennomsnittrating, 
+ * og for å regne ut gjennomsnittrating for et prosjekt
+ */
+
 public class RatingsUtil {
 	
+	/**
+	 * Returnerer en liste med prosjekter for en gitt bruker, sortert etter gjennomsnittrating i synkende rekkefølge
+	 * @param prosjektrepo er repositoriet for prosjekter
+	 * @param userId er brukerid til brukeren som eier prosjektene
+	 * @return en sortert liste med prosjekter
+	 */
 	public List<Prosjektliste> sortedByRatings(ProsjektRepo prosjektrepo, String userId) {
 	    List<Prosjektliste> retur = prosjektrepo.findByBrukerid(userId);
 	    
@@ -19,6 +30,12 @@ public class RatingsUtil {
 	    
 	    return retur;
 	}
+	/**
+	 * Regner ut gjennomsnittrating for et prosjekt
+	 * @param repo er repositoriet for ratings
+	 * @param prosjektId er prosjektid til prosjektet som skal regnes ut
+	 * @return gjennomsnittratingen til prosjektet
+	 */
 	
 	public String regnUtSnitt(RatingRepo repo, String prosjektId) {
 		String retur = "";

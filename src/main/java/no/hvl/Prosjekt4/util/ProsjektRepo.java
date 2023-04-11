@@ -8,9 +8,30 @@ import org.springframework.data.repository.query.Param;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 
+/**
+ * ProsjektRepo definerer metoder for databaseoperasjoner knyttet til prosjektliste enheten
+ * 
+ */
+
 public interface ProsjektRepo extends JpaRepository<Prosjektliste, Integer>{
+	/**
+	 * Returnerer en Prosjektliste entity ved å søke på tittelen til prosjektet.
+	 * @param tittel er tittelen til prosjektet som skal returneres.
+	 * @return en Prosjektliste entity, null hvis ikke funnet.
+	 */
 	Prosjektliste findByTittel(String tittel);
+	/**
+	 * Returnerer en Prosjektliste entity ved å søke på linken til prosjektet.
+	 * @param prosjektlink er linken til prosjektet som skal returneres.
+	 * @return en Prosjektliste entity, null hvis ikke funnet.
+	 */
 	Prosjektliste findByProsjektlink(String prosjektlink);
+	/**
+	 * Returnerer en liste av Prosjektliste entiteter som er tilknyttet en bruker.
+	 * @param brukerid prosjektid til prosjektet som skal returneres.
+	 * @return en Prosjektliste entitet som er tilknyttet en bruker.
+	 * Likt nedover
+	 */
 	
 	@Query("SELECT p FROM Prosjektliste p WHERE p.brukerid = :brukerid")
 	List<Prosjektliste> findByBrukerid(String brukerid);
