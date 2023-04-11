@@ -106,6 +106,7 @@ public class PersonsideController {
 
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
+        Prosjektliste prosjekt = prosjektRepo.findByProsjektid(prosjektid);
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
@@ -116,6 +117,7 @@ public class PersonsideController {
             nyRating.setBrukerid(brukernavn);
             nyRating.setVerdi(verdi);
             ratingRepo.save(nyRating);
+            prosjekt.setAntallstemmer(prosjekt.getAntallstemmer()+1);
             return "redirect:/personsside";
         }
 

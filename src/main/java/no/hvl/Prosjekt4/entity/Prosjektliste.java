@@ -20,7 +20,7 @@ public class Prosjektliste {
 	private String tittel; 
 	private String prosjektlink;
 	private String antallstemmer;
-	private Double gjennomsnittrating;
+	private String gjennomsnittrating;
 	
 	@Lob
 	private String readme;
@@ -35,7 +35,8 @@ public class Prosjektliste {
 		this.brukerid = brukerid; 
 		this.tittel = tittel;
 		this.prosjektlink = prosjektlink;
-		this.readme = readme; 
+		this.antallstemmer = "0";
+		this.gjennomsnittrating = "0";
 	}
 
 	public String getBrukerid() {
@@ -70,11 +71,11 @@ public class Prosjektliste {
 		this.antallstemmer = antallstemmer;
 	}
 
-	public Double getGjennomsnittrating() {
+	public String getGjennomsnittrating() {
 		return gjennomsnittrating;
 	}
 
-	public void setGjennomsnittrating(Double gjennomsnittrating) {
+	public void setGjennomsnittrating(String gjennomsnittrating) {
 		this.gjennomsnittrating = gjennomsnittrating;
 	}
 	
