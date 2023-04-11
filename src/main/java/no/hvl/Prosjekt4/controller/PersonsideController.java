@@ -66,7 +66,7 @@ public class PersonsideController {
                     // Henter readme fra github og pusher til database.
                     Prosjektliste p = prosjektRepo.findByProsjektid(s);
                     test.add(p.getReadme());
-
+ 
                     githubbrukernavn.add(splitBrukernavn(s));
                     repo.add(splitRepo(s));
                 } catch (Exception e) {
