@@ -267,7 +267,7 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
+                    <div><b>Studenter</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
                     <div></div>
                 </div>
                 <div>
