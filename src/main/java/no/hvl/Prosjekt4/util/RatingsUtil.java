@@ -10,6 +10,11 @@ import java.lang.Math;
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.entity.Ratings;
 
+/**
+ * RatingsUtil klassen inneholder metoder for å sortere prosjekter etter gjennomsnittrating, 
+ * og for å regne ut gjennomsnittrating for et prosjekt
+ */
+
 public class RatingsUtil {
 
 	@Autowired

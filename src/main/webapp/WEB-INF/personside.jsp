@@ -123,7 +123,6 @@
                                     <div class="portfolio-hover">
                                         <div class="portfolio-hover-content">
                                             <i class="fa fa-plus fa-3x"></i>
-                                            <p class="gjennomsnitt"> 	&#11088 ${gjsnittrating[status.index]} / 5.0</p>
                                         </div>
                                     </div>
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
@@ -131,7 +130,6 @@
                                 <div class="portfolio-caption">
                                     <h4>${githubRepo[status.index]}</h4>
                                     <p class="text-muted">${brukernavn}</p>
-                                    
                                 </div>
                                 
                                 <%
@@ -223,6 +221,20 @@
             <input type="radio" id="star1${x}" name="rate" value="1" <c:if test="${stjernerGitt[status.index] == 1}">checked</c:if>/>
             <label for="star1${x}" title="text">1 star</label>
         </div>
+=======
+                                		        <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                                    <input type="radio" id="star5${x}" name="rate" value="5" />
+                                                <label for="star5${x}" title="text">5 stars</label>
+                                                <input type="radio" id="star4${x}" name="rate" value="4" />
+                                                <label for="star4${x}" title="text">4 stars</label>
+                                                <input type="radio" id="star3${x}" name="rate" value="3" />
+                                                <label for="star3${x}" title="text">3 stars</label>
+                                                <input type="radio" id="star2${x}" name="rate" value="2" />
+                                                <label for="star2${x}" title="text">2 stars</label>
+                                                <input type="radio" id="star1${x}" name="rate" value="1" />
+                                                <label for="star1${x}" title="text">1 star</label>
+                                                </div>
+>>>>>>> d7f2b10d3214ffff98bfa519093e72dac1e3261a
 
                                                 <input type="submit" value="stem" name="Stemme">
                                     </form>
@@ -267,7 +279,7 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
+                    <div><b>Studenter</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
                     <div></div>
                 </div>
                 <div>
