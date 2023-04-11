@@ -7,15 +7,22 @@ import org.springframework.data.repository.query.Param;
 import no.hvl.Prosjekt4.entity.Brukere;
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 
-public interface JPARepo extends JpaRepository<Brukere, Integer>{
-	Brukere findByMobil(String mobil); 
-	Brukere findByEpost(String mail);
-	Brukere findByBrukernavn(String brukernavn);
-	Brukere findByRolle(String rolle); 
+public interface JPARepo extends JpaRepository<Brukere, Integer> {
+    Brukere findByMobil(String mobil);
+
+    Brukere findByEpost(String mail);
+
+    Brukere findByBrukernavn(String brukernavn);
+
+    Brukere findByRolle(String rolle);
+
     Brukere findById(int id);
-	boolean existsByMobil(String tlf);
-	boolean existsByEpost(String mail);
-	boolean existsByBrukernavn(String brukernavn);
+
+    boolean existsByMobil(String tlf);
+
+    boolean existsByEpost(String mail);
+
+    boolean existsByBrukernavn(String brukernavn);
 
     @Query("SELECT p.profilbilde FROM Brukere p WHERE p.id = :id")
     String getProfilbilde(@Param("id") int id);
@@ -25,11 +32,11 @@ public interface JPARepo extends JpaRepository<Brukere, Integer>{
 
     @Query("SELECT p.brukerintro FROM Brukere p WHERE p.id = :id")
     String getBrukerintro(@Param("id") int id);
-    
+
     @Query("SELECT p.rolle FROM Brukere p WHERE p.mobil= :mobil")
     String erBrukerAdmin(@Param("mobil") String mobil);
-    
+
     @Query("SELECT p.brukernavn FROM Brukere p WHERE p.id = :id")
-    String findBrukernavnById(@Param("id")int id);
-    
+    String findBrukernavnById(@Param("id") int id);
+
 }

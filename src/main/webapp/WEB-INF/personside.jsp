@@ -3,11 +3,12 @@
     <head>
         <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/x-icon" href="./favicon.ico">
         <link rel="stylesheet" href="./bootstrap.min.css"/>
         <link rel="stylesheet" href="./personside.css"/>
         <link rel="stylesheet" href="./style.css"/>
         <link rel="stylesheet" href="./rating.css"/>
-        <title>portfolio</title>
+        <title>${brukernavn}</title>
     </head>
     <body>
         <div class="header">
@@ -155,17 +156,21 @@
                                 String rolle = (String)session.getAttribute("rolle");
                                 if(rolle != null && rolle.equals("Admin")) {
                                 	%>
+                                	
                                 	<form method="post" action ="leggtilpost">
+                                	<div class="input">
                                 		<label for="brukerid">Brukerid</label> 
                                 		<input type="text" name="brukerid" id="brukerid" />
-                                		<br>
                                 		<label for="tittel">Tittel</label> 
                                 		<input type="text" name="tittel" id="tittel" />
-                                		<br>
                                 		<label for="prosjektlink">Prosjektlink</label> 
                                 		<input type="text" name="prosjektlink" id="prosjektlink" />
+                                		<br>
+                                		<br>
                                 		<input type="submit" value="Legg til" name="leggtil">
+                                	</div>
                                 	</form>
+                                	
                                 	<%
                                 }
                                 %>

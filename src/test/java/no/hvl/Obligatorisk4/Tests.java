@@ -1,8 +1,12 @@
 package no.hvl.Obligatorisk4;
- 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,11 +16,14 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import no.hvl.Prosjekt4.entity.Brukere;
+import no.hvl.Prosjekt4.entity.Ratings;
 import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.BrukerService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.PassordUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
+import no.hvl.Prosjekt4.util.RatingRepo;
+import no.hvl.Prosjekt4.util.RatingsUtil;
 
 @ExtendWith(MockitoExtension.class)
 public class Tests {
@@ -78,6 +85,23 @@ public class Tests {
 		String result = apiService.kallReadMeApi("0");
 		String forventet = "Denne readme bruker jeg i et API kall." + "\n";
 		assertEquals(result, forventet);
+	}
+
+	@Test
+	public void testRegnUtSnitt() {
+		// Mock the RatingRepo and create a test Ratings list
+		RatingRepo mockRepo = mock(RatingRepo.class);
+		List<Ratings> testList = new ArrayList<>();
+		testList.add(new Ratings("1", "2", "2"));
+		testList.add(new Ratings("1", "3", "3"));
+		testList.add(new Ratings("1", "4", "4"));
+		when(mockRepo.findByProsjektid("1")).thenReturn(testList);
+
+		// Call the regnUtSnitt method
+		String result = new RatingsUtil().regnUtSnitt(mockRepo, "1");
+
+		// Check that the result is correct
+		assertEquals("3.0", result);
 	}
 
 }
