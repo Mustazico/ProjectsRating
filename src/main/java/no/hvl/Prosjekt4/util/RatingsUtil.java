@@ -2,6 +2,7 @@ package no.hvl.Prosjekt4.util;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -38,10 +39,9 @@ public class RatingsUtil {
 
 		List<Ratings> liste = repo.findByProsjektid(prosjektId);
 
-		List<Integer> verdiListe = liste.stream()
-				.map(x -> x.getVerdi())
-				.map(x -> Integer.parseInt(x))
-				.toList();
+		List<Integer> verdiListe = liste.stream().map(x -> x.getVerdi())
+				.map(x -> Integer.parseInt(x)).collect(Collectors.toList()); 
+				
 
 		Double snitt = verdiListe.stream()
 				.mapToInt(Integer::intValue)
