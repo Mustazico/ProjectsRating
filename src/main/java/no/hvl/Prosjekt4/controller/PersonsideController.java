@@ -6,9 +6,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
-
 import javax.servlet.http.HttpSession;
-
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,19 +15,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import org.springframework.web.servlet.support.RequestContextUtils;
+
 import no.hvl.Prosjekt4.entity.Prosjektliste;
+import no.hvl.Prosjekt4.entity.Ratings;
 import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.RatingRepo;
-import no.hvl.Prosjekt4.util.RatingsService;
 import no.hvl.Prosjekt4.util.RatingsUtil;
-import no.hvl.Prosjekt4.entity.Ratings;
 
 /**
  * Dette er controlleren for personssiden til brukeren. Den er ansvarlig for å håndtere forespørsler knyttet til personssiden.
@@ -52,8 +48,6 @@ public class PersonsideController {
     @Autowired
     private RatingRepo ratingRepo;
 
-    @Autowired
-    private RatingsService ru;
 
     @GetMapping("/personsside")
     @Transactional
@@ -197,7 +191,15 @@ public class PersonsideController {
     @PostMapping("/leggtilpost")
     public String leggTilProsjekt(@RequestParam("brukerid") String brukerid,
             @RequestParam("tittel") String tittel,
-            @RequestParam("prosjektlink") String prosjektlink) {
+            @RequestParam("prosjektlink") String prosjektlink, Model model) {
+    	
+    	int nyid = Integer.parseInt(brukerid);
+    	
+    	if(nyid > 99) {
+    		model.addAttribute("msg", "Hallaien du!");
+    		return "redirect:" + "personsside";
+    	}
+    	
         Prosjektliste p = new Prosjektliste(brukerid, tittel, prosjektlink);
         prosjektRepo.save(p);
 

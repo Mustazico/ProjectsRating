@@ -84,6 +84,7 @@
         </div>
 
         <div class="content">
+        
             <center>
 			<%
                                 String role = (String)session.getAttribute("rolle");
@@ -176,7 +177,7 @@
                                 }
                                 %>
             </section>
-
+			
 
             <c:set value="0" var="x"></c:set>
             <c:forEach var = "i"  items="${lenker}" varStatus="status">
@@ -226,6 +227,8 @@
                                                 <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
+                                
+                                
                                 <div class="row justify-content-md-between">
                                     <div class="col-md-3">
                                         <h4>Dato: Juli 2022</li>
@@ -250,6 +253,7 @@
             <br>
             <br>
         </div>
+        
 
         <div class="footer">
             <div class="bubbles">
