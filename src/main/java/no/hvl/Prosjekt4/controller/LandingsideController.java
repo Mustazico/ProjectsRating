@@ -98,6 +98,16 @@ public class LandingsideController {
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 			//Prosjektliste prosjeket = new Prosjektliste();
+			
+			 List<String> prosjektIdTilBruker = prosjektRepo.findUsersProsjektid(id);
+			 List<String> gjennomsnittrating = new ArrayList<>();
+			 
+			 for(String s : prosjektIdTilBruker) {
+				 Prosjektliste p = prosjektRepo.findByProsjektid(s);
+				 gjennomsnittrating.add(p.getGjennomsnittrating());
+			 }
+			 model.addAttribute("gjsnitt", gjennomsnittrating);
+			 
 
 			for (Prosjektliste p : prosjekt) {
 				prosjektidListe.add(prosjektRepo.findProsjektid(p));
