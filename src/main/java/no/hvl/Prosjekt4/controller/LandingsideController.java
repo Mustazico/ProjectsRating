@@ -61,18 +61,22 @@ public class LandingsideController {
 	@Transactional
 	public String visLandingpage(Model model, HttpSession session, HttpServletRequest request) throws Exception {
 
+
+			RatingsUtil ratingsutil = new RatingsUtil();
 		
 			String id = "1";
 			model.addAttribute("id", id);
 			int newId = Integer.parseInt(id);
 			model.addAttribute(brukerRepo.findById(newId));
-			List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
+			List<String> lenker = ratingsutil.highestRatedForAll(pr, 8)
+					.stream()
+					.map(x->x.getBrukerid())
+					.collect(Collectors.toList());
 			
 			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 			model.addAttribute("lenker", lenker);
 			
 			
-			RatingsUtil ratingsutil = new RatingsUtil();
 			List<String> prosjektIdListe = ratingsutil.highestRatedForAll(pr, 8)
 					.stream()
 					.map(x->x.getProsjektid())
@@ -101,7 +105,17 @@ public class LandingsideController {
 
 			List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
 			List<String> prosjektidListe = new ArrayList<>();
+			List<String> brukernavnListe1 = ratingsutil.highestRatedForAll(pr, 8)
+					.stream()
+					.map(x->x.getProsjektid())
+					.collect(Collectors.toList());
 			List<String> brukernavnListe = new ArrayList<>();
+			
+			for(String idd : brukernavnListe1) {
+				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(idd));
+			}
+			
+			
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 			//Prosjektliste prosjeket = new Prosjektliste();
@@ -119,10 +133,9 @@ public class LandingsideController {
 			for (Prosjektliste p : prosjekt) {
 				prosjektidListe.add(prosjektRepo.findProsjektid(p));
 		//		 individuelle prosjekt - finn en måte å hente ut brukernavnet til prosjektet
-				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(p.getProsjektid()));
 			
 			}
-			
+			System.out.println(brukernavnListe);
 			model.addAttribute("prosjektId", prosjektidListe);
 			model.addAttribute("brukernavn", brukernavnListe);
 			
