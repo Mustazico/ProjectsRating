@@ -13,18 +13,35 @@ import no.hvl.Prosjekt4.util.InputUtil;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.PassordUtil;
 
+/**
+ * RegistreringsController klassen håndterer forespørsler knyttet til registrering av brukere.
+ */
 @Controller
 @RequestMapping(value="/registrering")
 public class RegistreringsController {
 	
 	@Autowired
 	JPARepo brukerrepo;
+    /**
+     * viser registreringssiden.
+     * @return Navnet på registreringssiden.
+     */
 
     @GetMapping
     public String visRegistrering() {
         return "registrering";
     }
 
+    /**
+     * Registrer en ny bruker.
+     * @param brukernavn er brukernavnet til nye brukeren.
+     * @param mail er eposten til  nye brukeren.
+     * @param tlf er telefonnummeret til nye brukeren.
+     * @param passord er passordet til nye brukeren.
+     * @param passord2 er passordbekreftelsen til nye brukeren.
+     * @param ra er en redirectattributt som sender med en melding til landingpage.
+     * @return Redirecter til landingpage.
+     */
     @PostMapping
     public String registrerBruker(
     		@RequestParam(name = "username") String brukernavn, 

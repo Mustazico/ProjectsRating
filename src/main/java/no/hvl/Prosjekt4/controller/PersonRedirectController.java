@@ -14,6 +14,9 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.HashSet;
 import org.springframework.ui.Model;
+/**
+ * Denne klassen representerer en kontroller for håndtering av forespørsler knyttet til personer og omdirigerer dem til personsiden.
+ */
 
 @Controller
 public class PersonRedirectController {
@@ -23,6 +26,13 @@ public class PersonRedirectController {
 
     @Autowired
     private BrukerService brukerService;
+    /**
+     * Denne metoden håndterer forespørsler om å omdirigere brukeren til personsiden. Den tar inn en request, en redirectattribute og en model. Den returnerer en String som er navnet på html-siden som skal vises.
+     * @param request er en request som inneholder informasjon om forespørselen.
+     * @param ra er en redirectattribute som inneholder informasjon som skal vises på siden.
+     * @param model er en model som inneholder informasjon som skal vises på siden.
+     * @return String som er navnet på html-siden som skal vises.
+     */
     
     @GetMapping("personsside/petter")
     public String getPetter(HttpServletRequest request, RedirectAttributes ra, Model model) {

@@ -7,7 +7,16 @@ import org.springframework.data.repository.query.Param;
 import no.hvl.Prosjekt4.entity.Brukere;
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 
+/**
+ * JPARepo definerer metoder for databaseoperasjoner knyttet til Brukere enheten
+ * 
+ */
 public interface JPARepo extends JpaRepository<Brukere, Integer> {
+
+    /**
+     * FInner "Brukere" ved å søke på mobilnummeret
+     * My likt nedover
+     */
     Brukere findByMobil(String mobil);
 
     Brukere findByEpost(String mail);

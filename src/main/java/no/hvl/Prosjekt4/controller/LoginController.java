@@ -14,17 +14,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 
+/**
+ * Dette er controlleren for login-siden til brukeren. Den er ansvarlig for å håndtere forespørsler knyttet til login-siden.
+ * Login-siden er den siden brukeren kommer til når h*n logger inn. Den inneholder informasjon om brukeren og prosjektene h*n er med i.
+ */
+
 @Controller
 @RequestMapping("/logginn")
 public class LoginController {
-	
+	/**
+     *  JPARepo er en klasse som inneholder metoder som kan brukes til å hente ut informasjon fra databasen.
+     */
+
 	@Autowired
 	JPARepo brukerrepo;
+    /**
+     * GET metode som håndterer forespørsler om login-siden. Den tar inn en model, en session og en request. Den returnerer en String som er navnet på html-siden som skal vises.
+     * @return login siden som skal vises.
+     */
 
     @GetMapping
     public String visLogginn() {
         return "logginn";
     }
+    /**
+     * POST metode som håndterer forespørsler om login-siden. Den tar inn en model, en session og en request. Den returnerer en String som er navnet på html-siden som skal vises.
+     * @param request HTTP servlet request object
+     * @param brukernavn brukernavn som er skrevet inn i inputfeltet
+     * @param passord passord som er skrevet inn i inputfeltet
+     * @param ra RedirectAttributes som brukes til å sende meldinger til brukeren
+     * @return landingpage siden som skal vises.
+     */
 
     @PostMapping
     public String loggInn(

@@ -8,8 +8,15 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.xml.bind.DatatypeConverter;
 
+/**
+ * PassordUtil classen inneholder metoder for å generere tilfeldig salt og hash
+ * passord med salt.
+ */
 public class PassordUtil {
-
+/**
+ * Metoden genererTilfeldigSalt genererer et tilfeldig salt og returner den som en hexadesimal string.
+ * @return en hexadesimal string som er saltet.
+ */
 	public static String genererTilfeldigSalt() {
 		SecureRandom sr;
 		byte[] salt = new byte[16];
@@ -22,6 +29,13 @@ public class PassordUtil {
 		}
 		return DatatypeConverter.printHexBinary(salt);
 	}
+	/**
+	 * Metoden hashMedSalt tar inn et passord og et salt og returnerer en hash av passordet med saltet.
+	 * @param passord er passordet som skal hashes.
+	 * @param salt er saltet som skal brukes til å hash passordet.
+	 * @return en hexadesimal string som er hashen av passordet med saltet.
+	 * @throws IllegalArgumentException hvis passord eller salt er null.
+	 */
 
 	public static String hashMedSalt(String passord, String salt) {
 		if (passord == null || salt == null) {
@@ -43,6 +57,17 @@ public class PassordUtil {
 
 		return DatatypeConverter.printHexBinary(keyhash);
 	}
+
+	/**
+	 * Validerer det angitte passordet mot den angitte hashed-verdien og salt
+	 * ved å hashe passordet med saltet og sammenligne det med den angitte
+	 * hashed-verdien.
+	 * @param passord passordet som skal valideres
+	 * @param salt saltet som skal brukes til å hash passordet
+	 * @param passordhash den angitte hashed-verdien
+	 * @return true hvis passordet er riktig, false hvis passordet er feil
+	 * @throws IllegalArgumentException hvis passord, salt eller passordhash er null
+	 */
 
 	public static boolean validerMedSalt(String passord, String salt, String passordhash) {
 		if (passord == null || salt == null || passordhash == null) {

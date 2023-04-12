@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Brukere klassen representerer en bruker i systemet. Den inneholder informasjon
+ * om brukerens brukernavn, epost, mobilnummer, passord, salt, rolle profilbilde, og bruker intro.
+ * Det er også laget getters og setters for alle variablene.
+ */
 
 @Entity
 @Table(schema = "prosjekt4")
@@ -25,11 +30,22 @@ public class Brukere {
 	private String profilbilde;
     private String brukerintro;
 	
+	/**
+	 * Tom konstruktør for brukere.
+	 */
 	public Brukere() {
 		
 	}
 	
-	
+	/**
+	 * Konstruktør for brukere.
+	 * @param brukernavn er brukernavnet til brukeren.
+	 * @param epost er eposten til brukeren.
+	 * @param mobil er mobilnummeret til brukeren.
+	 * @param passord er passordet til brukeren.
+	 * @param salt er saltet som blir brukt for å hashe passordet.
+	 * @param rolle er rollen til brukeren, om man er admin eller standard.
+	 */
 	public Brukere(String brukernavn, String epost, 
 			String mobil, String passord, String salt, String rolle) {
 		this.brukernavn = brukernavn;
@@ -41,6 +57,11 @@ public class Brukere {
 		this.rolle = rolle;
 	}
 	
+	/**
+	 * Returnerer brukernavnet til brukeren.
+	 * @return  brukernavnet til brukeren.
+	 * Likt for alle de andre get og set metodene.
+	 */
 	public String getBrukernavn() {
 		return brukernavn;
 	}
@@ -100,6 +121,10 @@ public class Brukere {
 		this.profilbilde = profilbilde;
 	}
 
+	/**
+	 * Returnerer brukerintroen til brukeren.
+	 * @return brukerintroen til brukeren.
+	 */
 
 	@Override
 	public String toString() {

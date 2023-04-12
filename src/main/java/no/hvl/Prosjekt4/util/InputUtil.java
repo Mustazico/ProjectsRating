@@ -3,8 +3,18 @@ package no.hvl.Prosjekt4.util;
 import java.util.regex.Pattern;
 import no.hvl.Prosjekt4.entity.Brukere;
 
+/**
+ * InputUtil classe for validering av brukerinput i registreringsskjemaet
+ */
 public class InputUtil {
 	
+	/**
+	 * Validerer brukerinput i registreringsskjemaet
+	 * @param brukerrepo er repositoriet for å nå til bruker data
+	 * @param bruker er brukeren som skal registreres
+	 * @param passord2 er passordet som skal sjekkes mot passordet i bruker
+	 * @return true hvis alle input er gyldige, false hvis ikke
+	 */
 	
 	public static boolean registreringsValidator(JPARepo brukerrepo, Brukere bruker, String passord2) {
 		return(
@@ -14,6 +24,13 @@ public class InputUtil {
 		passordValidator(brukerrepo, bruker, passord2));
 	}
 	
+	/**
+	 * Validerer formatet og unikheten til brukernavnet
+	 * @param brukerrepo er repositoriet for å nå til bruker data
+	 * @param bruker er bruker objektet som skal sjekkes
+	 * @return true hvis brukernavnet er gyldig og unikt, false hvis ikke 
+	 * Mye likt med de andre validatorene nedenfor
+	 */
 	public static boolean brukernavnValidator(JPARepo brukerrepo, Brukere bruker) {
 		String brukernavn = bruker.getBrukernavn();
 		boolean retur = true;
@@ -31,6 +48,8 @@ public class InputUtil {
 		
 		return retur;
 	}
+
+
 	
 	public static boolean mailValidator(JPARepo brukerrepo, Brukere bruker) {
 		String mail = bruker.getEpost();

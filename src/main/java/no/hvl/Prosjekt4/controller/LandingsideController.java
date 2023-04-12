@@ -21,7 +21,10 @@ import no.hvl.Prosjekt4.util.ProsjektRepo;
 import no.hvl.Prosjekt4.util.ProsjektService;
 import no.hvl.Prosjekt4.util.RatingRepo;
 import no.hvl.Prosjekt4.util.RatingsUtil;
-
+/**
+ * Dette er controlleren for landingssiden til brukeren. Den er ansvarlig for å håndtere forespørsler knyttet til landingssiden.
+ * Landingssiden er den siden brukeren kommer til når han logger inn. Den inneholder informasjon om brukeren og prosjektene han er med i.
+ */
 @Controller
 @RequestMapping(value = "/landingpage", produces = "text/html;charset=UTF-8")
 public class LandingsideController {
@@ -45,7 +48,14 @@ public class LandingsideController {
 
 	@Autowired
 	private RatingRepo ratingRepo;
-
+/**
+ * Denne metoden håndterer forespørsler om landingssiden. Den tar inn en model, en session og en request. Den returnerer en String som er navnet på html-siden som skal vises.
+ * @param model er en model som inneholder informasjon som skal vises på siden.
+ * @param session er en session som inneholder informasjon om brukeren som er logget inn.
+ * @param request er en request som inneholder informasjon om forespørselen.
+ * @return String som er navnet på html-siden som skal vises.
+ * @throws Exception kan kaste en exception.
+*/
 	@GetMapping
 	@Transactional
 	public String visLandingpage(Model model, HttpSession session, HttpServletRequest request) throws Exception {
@@ -75,8 +85,6 @@ public class LandingsideController {
 				}
 			}
 			
-			RatingsUtil ratingsUtil = new RatingsUtil();
-			ratingsUtil.sortedByRatings(prosjektRepo, "8");
 			
 
 			model.addAttribute("githubBrukernavn", githubbrukernavn);
@@ -106,6 +114,12 @@ public class LandingsideController {
 
 		return "landingpage";
 	}
+	/**
+	 * Denne metoden brukes til å splitte GitHub brukernavn fra prosjekt linken.
+	 * @param id er prosjekt id'en.
+	 * @return String som er GitHub brukernavnet.
+	 * @throws Exception kan kaste en exception.
+	 */
 	
 	   public String splitBrukernavn(String id) {
 	    	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
