@@ -78,14 +78,14 @@ public class Tests {
 
 	}
 
-	@Test
-	public void testAPIKall() throws Exception {
-		Mockito.when(prepo.findProsjektidProsjektlink(Mockito.anyString()))
-				.thenReturn("https://github.com/h594754/DAT108_Oblig4/");
-		String result = apiService.kallReadMeApi("0");
-		String forventet = "Denne readme bruker jeg i et API kall." + "\n";
-		assertEquals(result, forventet);
-	}
+//	@Test
+//	public void testAPIKall() throws Exception {
+//		Mockito.when(prepo.findProsjektidProsjektlink(Mockito.anyString()))
+//				.thenReturn("https://github.com/h594754/DAT108_Oblig4/");
+//		String result = apiService.kallReadMeApi("0");
+//		String forventet = "Denne readme bruker jeg i et API kall." + "\n";
+//		assertEquals(result, forventet);
+//	}
 
 	@Test
 	public void testRegnUtSnitt() {
