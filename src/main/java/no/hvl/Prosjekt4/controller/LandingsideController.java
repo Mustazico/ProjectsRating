@@ -2,6 +2,7 @@ package no.hvl.Prosjekt4.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -61,19 +62,25 @@ public class LandingsideController {
 	public String visLandingpage(Model model, HttpSession session, HttpServletRequest request) throws Exception {
 
 		
-		//	String id = (String) inputFlashMap.get("id");
 			String id = "1";
 			model.addAttribute("id", id);
 			int newId = Integer.parseInt(id);
 			model.addAttribute(brukerRepo.findById(newId));
 			List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
-		//	model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
+			
 			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 			model.addAttribute("lenker", lenker);
-			List<String> prosjektIdListe = prosjektRepo.findUsersProsjektid(id);
+			
+			
+			RatingsUtil ratingsutil = new RatingsUtil();
+			List<String> prosjektIdListe = ratingsutil.highestRatedForAll(pr, 8)
+					.stream()
+					.map(x->x.getProsjektid())
+					.collect(Collectors.toList());
 			List<String> test = new ArrayList<>();
 			List<String> githubbrukernavn = new ArrayList<>();
 			List<String> repo = new ArrayList<>();
+			
 			for (String s : prosjektIdListe) {
 
 				try {

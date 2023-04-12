@@ -1,5 +1,6 @@
 package no.hvl.Prosjekt4.util;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +36,22 @@ public class RatingsUtil {
 				.collect(Collectors.toList());
 		
 
+		return retur;
+	}
+	
+	public List<Prosjektliste> highestRatedForAll(ProsjektRepo prosjektrepo, int brukere){
+		List<Prosjektliste> retur = new ArrayList<Prosjektliste>();
+		
+		for(int i = 1; i<=brukere;i++) {
+			List<Prosjektliste> current = prosjektrepo.findByBrukerid(Integer.toString(i));
+			retur.add(current.get(0));
+			System.out.println(current.get(0).getProsjektid());
+		}
+		
+		retur = retur.stream()
+				.sorted((p1, p2) -> p2.getGjennomsnittrating().compareTo(p1.getGjennomsnittrating()))
+				.collect(Collectors.toList());
+		
 		return retur;
 	}
 
