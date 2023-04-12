@@ -43,8 +43,9 @@ public class RatingsUtil {
 		List<Prosjektliste> retur = new ArrayList<Prosjektliste>();
 		
 		for(int i = 1; i<=brukere;i++) {
-			List<Prosjektliste> current = prosjektrepo.findByBrukerid(Integer.toString(i));
+			List<Prosjektliste> current = sortedByRatings(prosjektrepo, Integer.toString(i));
 			retur.add(current.get(0));
+			System.out.println(current);
 			System.out.println(current.get(0).getProsjektid());
 		}
 		
