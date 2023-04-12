@@ -31,10 +31,9 @@ public class RatingsUtil {
 		List<Prosjektliste> retur = prosjektrepo.findByBrukerid(userId);
 
 		retur = retur.stream()
-				.sorted((p1, p2) -> p1.getGjennomsnittrating().compareTo(p2.getGjennomsnittrating()))
+				.sorted((p1, p2) -> p2.getGjennomsnittrating().compareTo(p1.getGjennomsnittrating()))
 				.collect(Collectors.toList());
 		
-		Collections.reverse(retur);
 
 		return retur;
 	}
