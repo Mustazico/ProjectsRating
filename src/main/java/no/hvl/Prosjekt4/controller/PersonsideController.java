@@ -3,6 +3,7 @@ package no.hvl.Prosjekt4.controller;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -63,19 +64,28 @@ public class PersonsideController {
             model.addAttribute("id", id);
             int newId = Integer.parseInt(id);
             model.addAttribute(brukerRepo.findById(newId));
-            List<String> lenker = prosjektRepo.findUsersProsjektlink(id);
+            
+            RatingsUtil ratingsUtil = new RatingsUtil();
+            List<String> lenker = ratingsUtil.sortedByRatings(prosjektRepo, id)
+            		.stream()
+            		.map(x->x.getProsjektlink())
+            		.collect(Collectors.toList());
+            
            
             model.addAttribute("brukernavn", brukerRepo.getBrukernavn(newId));
             model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
             model.addAttribute("lenker", lenker);
 
-            List<String> users = prosjektRepo.findUsersProsjektid(id);
+            List<String> prosjektIdTilBruker = ratingsUtil.sortedByRatings(prosjektRepo, id)
+            		.stream()
+            		.map(x->x.getProsjektid())
+            		.collect(Collectors.toList());
             List<String> test = new ArrayList<>();
             List<String> githubbrukernavn = new ArrayList<>();
             List<String> repo = new ArrayList<>();
             List<String> gjennomsnittrating = new ArrayList<>();
 
-            for (String s : users) {
+            for (String s : prosjektIdTilBruker) {
                 try {
                     // Henter readme fra github og pusher til database.
                     Prosjektliste p = prosjektRepo.findByProsjektid(s);
@@ -95,7 +105,8 @@ public class PersonsideController {
             model.addAttribute("gjsnittrating", gjennomsnittrating);
             model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
 
-            List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
+            
+            List<Prosjektliste> prosjekter = ratingsUtil.sortedByRatings(prosjektRepo, id);
             List<String> prosjektidListe = new ArrayList<>();
             List<String> stjernerGitt = new ArrayList<>();
             String brukernavn = (String) session.getAttribute("brukernavn");
