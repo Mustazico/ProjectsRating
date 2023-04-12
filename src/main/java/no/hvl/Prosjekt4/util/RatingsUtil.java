@@ -43,10 +43,9 @@ public class RatingsUtil {
 
 		List<Ratings> liste = repo.findByProsjektid(prosjektId);
 
-		List<Integer> verdiListe = liste.stream()
-				.map(x -> x.getVerdi())
-				.map(x -> Integer.parseInt(x))
-				.toList();
+		List<Integer> verdiListe = liste.stream().map(x -> x.getVerdi())
+				.map(x -> Integer.parseInt(x)).collect(Collectors.toList()); 
+				
 
 		Double snitt = verdiListe.stream()
 				.mapToInt(Integer::intValue)
