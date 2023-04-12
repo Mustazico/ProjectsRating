@@ -130,7 +130,7 @@
                                 	</a>
                                 	<div class="portfolio-caption">
                                     	<h4>${githubRepo[status.index]}</h4>
-                                    	<p class="text-muted">${brukernavn[x]}</p>
+                                    	<p class="text-muted">${brukernavn[status.index]}</p>
                                 	</div>
                                 	<%
                                 		String rolle = (String)session.getAttribute("rolle");
