@@ -135,7 +135,6 @@ public class LandingsideController {
 		//		 individuelle prosjekt - finn en måte å hente ut brukernavnet til prosjektet
 			
 			}
-			System.out.println(brukernavnListe);
 			model.addAttribute("prosjektId", prosjektidListe);
 			model.addAttribute("brukernavn", brukernavnListe);
 			

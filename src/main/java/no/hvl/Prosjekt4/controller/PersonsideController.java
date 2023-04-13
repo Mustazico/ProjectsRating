@@ -114,8 +114,7 @@ public class PersonsideController {
                 prosjektidListe.add(p.getProsjektid());
             }
             
-            	 
-            System.out.println(stjernerGitt);
+            
             model.addAttribute("prosjektId", prosjektidListe);
             model.addAttribute("sjernerGitt", stjernerGitt);
         } else {
@@ -151,6 +150,7 @@ public class PersonsideController {
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
         Prosjektliste prosjekt = prosjektRepo.findByProsjektid(prosjektid);
+        
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
