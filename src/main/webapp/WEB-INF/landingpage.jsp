@@ -8,10 +8,12 @@
         <link rel="stylesheet" href="personside.css" />
         <link rel="stylesheet" href="./bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="rating.css" />
         <title>Forside</title>
-        </head>
+    </head>
     <body>
         <div class="header">
+<<<<<<< HEAD
             <h1>Portfolioside</h1>
             <p>De beste ingeniørdene i Bergen By</p>
         <div id="navbar">
@@ -80,7 +82,6 @@
             </c:otherwise>
             </c:choose>
         </div>
-        </div>
 
         <div class="content">
             <h1>Hils på gjengen</h1>
@@ -102,59 +103,59 @@
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
-			<p>${msg} </p>
+            <p>${msg} </p>
             <br>
-           
-           
-           
+
+
+
             <section id="portfolio">
                 <div class="container">
                     <div class="row justify-content-center">
-                    <c:set value="0" var="x"></c:set>
+                        <c:set value="0" var="x"></c:set>
                         <c:forEach var = "i"  items="${lenker}" varStatus="status">
-                        	<!--Html for kortet til prosjektet-->
-                        	<c:if test = "${(x % 3) == 3}">
+                        <!--Html for kortet til prosjektet-->
+                        <c:if test = "${(x % 3) == 3}">
                     </div>
                     <div class="row justify-content-center">
-                        	</c:if>
-                        	<div class="col-md-4">
-                            	<div class="portfolio-item">
-                                	<a data-bs-target="#${x}" class="portfolio-link" data-bs-toggle="modal">
-                                    	<div class="portfolio-hover">
-                                        	<div class="portfolio-hover-content">
-                                            	<i class="fa fa-plus fa-3x"></i>
-                                            	<p>&#11088 ${gjsnitt[status.index]}</p>
-                                        	</div>
-                                    	</div>
-                                    	<img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
-                                	</a>
-                                	<div class="portfolio-caption">
-                                    	<h4>${githubRepo[status.index]}</h4>
-                                    	<p class="text-muted">${brukernavn[status.index]}</p>
-                                	</div>
-                                	<%
-                                		String rolle = (String)session.getAttribute("rolle");
-                                		if(rolle != null && rolle.equals("Admin")) {
-                                	%> 
-                                	
-                                	
-                                	<%
-                                		}
-                                	%>
-                            	</div>
-                        	</div>
-                        	<c:set value="${x+1}" var="x"></c:set>
-                      </c:forEach>
+                        </c:if>
+                        <div class="col-md-4">
+                            <div class="portfolio-item">
+                                <a data-bs-target="#${x}" class="portfolio-link" data-bs-toggle="modal">
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content">
+                                            <i class="fa fa-plus fa-3x"></i>
+                                            <p>&#11088 ${gjsnitt[status.index]}</p>
+                                        </div>
+                                    </div>
+                                    <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
+                                </a>
+                                <div class="portfolio-caption">
+                                    <h4>${githubRepo[status.index]}</h4>
+                                    <p class="text-muted">${brukernavn[status.index]}</p>
+                                </div>
+                                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                %> 
+
+
+                                <%
+                                }
+                                %>
+                            </div>
+                        </div>
+                        <c:set value="${x+1}" var="x"></c:set>
+                        </c:forEach>
                     </div>
                 </div>
                 <%
-                                String rolle = (String)session.getAttribute("rolle");
-                                if(rolle != null && rolle.equals("Admin")) {
-                                	%>
-                                	
-                                	<%
-                                }
-                                %>
+                String rolle = (String)session.getAttribute("rolle");
+                if(rolle != null && rolle.equals("Admin")) {
+                %>
+
+                <%
+                }
+                %>
             </section>
 
 
@@ -188,25 +189,30 @@
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
+                                    <form method="post" action="stemmer">
                                                 <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                                </div>
+									            <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+											    <input type="radio" id="star5${x}" name="rate" value="5" <c:set var="checked5" value="${stjernerGitt.contains('5')}"/><c:if test="${checked5}">checked</c:if> />
+											    <label for="star5${x}" title="text">5 stars</label>
+											    <input type="radio" id="star4${x}" name="rate" value="4" <c:set var="checked4" value="${stjernerGitt.contains('4')}"/><c:if test="${checked4}">checked</c:if> />
+											    <label for="star4${x}" title="text">4 stars</label>
+											    <input type="radio" id="star3${x}" name="rate" value="3" <c:set var="checked3" value="${stjernerGitt.contains('3')}"/><c:if test="${checked3}">checked</c:if> />
+											    <label for="star3${x}" title="text">3 stars</label>
+											    <input type="radio" id="star2${x}" name="rate" value="2" <c:set var="checked2" value="${stjernerGitt.contains('2')}"/><c:if test="${checked2}">checked</c:if> />
+											    <label for="star2${x}" title="text">2 stars</label>
+											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
+											    <label for="star1${x}" title="text">1 star</label>
+        								</div>
+
+                                                <input type="submit" value="stem" name="Stemme">
+                                    </form>
                                 </div>
                                 <div class="row justify-content-md-between">
                                     <div class="col-md-3">
                                         <h4>Dato: Juli 2022</li>
                                     </div>
                                     <div class="col-md-3">
-                                        <h4>${brukernavn}</li>
+                                        <h4>${brukernavn[status.index]}</li>
                                     </div>
                                     <div class="col-md-3">
                                         <h4>Kategori: Grafisk</li>
@@ -222,13 +228,8 @@
             </div>
             <c:set value="${x+1}" var="x"></c:set>
                                     </c:forEach>
-           
-           
-           
-           
-           
-            <br>
-            <br>
+                                    <br>
+                                    <br>
         </div>
         <div class="footer">
             <div class="bubbles">
@@ -264,6 +265,7 @@
     </body>
 
     <script type = "text/javascript" src="./sticky.js"></script>
-    <script src="./boostrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./bootstrap.bundle.min.js"></script>
     <script src="./altBilde.js"></script>
 </html>
