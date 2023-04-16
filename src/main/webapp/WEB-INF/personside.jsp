@@ -14,73 +14,91 @@
         <div class="header">
             <h1>Portfolioside</h1>
             <p>De beste ingeniørdene i Bergen By</p>
-            <div id="navbar">
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
-                        <a class="active" href="personsside/petter">Petter</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/petter">Petter</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
-                        <a class="active" href="personsside/fredrik">Fredrik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/fredrik">Fredrik</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-                        <a class="active" href="personsside/kristoffer">Kristoffer</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/kristoffer">Kristoffer</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-                        <a class="active" href="personsside/trym">Trym</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/trym">Trym</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-                        <a class="active" href="personsside/oskar">Oskar</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/oskar">Oskar</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Torben Lund'}">
-                        <a class="active" href="personsside/torben">Torben</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/torben">Torben</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-                        <a class="active" href="personsside/eirik">Eirik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirik">Eirik</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-                        <a class="active" href="personsside/eirikl">Eirik L</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirikl">Eirik L</a> 
-                    </c:otherwise>
-                </c:choose>
-            </div>
         </div>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #62C3D6">
+            <ul class="navbar-nav justify-content-center" id="navbar">
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                    <a class="active" href="personsside/petter">Petter</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/petter">Petter</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                    <a class="active" href="personsside/fredrik">Fredrik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/fredrik">Fredrik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                    <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/kristoffer">Kristoffer</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                    <a class="active" href="personsside/trym">Trym</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/trym">Trym</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                    <a class="active" href="personsside/oskar">Oskar</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/oskar">Oskar</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Torben Lund'}">
+                    <a class="active" href="personsside/torben">Torben</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/torben">Torben</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                    <a class="active" href="personsside/eirik">Eirik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirik">Eirik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                    <a class="active" href="personsside/eirikl">Eirik L</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirikl">Eirik L</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+            </ul>
+        </nav>
 
         <div class="content">
         
