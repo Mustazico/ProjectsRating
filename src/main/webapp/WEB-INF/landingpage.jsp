@@ -15,7 +15,7 @@
         <div class="header">
             <h1>Portfolioside</h1>
             <p>De beste ingeniørdene i Bergen By</p>
-        </div>
+        
         <div id="navbar">
             <c:choose>
             <c:when test = "${brukernavn == 'Petter Tesdal'}">
@@ -82,6 +82,7 @@
             </c:otherwise>
             </c:choose>
         </div>
+        </div>
 
         <div class="content">
             <h1>Hils på gjengen</h1>
@@ -98,8 +99,8 @@
             <br>
             <p>
             Som bruker på denne nettsiden kan du klikke på et av våres navn for å
-            få opp en beskrivelse av den personen og en liste av deres prosjekter,
-            hvis du er ekstra engasjert kan du til og med gi en vurdering på personen,
+            få opp en beskrivelse av den personen og en liste av deres prosjekter.
+            Hvis du er ekstra engasjert kan du til og med gi en vurdering på personen,
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
