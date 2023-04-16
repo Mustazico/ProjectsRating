@@ -11,9 +11,12 @@
         <title>${brukernavn}</title>
     </head>
     <body>
+        <a href="landingpage">
         <div class="header">
             <br>
             <br>
+             <h1>Landingsside</h1>
+
             <p>Velkommen til Ingienørdene</p>
             <div id="navbar">
                 <c:choose>
@@ -58,7 +61,19 @@
                 </c:choose>
                 <c:choose>
                     <c:when test = "${brukernavn == 'Torben Lund'}">
-                        <a class="active" href="personsside/torben">Torben</a> 
+                        <a class="active" href="personsside/torben">Torben</a>
+                            <style>
+                              body {
+                                background-image: url("vietnam.jpg");
+                                background-color: #f1f1f1; /* fallback color */
+                                background-position: center bottom;
+                                
+                              }
+                              .bio {
+                                background-color: #f1f1f1;
+                              }
+                            </style>
+                        
                     </c:when>
                     <c:otherwise>
                         <a href="personsside/torben">Torben</a> 
@@ -82,7 +97,7 @@
                 </c:choose>
             </div>
         </div>
-
+    </a>
         <div class="content">
         
             <center>

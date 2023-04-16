@@ -18,3 +18,7 @@
   	padding: 20px;
   }
   
+.torben-bakgrunn{
+  background-image: url(Vietnam\ Bakgrunn.jpg);
+  background-size: cover;
+}

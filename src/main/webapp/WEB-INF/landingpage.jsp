@@ -9,10 +9,11 @@
         <link rel="stylesheet" href="./bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
         <title>Forside</title>
+
         </head>
     <body>
         <div class="header">
-            <h1>Portfolio side</h1>
+           <a href="landingpage"> <h1>Portfolio side</h1></a>
             <p>De beste ingeniørdene i Bergen by</p>
         <div id="navbar">
             <c:choose>
@@ -105,6 +106,7 @@
 			<p>${msg} </p>
             <br>
            
+            
            
            
             <section id="portfolio">
