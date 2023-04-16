@@ -278,7 +278,7 @@
             </div>
             <div class="content2">
                 <div>
-                	<div><b>Studenter</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
+                	<div><b>Meny</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
                     <div></div>
                 </div>
                 <div>
