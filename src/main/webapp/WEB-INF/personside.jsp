@@ -12,9 +12,8 @@
     </head>
     <body>
         <div class="header">
-            <br>
-            <br>
-            <p>Velkommen til Ingeniørdene</p>
+            <h1>Portfolioside</h1>
+            <p>De beste ingeniørdene i Bergen By</p>
             <div id="navbar">
                 <c:choose>
                     <c:when test = "${brukernavn == 'Petter Tesdal'}">
