@@ -15,74 +15,91 @@
         <div class="header">
             <h1>Portfolioside</h1>
             <p>De beste ingeniørdene i Bergen By</p>
-        
-        <div id="navbar">
-            <c:choose>
-            <c:when test = "${brukernavn == 'Petter Tesdal'}">
-            <a class="active" href="personsside/petter">Petter</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/petter">Petter</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Fredrik Enes'}">
-            <a class="active" href="personsside/fredrik">Fredrik</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/fredrik">Fredrik</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-            <a class="active" href="personsside/kristoffer">Kristoffer</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/kristoffer">Kristoffer</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-            <a class="active" href="personsside/trym">Trym</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/trym">Trym</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-            <a class="active" href="personsside/oskar">Oskar</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/oskar">Oskar</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Torben Lund'}">
-            <a class="active" href="personsside/torben">Torben</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/torben">Torben</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-            <a class="active" href="personsside/eirik">Eirik</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/eirik">Eirik</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-            <a class="active" href="personsside/eirikl">Eirik L</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/eirikl">Eirik L</a> 
-            </c:otherwise>
-            </c:choose>
         </div>
-        </div>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #62C3D6">
+            <ul class="navbar-nav justify-content-center" id="navbar">
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                    <a class="active" href="personsside/petter">Petter</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/petter">Petter</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                    <a class="active" href="personsside/fredrik">Fredrik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/fredrik">Fredrik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                    <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/kristoffer">Kristoffer</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                    <a class="active" href="personsside/trym">Trym</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/trym">Trym</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                    <a class="active" href="personsside/oskar">Oskar</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/oskar">Oskar</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Torben Lund'}">
+                    <a class="active" href="personsside/torben">Torben</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/torben">Torben</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                    <a class="active" href="personsside/eirik">Eirik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirik">Eirik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                    <a class="active" href="personsside/eirikl">Eirik L</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirikl">Eirik L</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+            </ul>
+        </nav>
 
         <div class="content">
             <h1>Hils på gjengen</h1>
@@ -169,7 +186,6 @@
                         <div class="close-modal my-close-btn" data-bs-dismiss="modal">
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
-                        </div>
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
@@ -186,21 +202,21 @@
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
                                     <form method="post" action="stemmer">
-                                                <div class="rate">
-									            <input type="hidden" name="id" value="${prosjektId[status.index]}" />
-											    <input type="radio" id="star5${x}" name="rate" value="5" <c:set var="checked5" value="${stjernerGitt.contains('5')}"/><c:if test="${checked5}">checked</c:if> />
-											    <label for="star5${x}" title="text">5 stars</label>
-											    <input type="radio" id="star4${x}" name="rate" value="4" <c:set var="checked4" value="${stjernerGitt.contains('4')}"/><c:if test="${checked4}">checked</c:if> />
-											    <label for="star4${x}" title="text">4 stars</label>
-											    <input type="radio" id="star3${x}" name="rate" value="3" <c:set var="checked3" value="${stjernerGitt.contains('3')}"/><c:if test="${checked3}">checked</c:if> />
-											    <label for="star3${x}" title="text">3 stars</label>
-											    <input type="radio" id="star2${x}" name="rate" value="2" <c:set var="checked2" value="${stjernerGitt.contains('2')}"/><c:if test="${checked2}">checked</c:if> />
-											    <label for="star2${x}" title="text">2 stars</label>
-											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
-											    <label for="star1${x}" title="text">1 star</label>
-        								</div>
+                                        <div class="rate">
+                                            <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                            <input type="radio" id="star5${x}" name="rate" value="5" <c:set var="checked5" value="${stjernerGitt.contains('5')}"/><c:if test="${checked5}">checked</c:if> />
+                                            <label for="star5${x}" title="text">5 stars</label>
+                                            <input type="radio" id="star4${x}" name="rate" value="4" <c:set var="checked4" value="${stjernerGitt.contains('4')}"/><c:if test="${checked4}">checked</c:if> />
+                                            <label for="star4${x}" title="text">4 stars</label>
+                                            <input type="radio" id="star3${x}" name="rate" value="3" <c:set var="checked3" value="${stjernerGitt.contains('3')}"/><c:if test="${checked3}">checked</c:if> />
+                                            <label for="star3${x}" title="text">3 stars</label>
+                                            <input type="radio" id="star2${x}" name="rate" value="2" <c:set var="checked2" value="${stjernerGitt.contains('2')}"/><c:if test="${checked2}">checked</c:if> />
+                                            <label for="star2${x}" title="text">2 stars</label>
+                                            <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
+                                            <label for="star1${x}" title="text">1 star</label>
+                                        </div>
 
-                                                <input type="submit" value="stem" name="Stemme">
+                                        <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
                                 <div class="row justify-content-md-between">
@@ -223,9 +239,9 @@
                 </div>
             </div>
             <c:set value="${x+1}" var="x"></c:set>
-                                    </c:forEach>
-                                    <br>
-                                    <br>
+                                            </c:forEach>
+                                            <br>
+                                            <br>
         </div>
         <div class="footer">
             <div class="bubbles">
