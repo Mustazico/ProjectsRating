@@ -112,7 +112,7 @@ public class PersonsideController {
             model.addAttribute("prosjektId", prosjektidListe);
             model.addAttribute("sjernerGitt", stjernerGitt);
         } else {
-            return "landingpage";
+            return "redirect:landingpage";
         }
         return "personside";
     }
