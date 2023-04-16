@@ -218,6 +218,7 @@
 											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
 											    <label for="star1${x}" title="text">1 star</label>
         								</div>
+                                        <input type="hidden" id="person" name="person" value="${id}" />
 
                                                 <input type="submit" value="stem" name="Stemme">
                                     </form>

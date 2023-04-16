@@ -54,9 +54,20 @@ public class PersonsideController {
     public String visPersonside(HttpServletRequest request, Model model, HttpSession session) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
-            String id = (String) inputFlashMap.get("id");
-            model.addAttribute("id", id);
-            int newId = Integer.parseInt(id);
+            String id = "";
+            int newId = 0;
+
+            if (inputFlashMap.get("id") instanceof String){
+
+                id = (String) inputFlashMap.get("id");
+                model.addAttribute("id", id);
+                newId = Integer.parseInt(id);
+            }
+            else {
+                newId = (int) inputFlashMap.get("id");
+                id = String.valueOf(newId);
+                model.addAttribute("id", id);
+            }
             model.addAttribute(brukerRepo.findById(newId));
             
             RatingsUtil ratingsUtil = new RatingsUtil();
@@ -130,12 +141,13 @@ public class PersonsideController {
     @PostMapping("/stemmer")
     @Transactional
     public String stemPaProsjekt(@RequestParam("id") String prosjektid, HttpServletRequest request,
-            @RequestParam("rate") String verdi,
+            @RequestParam("rate") String verdi, @RequestParam("person") String person,
             RedirectAttributes ra,
             HttpSession session, Model model) {
 
         if (!LoginUtil.erBrukerInnlogget(session)) {
             ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
+            ra.addFlashAttribute("person", person);
             return "redirect:" + "logginn";
         }
 

@@ -1,5 +1,7 @@
 package no.hvl.Prosjekt4.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
@@ -51,17 +54,22 @@ public class LoginController {
     		HttpServletRequest request, 
     		@RequestParam(name = "username") String brukernavn,
             @RequestParam(name = "password") String passord,
+            @RequestParam(name = "personSide") String personSide,
             RedirectAttributes ra) {
     	
         if (LoginUtil.rettPassord(brukerrepo, brukernavn, passord)) {
+
             if(brukerrepo.erBrukerAdmin(brukernavn).equals("Admin")) {
             	ra.addFlashAttribute("msg", "Du er logget inn som admin");
             	LoginUtil.loggInnBruker(request, brukernavn, passord, "Admin");
-            	return "redirect:landingpage";
+                ra.addFlashAttribute("id", personSide);
+            	return "redirect:/personsside";
             } else {
             ra.addFlashAttribute("msg", "Du er logget inn som standardbruker");
             LoginUtil.loggInnBruker(request, brukernavn, passord, "Standard");
-            return "redirect:" + "landingpage";
+            
+
+            return "redirect:/personsside";
             }
         }
         ra.addFlashAttribute("msg", "Feil brukernavn eller passord");
