@@ -164,19 +164,14 @@
             <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal">
-                            <div class="lr">
-                                <div class="rl">
-                                </div>
-                            </div>
+                        <div class="close-modal my-close-btn" data-bs-dismiss="modal">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
                         </div>
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
                                     <h2>${githubRepo[status.index]}</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="item-intro text-muted">Intro tekst</p>
                                 </div>
                                 <div class="row">
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
