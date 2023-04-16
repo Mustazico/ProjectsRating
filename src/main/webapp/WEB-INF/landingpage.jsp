@@ -125,7 +125,7 @@
                                     <div class="portfolio-hover">
                                         <div class="portfolio-hover-content">
                                             <i class="fa fa-plus fa-3x"></i>
-                                            <p>&#11088 ${gjsnitt[status.index]}</p>
+                                            <p>&#11088 ${gjsnitt[status.index]} / 5.0</p>
                                         </div>
                                     </div>
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">

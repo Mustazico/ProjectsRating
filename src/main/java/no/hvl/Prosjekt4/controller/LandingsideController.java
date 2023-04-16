@@ -103,7 +103,6 @@ public class LandingsideController {
 			model.addAttribute("api", test);
 			model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
 
-			List<Prosjektliste> prosjekter = prosjektRepo.findProsjektByBrukerid(id);
 			List<String> prosjektidListe = new ArrayList<>();
 			List<String> brukernavnListe1 = ratingsutil.highestRatedForAll(pr, 8)
 					.stream()
@@ -120,10 +119,9 @@ public class LandingsideController {
 		
 			//Prosjektliste prosjeket = new Prosjektliste();
 			
-			 List<String> prosjektIdTilBruker = prosjektRepo.findUsersProsjektid(id);
 			 List<String> gjennomsnittrating = new ArrayList<>();
 			 
-			 for(String s : prosjektIdTilBruker) {
+			 for(String s : brukernavnListe1) {
 				 Prosjektliste p = prosjektRepo.findByProsjektid(s);
 				 gjennomsnittrating.add(p.getGjennomsnittrating());
 			 }
