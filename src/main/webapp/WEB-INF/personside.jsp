@@ -14,7 +14,7 @@
         <div class="header">
             <br>
             <br>
-            <p>Velkommen til Ingienørdene</p>
+            <p>Velkommen til Ingeniørdene</p>
             <div id="navbar">
                 <c:choose>
                     <c:when test = "${brukernavn == 'Petter Tesdal'}">
@@ -185,25 +185,21 @@
             <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal">
-                            <div class="lr">
-                                <div class="rl">
-                                </div>
-                            </div>
+                        <div class="close-modal my-close-btn" data-bs-dismiss="modal">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
-                                    <h2>${githubRepo[status.index]}</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="item-intro text-muted">Intro tekst</p>
+                                	<div class="row justify-content-md-center">
+                                    	<h2>${githubRepo[status.index]}</h2>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
 
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
                                     <p>
                                 </div>
@@ -229,15 +225,9 @@
                                 </div>
                                 
                                 
-                                <div class="row justify-content-md-between">
+                                <div class="row justify-content-md-center">
                                     <div class="col-md-3">
-                                        <h4>Dato: Juli 2022</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>${brukernavn}</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>Kategori: Grafisk</li>
+                                        <h4>${brukernavn}</h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -270,11 +260,11 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
+                    <div><b>Studenter:</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 Kenneth</p>
+                    <p>©2023</p>
                 </div>
             </div>
         </div>
