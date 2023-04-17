@@ -365,7 +365,7 @@ body .introbilde {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
-    
+  
 }
     .my-close-btn {
         position: absolute;
@@ -373,8 +373,27 @@ body .introbilde {
         right: 20px;
     }
 
+    .profil {
+        float: left;
+        margin-right: 20px;
+    }
 
-
-
-
+.profile-image {
+    width: 700px;
+    height: 700px;
+    float: left;
   
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.profile-bio {
+    color: black;
+}
+
+

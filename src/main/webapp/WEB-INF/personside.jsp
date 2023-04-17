@@ -74,6 +74,17 @@
                     <c:choose>
                     <c:when test = "${brukernavn == 'Torben Lund'}">
                     <a class="active" href="personsside/torben">Torben</a> 
+                    <style>
+                        body {
+                            background-image: url("bergen.jpg");
+                            background-repeat: no-repeat;
+                            background-size: cover;
+
+                        }
+                        .profile-bio {
+                            color: white;
+                        }
+                    </style>
                     </c:when>
                     <c:otherwise>
                     <a href="personsside/torben">Torben</a> 
@@ -119,14 +130,26 @@
 			%>
 
 			<h1>${brukernavn}</h1>
-                <img class="profil" src=${profilbilde} alt="Loading picture...">
+                
                 <br>
                 <br>
                 <hr class="solid">
                 <br>
-                <c:out value = "${bio}"/>
+                
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <img class="profil" src=${profilbilde} alt="Loading picture..." style="width: 50%; margin-right: 10px;">
+                    </div>
+                    <div class="profile-bio" style="width: 100%;">
+                        <c:out value = "${bio}"/>
+                    </div>
+                </div>
                 <br>
+                <br>
+                
+
             </center>
+            
             <c:set value="0" var="x"></c:set>
             <br>
             <c:set value="https://raw.githubusercontent.com/" var="bilde"></c:set>
@@ -305,6 +328,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./bootstrap.bundle.min.js"></script>
     <script src="./altBilde.js"></script>
-    
 
 </html>
