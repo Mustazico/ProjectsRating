@@ -125,7 +125,6 @@ public class LandingsideController {
 				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(idd));
 			}
 			
-			
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 
@@ -133,8 +132,8 @@ public class LandingsideController {
 
 			try {
 				test.add(api.kallReadMeApi(s));
-				githubbrukernavn.add(splitBrukernavn(s));
-				repo.add(splitRepo(s));
+				githubbrukernavn.add(prosjektService.splitBrukernavn(s));
+				repo.add(prosjektService.finnTittel(s));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -170,25 +169,7 @@ public class LandingsideController {
 		return "landingpage";
 	}
 
-	/**
-	 * Denne metoden brukes til å splitte GitHub brukernavn fra prosjekt linken.
-	 * 
-	 * @param id er prosjekt id'en.
-	 * @return String som er GitHub brukernavnet.
-	 * @throws Exception kan kaste en exception.
-	 */
 
-	public String splitBrukernavn(String id) {
-		String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-		String[] deler = lenke.split("/");
-		String brukernavn = deler[3];
-		return brukernavn;
-	}
 
-	public String splitRepo(String id) {
-		String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-		String[] deler = lenke.split("/");
-		String repo = deler[4];
-		return repo;
-	}
+
 }

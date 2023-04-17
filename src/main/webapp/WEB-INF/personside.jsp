@@ -222,7 +222,7 @@
                                 </div>
                                 <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
-                                    <p>
+                                    <a href="${lenker[status.index]}" target="_blank">${lenker[status.index]}</a>
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
@@ -240,9 +240,9 @@
 											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
 											    <label for="star1${x}" title="text">1 star</label>
         								</div>
+        								
                                         <input type="hidden" id="person" name="person" value="${id}" />
-
-                                                <input type="submit" value="stem" name="Stemme">
+                                        <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
                                 
@@ -305,5 +305,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./bootstrap.bundle.min.js"></script>
     <script src="./altBilde.js"></script>
+    
 
 </html>
