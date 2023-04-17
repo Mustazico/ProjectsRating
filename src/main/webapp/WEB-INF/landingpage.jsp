@@ -8,80 +8,98 @@
         <link rel="stylesheet" href="personside.css" />
         <link rel="stylesheet" href="./bootstrap.min.css" />
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="rating.css" />
         <title>Forside</title>
-
-        </head>
+    </head>
     <body>
         <div class="header">
-           <a href="landingpage"> <h1>Portfolio side</h1></a>
-            <p>De beste ingeniørdene i Bergen by</p>
-        <div id="navbar">
-            <c:choose>
-            <c:when test = "${brukernavn == 'Petter Tesdal'}">
-            <a class="active" href="personsside/petter">Petter</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/petter">Petter</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Fredrik Enes'}">
-            <a class="active" href="personsside/fredrik">Fredrik</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/fredrik">Fredrik</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-            <a class="active" href="personsside/kristoffer">Kristoffer</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/kristoffer">Kristoffer</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-            <a class="active" href="personsside/trym">Trym</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/trym">Trym</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-            <a class="active" href="personsside/oskar">Oskar</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/oskar">Oskar</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Torben Lund'}">
-            <a class="active" href="personsside/torben">Torben</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/torben">Torben</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-            <a class="active" href="personsside/eirik">Eirik</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/eirik">Eirik</a> 
-            </c:otherwise>
-            </c:choose>
-            <c:choose>
-            <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-            <a class="active" href="personsside/eirikl">Eirik L</a> 
-            </c:when>
-            <c:otherwise>
-            <a href="personsside/eirikl">Eirik L</a> 
-            </c:otherwise>
-            </c:choose>
+            <h1>Portfolioside</h1>
+            <p>De beste ingeniørdene i Bergen By</p>
         </div>
-        </div>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #62C3D6">
+            <ul class="navbar-nav justify-content-center" id="navbar">
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                    <a class="active" href="personsside/petter">Petter</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/petter">Petter</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                    <a class="active" href="personsside/fredrik">Fredrik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/fredrik">Fredrik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                    <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/kristoffer">Kristoffer</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                    <a class="active" href="personsside/trym">Trym</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/trym">Trym</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                    <a class="active" href="personsside/oskar">Oskar</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/oskar">Oskar</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Torben Lund'}">
+                    <a class="active" href="personsside/torben">Torben</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/torben">Torben</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                    <a class="active" href="personsside/eirik">Eirik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirik">Eirik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                    <a class="active" href="personsside/eirikl">Eirik L</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirikl">Eirik L</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+            </ul>
+        </nav>
 
         <div class="content">
             <h1>Hils på gjengen</h1>
@@ -98,65 +116,64 @@
             <br>
             <p>
             Som bruker på denne nettsiden kan du klikke på et av våres navn for å
-            få opp en beskrivelse av den personen og en liste av deres prosjekter,
-            hvis du er ekstra engasjert kan du til og med gi en vurdering på personen,
+            få opp en beskrivelse av den personen og en liste av deres prosjekter.
+            Hvis du er ekstra engasjert kan du til og med gi en vurdering på personen,
             slik at vi kan forbedre oss selv og sortere prosjektene slik at de beste kommer
             først.                   
             </p>
-			<p>${msg} </p>
+            <p>${msg} </p>
             <br>
-           
-            
-           
-           
+
+
+
             <section id="portfolio">
                 <div class="container">
                     <div class="row justify-content-center">
-                    <c:set value="0" var="x"></c:set>
+                        <c:set value="0" var="x"></c:set>
                         <c:forEach var = "i"  items="${lenker}" varStatus="status">
-                        	<!--Html for kortet til prosjektet-->
-                        	<c:if test = "${(x % 3) == 3}">
+                        <!--Html for kortet til prosjektet-->
+                        <c:if test = "${(x % 3) == 3}">
                     </div>
                     <div class="row justify-content-center">
-                        	</c:if>
-                        	<div class="col-md-4">
-                            	<div class="portfolio-item">
-                                	<a data-bs-target="#${x}" class="portfolio-link" data-bs-toggle="modal">
-                                    	<div class="portfolio-hover">
-                                        	<div class="portfolio-hover-content">
-                                            	<i class="fa fa-plus fa-3x"></i>
-                                            	<p>&#11088 ${gjsnitt[status.index]}</p>
-                                        	</div>
-                                    	</div>
-                                    	<img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
-                                	</a>
-                                	<div class="portfolio-caption">
-                                    	<h4>${githubRepo[status.index]}</h4>
-                                    	<p class="text-muted">${brukernavn[status.index]}</p>
-                                	</div>
-                                	<%
-                                		String rolle = (String)session.getAttribute("rolle");
-                                		if(rolle != null && rolle.equals("Admin")) {
-                                	%> 
-                                	
-                                	
-                                	<%
-                                		}
-                                	%>
-                            	</div>
-                        	</div>
-                        	<c:set value="${x+1}" var="x"></c:set>
-                      </c:forEach>
+                        </c:if>
+                        <div class="col-md-4">
+                            <div class="portfolio-item">
+                                <a data-bs-target="#${x}" class="portfolio-link" data-bs-toggle="modal">
+                                    <div class="portfolio-hover">
+                                        <div class="portfolio-hover-content">
+                                            <i class="fa fa-plus fa-3x"></i>
+                                            <p>&#11088 ${gjsnitt[status.index]} / 5.0</p>
+                                        </div>
+                                    </div>
+                                    <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="banner" class="img-fluid">
+                                </a>
+                                <div class="portfolio-caption">
+                                    <h4>${githubRepo[status.index]}</h4>
+                                    <p class="text-muted">${brukernavn[status.index]}</p>
+                                </div>
+                                <%
+                                String rolle = (String)session.getAttribute("rolle");
+                                if(rolle != null && rolle.equals("Admin")) {
+                                %> 
+
+
+                                <%
+                                }
+                                %>
+                            </div>
+                        </div>
+                        <c:set value="${x+1}" var="x"></c:set>
+                        </c:forEach>
                     </div>
                 </div>
                 <%
-                                String rolle = (String)session.getAttribute("rolle");
-                                if(rolle != null && rolle.equals("Admin")) {
-                                	%>
-                                	
-                                	<%
-                                }
-                                %>
+                String rolle = (String)session.getAttribute("rolle");
+                if(rolle != null && rolle.equals("Admin")) {
+                %>
+
+                <%
+                }
+                %>
             </section>
 
 
@@ -166,11 +183,8 @@
             <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal">
-                            <div class="lr">
-                                <div class="rl">
-                                </div>
-                            </div>
+                        <div class="close-modal my-close-btn" data-bs-dismiss="modal">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="container">
                             <div class="modal-body">
@@ -178,40 +192,36 @@
                                     <h2>${githubRepo[status.index]}</h2>
                                 </div>
                                 <div class="row">
-                                    <p class="item-intro text-muted">Intro tekst</p>
-                                </div>
-                                <div class="row">
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
 
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
                                     <p>
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
-                                                <div class="rate">
-                                                <input type="radio" id="star5" name="rate" value="5" />
-                                                <label for="star5" title="text">5 stars</label>
-                                                <input type="radio" id="star4" name="rate" value="4" />
-                                                <label for="star4" title="text">4 stars</label>
-                                                <input type="radio" id="star3" name="rate" value="3" />
-                                                <label for="star3" title="text">3 stars</label>
-                                                <input type="radio" id="star2" name="rate" value="2" />
-                                                <label for="star2" title="text">2 stars</label>
-                                                <input type="radio" id="star1" name="rate" value="1" />
-                                                <label for="star1" title="text">1 star</label>
-                                                </div>
+                                    <form method="post" action="stemmer">
+                                        <div class="rate">
+                                            <input type="hidden" name="id" value="${prosjektId[status.index]}" />
+                                            <input type="radio" id="star5${x}" name="rate" value="5" <c:set var="checked5" value="${stjernerGitt.contains('5')}"/><c:if test="${checked5}">checked</c:if> />
+                                            <label for="star5${x}" title="text">5 stars</label>
+                                            <input type="radio" id="star4${x}" name="rate" value="4" <c:set var="checked4" value="${stjernerGitt.contains('4')}"/><c:if test="${checked4}">checked</c:if> />
+                                            <label for="star4${x}" title="text">4 stars</label>
+                                            <input type="radio" id="star3${x}" name="rate" value="3" <c:set var="checked3" value="${stjernerGitt.contains('3')}"/><c:if test="${checked3}">checked</c:if> />
+                                            <label for="star3${x}" title="text">3 stars</label>
+                                            <input type="radio" id="star2${x}" name="rate" value="2" <c:set var="checked2" value="${stjernerGitt.contains('2')}"/><c:if test="${checked2}">checked</c:if> />
+                                            <label for="star2${x}" title="text">2 stars</label>
+                                            <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
+                                            <label for="star1${x}" title="text">1 star</label>
+                                        </div>
+
+                                        <input type="submit" value="stem" name="Stemme">
+                                    </form>
                                 </div>
-                                <div class="row justify-content-md-between">
+                                <div class="row justify-content-md-center">
                                     <div class="col-md-3">
-                                        <h4>Dato: Juli 2022</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>${brukernavn}</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>Kategori: Grafisk</li>
+                                        <h4>${brukernavn[status.index]}</h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -223,14 +233,9 @@
                 </div>
             </div>
             <c:set value="${x+1}" var="x"></c:set>
-                                    </c:forEach>
-           
-           
-           
-           
-           
-            <br>
-            <br>
+                                            </c:forEach>
+                                            <br>
+                                            <br>
         </div>
         <div class="footer">
             <div class="bubbles">
@@ -247,11 +252,11 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
+                    <div><b>Meny</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 Kenneth</p>
+                    <p>©2023</p>
                 </div>
             </div>
         </div>
@@ -266,6 +271,7 @@
     </body>
 
     <script type = "text/javascript" src="./sticky.js"></script>
-    <script src="./boostrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./bootstrap.bundle.min.js"></script>
     <script src="./altBilde.js"></script>
 </html>

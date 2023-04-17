@@ -15,6 +15,7 @@
 				class="error"></span> <label for="password">Passord:</label> <input
 				type="password" name="password" id="password" /><br /> <span
 				id="password-error" class="error"></span> 
+                <input type="hidden" id="personSide" name="personSide" value="${person}" />
 				<input type="submit" value="Logg inn" />
 		</form>
 		<div class="registrer">
