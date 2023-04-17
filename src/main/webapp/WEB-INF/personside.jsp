@@ -16,6 +16,7 @@
             <br>
             <br>
              <h1>Landingsside</h1>
+             
 
             <p>Velkommen til Ingienørdene</p>
             <div id="navbar">
@@ -69,9 +70,7 @@
                                 background-position: center bottom;
                                 
                               }
-                              .bio {
-                                background-color: #f1f1f1;
-                              }
+                              
                             </style>
                         
                     </c:when>
