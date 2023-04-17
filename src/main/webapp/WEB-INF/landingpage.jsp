@@ -195,7 +195,7 @@
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
 
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
                                     <p>
                                 </div>
@@ -221,7 +221,7 @@
                                 </div>
                                 <div class="row justify-content-md-center">
                                     <div class="col-md-3">
-                                        <h4>${brukernavn}</h4>
+                                        <h4>${brukernavn[status.index]}</h4>
                                     </div>
                                 </div>
                                 <hr>
