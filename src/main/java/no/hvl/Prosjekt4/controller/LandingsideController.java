@@ -82,7 +82,7 @@ public class LandingsideController {
 				.highestRatedForAll(pr, 8).stream()
 				.map(x -> x.getBrukerid())
 				.collect(Collectors.toList());
-
+		
 			
 			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 			model.addAttribute("lenker", lenker);
@@ -94,14 +94,16 @@ public class LandingsideController {
 			List<String> test = new ArrayList<>();
 			List<String> githubbrukernavn = new ArrayList<>();
 			List<String> repo = new ArrayList<>();
-			
+			List<String> githublenker = new ArrayList<>(); 
 			for (String s : prosjektIdListe) {
-
-		model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
-		model.addAttribute("lenker", lenker);
+				githublenker.add(prosjektRepo.findProsjektidProsjektlink(s));
+				model.addAttribute("githublenker", githublenker);
+				model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
+				model.addAttribute("lenker", lenker);
 
 				try {
-					test.add(api.kallReadMeApi(s));
+					Prosjektliste p = prosjektRepo.findByProsjektid(s);
+					test.add(p.getReadme());
 					githubbrukernavn.add(prosjektService.splitBrukernavn(s));
 					repo.add(prosjektService.finnTittel(s));
 				} catch (Exception e) {
@@ -128,16 +130,6 @@ public class LandingsideController {
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 
-		for (String s : prosjektIdListe) {
-
-			try {
-				test.add(api.kallReadMeApi(s));
-				githubbrukernavn.add(prosjektService.splitBrukernavn(s));
-				repo.add(prosjektService.finnTittel(s));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
 
 		model.addAttribute("githubBrukernavn", githubbrukernavn);
 		model.addAttribute("githubRepo", repo);

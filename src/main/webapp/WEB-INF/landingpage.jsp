@@ -197,7 +197,7 @@
                                 </div>
                                 <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
-                                    <p>
+                                    <a href="${githublenker[status.index]}" target="_blank">${githublenker[status.index]}</a>
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
