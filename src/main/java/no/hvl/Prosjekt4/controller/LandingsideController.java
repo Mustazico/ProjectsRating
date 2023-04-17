@@ -109,7 +109,6 @@ public class LandingsideController {
 				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(idd));
 			}
 			
-			
 			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
 			//Prosjektliste prosjeket = new Prosjektliste();
