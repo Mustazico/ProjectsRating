@@ -256,6 +256,7 @@
                                 <br>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -264,8 +265,9 @@
             </c:forEach>
             <br>
             <br>
+            <a href="${linkedinlenke}"> <img src="./linkedin.png" style="width: 35px; height:auto;"></a>
         </div>
-        
+       
 
         <div class="footer">
             <div class="bubbles">

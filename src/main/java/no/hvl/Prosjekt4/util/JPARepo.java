@@ -47,5 +47,8 @@ public interface JPARepo extends JpaRepository<Brukere, Integer> {
 
     @Query("SELECT p.brukernavn FROM Brukere p WHERE p.id = :id")
     String findBrukernavnById(@Param("id") int id);
+    
+    @Query("SELECT p.linkedinlenke FROM Brukere p WHERE p.id = :id")
+    String findLinkedinlenkeById(@Param("id") int id);
 
 }
