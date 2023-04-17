@@ -24,6 +24,7 @@ import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
+import no.hvl.Prosjekt4.util.ProsjektService;
 import no.hvl.Prosjekt4.util.RatingRepo;
 import no.hvl.Prosjekt4.util.RatingsUtil;
 
@@ -47,6 +48,9 @@ public class PersonsideController {
 
     @Autowired
     private RatingRepo ratingRepo;
+    
+    @Autowired
+    private ProsjektService prosjektService;
 
 
     @GetMapping("/personsside")
@@ -54,9 +58,20 @@ public class PersonsideController {
     public String visPersonside(HttpServletRequest request, Model model, HttpSession session) {
         Map<String, ?> inputFlashMap = RequestContextUtils.getInputFlashMap(request);
         if (inputFlashMap != null) {
-            String id = (String) inputFlashMap.get("id");
-            model.addAttribute("id", id);
-            int newId = Integer.parseInt(id);
+            String id = "";
+            int newId = 0;
+
+            if (inputFlashMap.get("id") instanceof String){
+
+                id = (String) inputFlashMap.get("id");
+                model.addAttribute("id", id);
+                newId = Integer.parseInt(id);
+            }
+            else {
+                newId = (int) inputFlashMap.get("id");
+                id = String.valueOf(newId);
+                model.addAttribute("id", id);
+            }
             model.addAttribute(brukerRepo.findById(newId));
             
             RatingsUtil ratingsUtil = new RatingsUtil();
@@ -86,8 +101,8 @@ public class PersonsideController {
                     test.add(p.getReadme());
                     gjennomsnittrating.add(p.getGjennomsnittrating());
 
-                    githubbrukernavn.add(splitBrukernavn(s));
-                    repo.add(splitRepo(s));
+                    githubbrukernavn.add(prosjektService.splitBrukernavn(s));
+                    repo.add(prosjektService.finnTittel(s));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -108,12 +123,11 @@ public class PersonsideController {
                 prosjektidListe.add(p.getProsjektid());
             }
             
-            	 
-            System.out.println(stjernerGitt);
+            
             model.addAttribute("prosjektId", prosjektidListe);
             model.addAttribute("sjernerGitt", stjernerGitt);
         } else {
-            return "landingpage";
+            return "redirect:landingpage";
         }
         return "personside";
     }
@@ -131,12 +145,13 @@ public class PersonsideController {
     @PostMapping("/stemmer")
     @Transactional
     public String stemPaProsjekt(@RequestParam("id") String prosjektid, HttpServletRequest request,
-            @RequestParam("rate") String verdi,
+            @RequestParam("rate") String verdi, @RequestParam("person") String person,
             RedirectAttributes ra,
             HttpSession session, Model model) {
 
         if (!LoginUtil.erBrukerInnlogget(session)) {
             ra.addFlashAttribute("errorMessage", "Logg inn før du kan stemme");
+            ra.addFlashAttribute("person", person);
             return "redirect:" + "logginn";
         }
 
@@ -145,6 +160,7 @@ public class PersonsideController {
         String brukernavn = (String) session.getAttribute("brukernavn");
         Ratings gjeldende = ratingRepo.findByProsjektidAndBrukerid(prosjektid, brukernavn);
         Prosjektliste prosjekt = prosjektRepo.findByProsjektid(prosjektid);
+        
         if (gjeldende != null) {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
@@ -241,18 +257,8 @@ public class PersonsideController {
         return "redirect:" + "personsside";
     }
 
-    public String splitBrukernavn(String id) {
-        String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-        String[] deler = lenke.split("/");
-        String brukernavn = deler[3];
-        return brukernavn;
-    }
 
-    public String splitRepo(String id) {
-        String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-        String[] deler = lenke.split("/");
-        String repo = deler[4];
-        return repo;
-    }
+
+
 
 }

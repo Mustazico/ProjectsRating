@@ -12,76 +12,93 @@
     </head>
     <body>
         <div class="header">
-            <br>
-            <br>
-            <p>Velkommen til Ingienørdene</p>
-            <div id="navbar">
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
-                        <a class="active" href="personsside/petter">Petter</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/petter">Petter</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
-                        <a class="active" href="personsside/fredrik">Fredrik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/fredrik">Fredrik</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
-                        <a class="active" href="personsside/kristoffer">Kristoffer</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/kristoffer">Kristoffer</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
-                        <a class="active" href="personsside/trym">Trym</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/trym">Trym</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
-                        <a class="active" href="personsside/oskar">Oskar</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/oskar">Oskar</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Torben Lund'}">
-                        <a class="active" href="personsside/torben">Torben</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/torben">Torben</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
-                        <a class="active" href="personsside/eirik">Eirik</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirik">Eirik</a> 
-                    </c:otherwise>
-                </c:choose>
-                <c:choose>
-                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
-                        <a class="active" href="personsside/eirikl">Eirik L</a> 
-                    </c:when>
-                    <c:otherwise>
-                        <a href="personsside/eirikl">Eirik L</a> 
-                    </c:otherwise>
-                </c:choose>
-            </div>
+            <h1>Portfolioside</h1>
+            <p>De beste ingeniørdene i Bergen By</p>
         </div>
+        <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #62C3D6">
+            <ul class="navbar-nav justify-content-center" id="navbar">
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Petter Tesdal'}">
+                    <a class="active" href="personsside/petter">Petter</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/petter">Petter</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Fredrik Enes'}">
+                    <a class="active" href="personsside/fredrik">Fredrik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/fredrik">Fredrik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Kristoffer Fjeldstad Madsen'}">
+                    <a class="active" href="personsside/kristoffer">Kristoffer</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/kristoffer">Kristoffer</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Trym Birkelund Gallefoss'}">
+                    <a class="active" href="personsside/trym">Trym</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/trym">Trym</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Oskar Windelstad'}">
+                    <a class="active" href="personsside/oskar">Oskar</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/oskar">Oskar</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Torben Lund'}">
+                    <a class="active" href="personsside/torben">Torben</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/torben">Torben</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Sangiorgi Brakstad'}">
+                    <a class="active" href="personsside/eirik">Eirik</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirik">Eirik</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+                <li class="nav-item">
+                    <c:choose>
+                    <c:when test = "${brukernavn == 'Eirik Flisram Lavik'}">
+                    <a class="active" href="personsside/eirikl">Eirik L</a> 
+                    </c:when>
+                    <c:otherwise>
+                    <a href="personsside/eirikl">Eirik L</a> 
+                    </c:otherwise>
+                    </c:choose>
+                </li>
+            </ul>
+        </nav>
 
         <div class="content">
         
@@ -185,25 +202,21 @@
             <div class="portfolio-modal modal fade" id="${x}" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog modal-fullscreen">
                     <div class="modal-content">
-                        <div class="close-modal" data-bs-dismiss="modal">
-                            <div class="lr">
-                                <div class="rl">
-                                </div>
-                            </div>
+                        <div class="close-modal my-close-btn" data-bs-dismiss="modal">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="container">
                             <div class="modal-body">
                                 <div class="row">
-                                    <h2>${githubRepo[status.index]}</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="item-intro text-muted">Intro tekst</p>
+                                	<div class="row justify-content-md-center">
+                                    	<h2>${githubRepo[status.index]}</h2>
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
 
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
                                     <p>
                                 </div>
@@ -223,21 +236,16 @@
 											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
 											    <label for="star1${x}" title="text">1 star</label>
         								</div>
+                                        <input type="hidden" id="person" name="person" value="${id}" />
 
                                                 <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
                                 
                                 
-                                <div class="row justify-content-md-between">
+                                <div class="row justify-content-md-center">
                                     <div class="col-md-3">
-                                        <h4>Dato: Juli 2022</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>${brukernavn}</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>Kategori: Grafisk</li>
+                                        <h4>${brukernavn}</h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -270,11 +278,11 @@
             </div>
             <div class="content2">
                 <div>
-                    <div><b>Studenter</b><a href="#">Petter</a><a href="#">Fredrik</a><a href="#">Kristoffer</a><a href="#">Oskar</a><a href="#">Eirik</a><a href="#">Eirik</a><a href="#">Trym</a><a href="#">Torben</a></div>
+                	<div><b>Meny</b><a href="./landingpage">Hjem</a><a href="./logginn">Logg inn</a><a href="./registrering">Registrer deg</a></div>
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 Kenneth</p>
+                    <p>©2023</p>
                 </div>
             </div>
         </div>
