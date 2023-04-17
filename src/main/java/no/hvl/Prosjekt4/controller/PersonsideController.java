@@ -165,6 +165,7 @@ public class PersonsideController {
             gjeldende.setVerdi(verdi);
             ratingRepo.save(gjeldende);
             prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
+            ra.addFlashAttribute("id", person);
             return "redirect:/personsside";
         } else {
             Ratings nyRating = new Ratings(prosjektid, brukernavn, verdi);
@@ -174,6 +175,7 @@ public class PersonsideController {
             ratingRepo.save(nyRating);
             prosjekt.incrementStemmer();
             prosjekt.setGjennomsnittrating(ratingsUtil.regnUtSnitt(ratingRepo, prosjektid));
+            ra.addFlashAttribute("id", person);
             return "redirect:/personsside";
         }
 
