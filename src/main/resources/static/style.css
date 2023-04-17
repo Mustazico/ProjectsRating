@@ -127,10 +127,12 @@ body .header h1 {
     padding-top: 5%;
     padding-bottom: 20px;
     vertical-align: center;
+    color: white;
 }
 body .header p {
     font-size: 200%;
     padding-bottom: 5%;
+    color: white;
 }
 
 #navbar {
@@ -363,7 +365,7 @@ body .introbilde {
     #portfolio .portfolio-item {
         margin: 0 0 30px;
     }
-    
+  
 }
     .my-close-btn {
         position: absolute;
@@ -371,4 +373,27 @@ body .introbilde {
         right: 20px;
     }
 
+    .profil {
+        float: left;
+        margin-right: 20px;
+    }
+
+.profile-image {
+    width: 700px;
+    height: 700px;
+    float: left;
   
+}
+
+.container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+.profile-bio {
+    color: black;
+}
+
+

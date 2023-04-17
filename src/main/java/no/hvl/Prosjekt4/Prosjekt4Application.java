@@ -10,12 +10,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class Prosjekt4Application extends SpringBootServletInitializer {
-	
+
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(Prosjekt4Application.class);
 	}
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(Prosjekt4Application.class, args);
 	}

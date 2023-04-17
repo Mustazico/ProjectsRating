@@ -29,6 +29,7 @@ public class Brukere {
 	private String rolle;
 	private String profilbilde;
     private String brukerintro;
+    private String linkedinlenke; 
 	
 	/**
 	 * Tom konstruktør for brukere.

@@ -195,9 +195,9 @@
                                     <img id="img" src="https://raw.githubusercontent.com/${githubBrukernavn[status.index]}/${githubRepo[status.index]}/main/profil.jpg" alt="prosjekt bilde" class="img-fluid">
 
                                 </div>
-                                <div class="row">
+                                <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
-                                    <p>
+                                    <a href="${githublenker[status.index]}" target="_blank">${githublenker[status.index]}</a>
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
@@ -219,15 +219,9 @@
                                         <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
-                                <div class="row justify-content-md-between">
+                                <div class="row justify-content-md-center">
                                     <div class="col-md-3">
-                                        <h4>Dato: Juli 2022</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>${brukernavn[status.index]}</li>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <h4>Kategori: Grafisk</li>
+                                        <h4>${brukernavn[status.index]}</h4>
                                     </div>
                                 </div>
                                 <hr>
@@ -262,7 +256,7 @@
                     <div></div>
                 </div>
                 <div>
-                    <p>©2023 Kenneth</p>
+                    <p>©2023</p>
                 </div>
             </div>
         </div>

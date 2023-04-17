@@ -11,9 +11,12 @@
         <title>${brukernavn}</title>
     </head>
     <body>
+        
         <div class="header">
+            <a href="landingpage">
             <h1>Portfolioside</h1>
             <p>De beste ingeniørdene i Bergen By</p>
+
         </div>
         <nav class="navbar navbar-expand-lg sticky-top navbar-light" style="background-color: #62C3D6">
             <ul class="navbar-nav justify-content-center" id="navbar">
@@ -71,6 +74,17 @@
                     <c:choose>
                     <c:when test = "${brukernavn == 'Torben Lund'}">
                     <a class="active" href="personsside/torben">Torben</a> 
+                    <style>
+                        body {
+                            background-image: url("bergen.jpg");
+                            background-repeat: no-repeat;
+                            background-size: cover;
+
+                        }
+                        .profile-bio {
+                            color: white;
+                        }
+                    </style>
                     </c:when>
                     <c:otherwise>
                     <a href="personsside/torben">Torben</a> 
@@ -98,6 +112,7 @@
                     </c:choose>
                 </li>
             </ul>
+        </a>
         </nav>
 
         <div class="content">
@@ -115,14 +130,26 @@
 			%>
 
 			<h1>${brukernavn}</h1>
-                <img class="profil" src=${profilbilde} alt="Loading picture...">
+                
                 <br>
                 <br>
                 <hr class="solid">
                 <br>
-                <c:out value = "${bio}"/>
+                
+                <div class="profile-container">
+                    <div class="profile-image">
+                        <img class="profil" src=${profilbilde} alt="Loading picture..." style="width: 50%; margin-right: 10px;">
+                    </div>
+                    <div class="profile-bio" style="width: 100%;">
+                        <c:out value = "${bio}"/>
+                    </div>
+                </div>
                 <br>
+                <br>
+                
+
             </center>
+            
             <c:set value="0" var="x"></c:set>
             <br>
             <c:set value="https://raw.githubusercontent.com/" var="bilde"></c:set>
@@ -218,7 +245,7 @@
                                 </div>
                                 <div class="row justify-content-md-center">
                                     <c:out value="${api[status.index]}"/> 
-                                    <p>
+                                    <a href="${lenker[status.index]}" target="_blank">${lenker[status.index]}</a>
                                 </div>
                                 <!-- Stemmesystem-->
                                 <div class="row justify-content-md-between">
@@ -236,9 +263,9 @@
 											    <input type="radio" id="star1${x}" name="rate" value="1" <c:set var="checked1" value="${stjernerGitt.contains('1')}"/><c:if test="${checked1}">checked</c:if> />
 											    <label for="star1${x}" title="text">1 star</label>
         								</div>
+        								
                                         <input type="hidden" id="person" name="person" value="${id}" />
-
-                                                <input type="submit" value="stem" name="Stemme">
+                                        <input type="submit" value="stem" name="Stemme">
                                     </form>
                                 </div>
                                 
@@ -252,6 +279,7 @@
                                 <br>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -260,8 +288,9 @@
             </c:forEach>
             <br>
             <br>
+            <a href="${linkedinlenke}"> <img src="./linkedin.png" style="width: 35px; height:auto;"></a>
         </div>
-        
+       
 
         <div class="footer">
             <div class="bubbles">
