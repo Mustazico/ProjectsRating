@@ -42,7 +42,7 @@ public class LandingsideController {
 	private ProsjektRepo pr;
 
 	@Autowired
-	private ProsjektService ps;
+	private ProsjektService prosjektService;
 
 	@Autowired
 	private ProsjektRepo prosjektRepo;
@@ -60,8 +60,6 @@ public class LandingsideController {
 	@GetMapping
 	@Transactional
 	public String visLandingpage(Model model, HttpSession session, HttpServletRequest request) throws Exception {
-
-
 			RatingsUtil ratingsutil = new RatingsUtil();
 		
 			String id = "1";
@@ -76,7 +74,6 @@ public class LandingsideController {
 			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 			model.addAttribute("lenker", lenker);
 			
-			
 			List<String> prosjektIdListe = ratingsutil.highestRatedForAll(pr, 8)
 					.stream()
 					.map(x->x.getProsjektid())
@@ -89,15 +86,13 @@ public class LandingsideController {
 
 				try {
 					test.add(api.kallReadMeApi(s));
-					githubbrukernavn.add(splitBrukernavn(s));
-					repo.add(splitRepo(s));
+					githubbrukernavn.add(prosjektService.splitBrukernavn(s));
+					repo.add(prosjektService.finnTittel(s));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
 			
-			
-
 			model.addAttribute("githubBrukernavn", githubbrukernavn);
 			model.addAttribute("githubRepo", repo);
 			model.addAttribute("api", test);
@@ -141,24 +136,7 @@ public class LandingsideController {
 
 		return "landingpage";
 	}
-	/**
-	 * Denne metoden brukes til å splitte GitHub brukernavn fra prosjekt linken.
-	 * @param id er prosjekt id'en.
-	 * @return String som er GitHub brukernavnet.
-	 * @throws Exception kan kaste en exception.
-	 */
+
 	
-	   public String splitBrukernavn(String id) {
-	    	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-			String[] deler = lenke.split("/");
-			String brukernavn = deler[3];
-	    	return brukernavn;
-	    }
-	    
-	    public String splitRepo(String id) {
-	    	String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-			String[] deler = lenke.split("/");
-			String repo = deler[4];
-	    	return repo;
-	    }
+	   
 }
