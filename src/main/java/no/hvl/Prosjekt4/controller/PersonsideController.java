@@ -24,6 +24,7 @@ import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
+import no.hvl.Prosjekt4.util.ProsjektService;
 import no.hvl.Prosjekt4.util.RatingRepo;
 import no.hvl.Prosjekt4.util.RatingsUtil;
 
@@ -47,6 +48,9 @@ public class PersonsideController {
 
     @Autowired
     private RatingRepo ratingRepo;
+    
+    @Autowired
+    private ProsjektService prosjektService;
 
 
     @GetMapping("/personsside")
@@ -97,8 +101,8 @@ public class PersonsideController {
                     test.add(p.getReadme());
                     gjennomsnittrating.add(p.getGjennomsnittrating());
 
-                    githubbrukernavn.add(splitBrukernavn(s));
-                    repo.add(splitRepo(s));
+                    githubbrukernavn.add(prosjektService.splitBrukernavn(s));
+                    repo.add(prosjektService.finnTittel(s));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -253,18 +257,8 @@ public class PersonsideController {
         return "redirect:" + "personsside";
     }
 
-    public String splitBrukernavn(String id) {
-        String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-        String[] deler = lenke.split("/");
-        String brukernavn = deler[3];
-        return brukernavn;
-    }
 
-    public String splitRepo(String id) {
-        String lenke = prosjektRepo.findProsjektidProsjektlink(id);
-        String[] deler = lenke.split("/");
-        String repo = deler[4];
-        return repo;
-    }
+
+
 
 }

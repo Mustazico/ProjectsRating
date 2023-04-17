@@ -45,7 +45,7 @@ public class LandingsideController {
 	private ProsjektRepo pr;
 
 	@Autowired
-	private ProsjektService ps;
+	private ProsjektService prosjektService;
 
 	@Autowired
 	private ProsjektRepo prosjektRepo;
@@ -76,24 +76,58 @@ public class LandingsideController {
 		model.addAttribute("id", id);
 		int newId = Integer.parseInt(id);
 		model.addAttribute(brukerRepo.findById(newId));
+
 		
 		List<String> lenker = ratingsutil
 				.highestRatedForAll(pr, 8).stream()
 				.map(x -> x.getBrukerid())
 				.collect(Collectors.toList());
 
+			
+			model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
+			model.addAttribute("lenker", lenker);
+			
+			List<String> prosjektIdListe = ratingsutil.highestRatedForAll(pr, 8)
+					.stream()
+					.map(x->x.getProsjektid())
+					.collect(Collectors.toList());
+			List<String> test = new ArrayList<>();
+			List<String> githubbrukernavn = new ArrayList<>();
+			List<String> repo = new ArrayList<>();
+			
+			for (String s : prosjektIdListe) {
+
 		model.addAttribute("profilbilde", brukerRepo.getProfilbilde(newId));
 		model.addAttribute("lenker", lenker);
 
-		List<String> prosjektIdListe = ratingsutil
-				.highestRatedForAll(pr, 8)
-				.stream()
-				.map(x -> x.getProsjektid())
-				.collect(Collectors.toList());
+				try {
+					test.add(api.kallReadMeApi(s));
+					githubbrukernavn.add(prosjektService.splitBrukernavn(s));
+					repo.add(prosjektService.finnTittel(s));
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			
+			model.addAttribute("githubBrukernavn", githubbrukernavn);
+			model.addAttribute("githubRepo", repo);
+			model.addAttribute("api", test);
+			model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
+
+			List<String> prosjektidListe = new ArrayList<>();
+			List<String> brukernavnListe1 = ratingsutil.highestRatedForAll(pr, 8)
+					.stream()
+					.map(x->x.getProsjektid())
+					.collect(Collectors.toList());
+			List<String> brukernavnListe = new ArrayList<>();
+			
+			for(String idd : brukernavnListe1) {
+				brukernavnListe.add(brukerService.getBrukernavnByProsjektId(idd));
+			}
+			
+			
+			List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 		
-		List<String> test = new ArrayList<>();
-		List<String> githubbrukernavn = new ArrayList<>();
-		List<String> repo = new ArrayList<>();
 
 		for (String s : prosjektIdListe) {
 
@@ -111,16 +145,11 @@ public class LandingsideController {
 		model.addAttribute("api", test);
 		model.addAttribute("bio", brukerRepo.getBrukerintro(newId));
 
-		List<String> prosjektidListe = new ArrayList<>();
-		List<String> brukernavnListe1 = ratingsutil.highestRatedForAll(pr, 8).stream().map(x -> x.getProsjektid())
-				.collect(Collectors.toList());
-		List<String> brukernavnListe = new ArrayList<>();
 
 		for (String idd : brukernavnListe1) {
 			brukernavnListe.add(brukerService.getBrukernavnByProsjektId(idd));
 		}
 
-		List<Prosjektliste> prosjekt = prosjektRepo.findAll();
 
 		List<String> gjennomsnittrating = new ArrayList<>();
 

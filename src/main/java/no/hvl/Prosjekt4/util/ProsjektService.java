@@ -17,13 +17,13 @@ public class ProsjektService {
 	 * ProsjektRepo er repositoriet for prosjekter.
 	 */
 
-	private final ProsjektRepo prepo;
+	private final ProsjektRepo prosjektRepo;
 	/**
 	 * Konstruktør for ProsjektService.
 	 * @param prepo er repositoriet for prosjekter.
 	 */
 	public ProsjektService(ProsjektRepo prepo) {
-		this.prepo = prepo;
+		this.prosjektRepo = prepo;
 	}
 	/**
 	 * Får en liste med prosjekter for en gitt bruker.
@@ -32,7 +32,7 @@ public class ProsjektService {
 	 */
 	
 	public List<Prosjektliste> getProsjektliste(String brukerId) {
-		return prepo.findByBrukerid(brukerId);
+		return prosjektRepo.findByBrukerid(brukerId);
 	}
 	/**
 	 * Sletter et prosjekt med en gitt prosjektid.
@@ -40,7 +40,25 @@ public class ProsjektService {
 	 */
 	
 	public void slettProsjekt(String prosjektid) {
-		prepo.deleteByProsjektid(prosjektid);
+		prosjektRepo.deleteByProsjektid(prosjektid);
 	}
+	
+    public String finnTittel(String id) {
+        String tittel = prosjektRepo.findProsjektidTittel(id);
+        return tittel;
+    }
+    
+	/**
+	 * Denne metoden brukes til å splitte GitHub brukernavn fra prosjekt linken.
+	 * @param id er prosjekt id'en.
+	 * @return String som er GitHub brukernavnet.
+	 * @throws Exception kan kaste en exception.
+	 */
+    public String splitBrukernavn(String id) {
+        String lenke = prosjektRepo.findProsjektidProsjektlink(id);
+        String[] deler = lenke.split("/");
+        String brukernavn = deler[3];
+        return brukernavn;
+    }
 	
 }
