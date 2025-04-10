@@ -4,7 +4,6 @@ package no.hvl.Prosjekt4.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-//ider-database.westeurope.cloudapp.azure.com/Bonobo.Git.Server/Prosjekt4.git
 import javax.persistence.Id;
 import javax.persistence.Table;
 
