@@ -1,8 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html> 
 <head>
-	<script type="text/javascript" src="apicall.js"></script>
-	<link rel="stylesheet" href="style.css" />
 
 </head>
 <html>

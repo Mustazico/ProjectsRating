@@ -20,7 +20,6 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
 import no.hvl.Prosjekt4.entity.Ratings;
-import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.LoginUtil;
 import no.hvl.Prosjekt4.util.ProsjektRepo;

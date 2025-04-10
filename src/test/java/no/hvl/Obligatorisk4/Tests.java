@@ -17,7 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import no.hvl.Prosjekt4.entity.Brukere;
 import no.hvl.Prosjekt4.entity.Ratings;
-import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.BrukerService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.PassordUtil;
@@ -37,8 +36,7 @@ public class Tests {
 	@Mock
 	ProsjektRepo prepo;
 
-	@InjectMocks
-	ApiCallService apiService;
+
 
 	@Test
 	public void passordValideringTest() {

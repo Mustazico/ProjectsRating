@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import no.hvl.Prosjekt4.entity.Prosjektliste;
-import no.hvl.Prosjekt4.util.ApiCallService;
 import no.hvl.Prosjekt4.util.BrukerService;
 import no.hvl.Prosjekt4.util.JPARepo;
 import no.hvl.Prosjekt4.util.ProsjektRepo;
