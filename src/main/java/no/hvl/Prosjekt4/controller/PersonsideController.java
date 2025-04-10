@@ -43,8 +43,6 @@ public class PersonsideController {
     @Autowired
     private ProsjektRepo prosjektRepo;
 
-    @Autowired
-    private ApiCallService api;
 
     @Autowired
     private RatingRepo ratingRepo;

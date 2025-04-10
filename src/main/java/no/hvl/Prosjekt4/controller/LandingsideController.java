@@ -37,8 +37,6 @@ public class LandingsideController {
 	private JPARepo brukerRepo;
 
 	@Autowired
-	private ApiCallService api;
-	@Autowired
 	private BrukerService brukerService;
 
 	@Autowired
